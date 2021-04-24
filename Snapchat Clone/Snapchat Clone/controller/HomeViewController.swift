@@ -13,7 +13,13 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard
+            let navigationController = self.navigationController
+        else { return }
+        navigationController.setNavigationBarHidden(true, animated: false)
+    }
 
 }
 

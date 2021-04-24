@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="1044.9275362318842" y="93.750000000000014"/>
         </scene>
-        <!--View Controller-->
+        <!--Login-->
         <scene sceneID="lxB-nf-plt">
             <objects>
-                <viewController id="6vm-cR-Q3v" sceneMemberID="viewController">
+                <viewController id="6vm-cR-Q3v" customClass="LoginViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eZR-0h-Tls">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,23 +98,23 @@
                         <viewLayoutGuide key="safeArea" id="7hd-eI-GXz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fkG-ml-dog"/>
+                    <navigationItem key="navigationItem" title="Login" id="fkG-ml-dog"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTg-Pb-QsV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2165.217391304348" y="-241.30434782608697"/>
         </scene>
-        <!--View Controller-->
+        <!--Criar conta-->
         <scene sceneID="F0H-FP-Cyu">
             <objects>
-                <viewController id="hUi-f3-pl9" sceneMemberID="viewController">
+                <viewController id="hUi-f3-pl9" customClass="CreateAccountViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v4A-si-HjX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="K4k-Ye-H9i"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wQ9-4J-TwD"/>
+                    <navigationItem key="navigationItem" title="Criar conta" id="wQ9-4J-TwD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Von-qc-1zr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
