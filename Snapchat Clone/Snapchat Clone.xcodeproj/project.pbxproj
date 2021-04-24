@@ -10,7 +10,7 @@
 		03FA7EEBBF7C70A2ADF9826B /* Pods_Snapchat_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0CC1C672A6FD10F4CD85450 /* Pods_Snapchat_Clone.framework */; };
 		D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955726339B0B008ECAC0 /* AppDelegate.swift */; };
 		D4D0955A26339B0B008ECAC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955926339B0B008ECAC0 /* SceneDelegate.swift */; };
-		D4D0955C26339B0B008ECAC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955B26339B0B008ECAC0 /* ViewController.swift */; };
+		D4D0955C26339B0B008ECAC0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955B26339B0B008ECAC0 /* HomeViewController.swift */; };
 		D4D0955F26339B0B008ECAC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4D0955D26339B0B008ECAC0 /* Main.storyboard */; };
 		D4D0956126339B0E008ECAC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4D0956026339B0E008ECAC0 /* Assets.xcassets */; };
 		D4D0956426339B0E008ECAC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4D0956226339B0E008ECAC0 /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 		D4D0955426339B0B008ECAC0 /* Snapchat Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapchat Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D0955726339B0B008ECAC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4D0955926339B0B008ECAC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D4D0955B26339B0B008ECAC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4D0955B26339B0B008ECAC0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D4D0955E26339B0B008ECAC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4D0956026339B0E008ECAC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4D0956326339B0E008ECAC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 			children = (
 				D4D0955726339B0B008ECAC0 /* AppDelegate.swift */,
 				D4D0955926339B0B008ECAC0 /* SceneDelegate.swift */,
-				D4D0955B26339B0B008ECAC0 /* ViewController.swift */,
+				D4D0955B26339B0B008ECAC0 /* HomeViewController.swift */,
 				D4D0955D26339B0B008ECAC0 /* Main.storyboard */,
 				D4D0956026339B0E008ECAC0 /* Assets.xcassets */,
 				D4D0956226339B0E008ECAC0 /* LaunchScreen.storyboard */,
@@ -209,7 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4D0955C26339B0B008ECAC0 /* ViewController.swift in Sources */,
+				D4D0955C26339B0B008ECAC0 /* HomeViewController.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
 				D4D0955A26339B0B008ECAC0 /* SceneDelegate.swift in Sources */,
 			);
