@@ -17,6 +17,7 @@
 		D4D0956D26339CB6008ECAC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4D0956C26339CB6008ECAC0 /* GoogleService-Info.plist */; };
 		D4D095862633AB35008ECAC0 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D095852633AB35008ECAC0 /* CreateAccountViewController.swift */; };
 		D4D0958A2633AB43008ECAC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D095892633AB43008ECAC0 /* LoginViewController.swift */; };
+		D4D0958D263484EA008ECAC0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0958C263484EA008ECAC0 /* RoundButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		D4D0956C26339CB6008ECAC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4D095852633AB35008ECAC0 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		D4D095892633AB43008ECAC0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D4D0958C263484EA008ECAC0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		FF25954C7DCE0D9F01F6EEA7 /* Pods-Snapchat Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snapchat Clone.debug.xcconfig"; path = "Target Support Files/Pods-Snapchat Clone/Pods-Snapchat Clone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				D4D0956226339B0E008ECAC0 /* LaunchScreen.storyboard */,
 				D4D0956526339B0E008ECAC0 /* Info.plist */,
 				D4D0956C26339CB6008ECAC0 /* GoogleService-Info.plist */,
+				D4D0958C263484EA008ECAC0 /* RoundButton.swift */,
 			);
 			path = "Snapchat Clone";
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D0958D263484EA008ECAC0 /* RoundButton.swift in Sources */,
 				D4D095862633AB35008ECAC0 /* CreateAccountViewController.swift in Sources */,
 				D4D0955C26339B0B008ECAC0 /* HomeViewController.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
