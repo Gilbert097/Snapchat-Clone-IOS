@@ -6,26 +6,19 @@
 //
 
 import UIKit
+import MaterialComponents.MDCFilledTextField
 
-class LoginViewController: UIViewController {
+class LoginViewController: HomeNavigationBaseViewController {
 
+    @IBOutlet weak var emailTextField: MDCFilledTextField!
+    @IBOutlet weak var passwordTextField: MDCFilledTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configureFilledTextField(textField: emailTextField)
+        configureFilledTextField(textField: passwordTextField)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        guard
-            let navigationController = self.navigationController
-        else { return }
-        navigationController.setNavigationBarHidden(false, animated: false)
-        navigationController.navigationBar.barTintColor = UIColor.white
-        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
-        navigationController.navigationBar.shadowImage = UIImage()
-        navigationController.navigationBar.backItem?.title = ""
-        navigationController.navigationBar.tintColor = UIColor.hexStringToUIColor(hex:  "#98599D")
-    }
     /*
     // MARK: - Navigation
 

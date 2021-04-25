@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		03FA7EEBBF7C70A2ADF9826B /* Pods_Snapchat_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0CC1C672A6FD10F4CD85450 /* Pods_Snapchat_Clone.framework */; };
+		D4035DC426351210002CC47C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4035DC326351210002CC47C /* UIColorExtension.swift */; };
+		D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4035DC626351533002CC47C /* HomeNavigationBaseViewController.swift */; };
 		D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955726339B0B008ECAC0 /* AppDelegate.swift */; };
 		D4D0955A26339B0B008ECAC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955926339B0B008ECAC0 /* SceneDelegate.swift */; };
 		D4D0955C26339B0B008ECAC0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955B26339B0B008ECAC0 /* HomeViewController.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		B0CC1C672A6FD10F4CD85450 /* Pods_Snapchat_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snapchat_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEA98EC79881C2189B0D6358 /* Pods-Snapchat Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snapchat Clone.release.xcconfig"; path = "Target Support Files/Pods-Snapchat Clone/Pods-Snapchat Clone.release.xcconfig"; sourceTree = "<group>"; };
+		D4035DC326351210002CC47C /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		D4035DC626351533002CC47C /* HomeNavigationBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationBaseViewController.swift; sourceTree = "<group>"; };
 		D4D0955426339B0B008ECAC0 /* Snapchat Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapchat Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D0955726339B0B008ECAC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4D0955926339B0B008ECAC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 				D4D0956526339B0E008ECAC0 /* Info.plist */,
 				D4D0956C26339CB6008ECAC0 /* GoogleService-Info.plist */,
 				D4D0958C263484EA008ECAC0 /* RoundButton.swift */,
+				D4035DC326351210002CC47C /* UIColorExtension.swift */,
 			);
 			path = "Snapchat Clone";
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 				D4D0955B26339B0B008ECAC0 /* HomeViewController.swift */,
 				D4D095852633AB35008ECAC0 /* CreateAccountViewController.swift */,
 				D4D095892633AB43008ECAC0 /* LoginViewController.swift */,
+				D4035DC626351533002CC47C /* HomeNavigationBaseViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -227,8 +233,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4D0958D263484EA008ECAC0 /* RoundButton.swift in Sources */,
+				D4035DC426351210002CC47C /* UIColorExtension.swift in Sources */,
 				D4D095862633AB35008ECAC0 /* CreateAccountViewController.swift in Sources */,
 				D4D0955C26339B0B008ECAC0 /* HomeViewController.swift in Sources */,
+				D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
 				D4D0958A2633AB43008ECAC0 /* LoginViewController.swift in Sources */,
 				D4D0955A26339B0B008ECAC0 /* SceneDelegate.swift in Sources */,
