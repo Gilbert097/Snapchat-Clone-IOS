@@ -8,17 +8,23 @@
 import UIKit
 import MaterialComponents.MDCFilledTextField
 
-class LoginViewController: HomeNavigationBaseViewController {
+public class LoginViewController: HomeNavigationBaseViewController {
 
     @IBOutlet weak var emailTextField: MDCFilledTextField!
     @IBOutlet weak var passwordTextField: MDCFilledTextField!
     
-    override func viewDidLoad() {
+    var viewModel: LoginViewModelProtocol!
+    
+    public override func viewDidLoad() {
         super.viewDidLoad()
         configureFilledTextField(textField: emailTextField)
         configureFilledTextField(textField: passwordTextField)
     }
     
+    @IBAction func loginButtonClick(_ sender: RoundButton) {
+        viewModel.login()
+    }
+
     /*
     // MARK: - Navigation
 

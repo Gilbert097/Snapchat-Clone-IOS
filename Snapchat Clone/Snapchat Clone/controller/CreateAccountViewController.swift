@@ -21,6 +21,9 @@ class CreateAccountViewController: HomeNavigationBaseViewController {
         configureFilledTextField(textField: confirmPasswordTextField)
     }
     
+    @IBAction func createButtonClick(_ sender: RoundButton) {
+        print("createButtonClick")
+    }
     /*
     // MARK: - Navigation
 

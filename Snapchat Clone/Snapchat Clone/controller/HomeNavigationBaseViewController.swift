@@ -8,15 +8,15 @@
 import UIKit
 import MaterialComponents.MDCFilledTextField
 
-class HomeNavigationBaseViewController: UIViewController {
+public class HomeNavigationBaseViewController: UIViewController {
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         guard
             let navigationController = self.navigationController
         else { return }

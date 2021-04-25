@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,6 +20,16 @@ class HomeViewController: UIViewController {
         else { return }
         navigationController.setNavigationBarHidden(true, animated: false)
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard  let identifier = segue.identifier else { return }
+    
+        if identifier == "loginSegue",
+           let loginViewController = segue.destination as? LoginViewController {
+            loginViewController.viewModel = LoginViewModel()
+        }
+        
+    }
+    
 }
 
