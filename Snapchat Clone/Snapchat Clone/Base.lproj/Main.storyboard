@@ -26,7 +26,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Criar conta"/>
                                 <connections>
-                                    <segue destination="hUi-f3-pl9" kind="show" id="KB8-Ew-jh8"/>
+                                    <segue destination="hUi-f3-pl9" kind="show" identifier="createAccountSegue" id="KB8-Ew-jh8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gG7-dI-SqR">
@@ -252,6 +252,9 @@
                                                 <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="createButtonClick:" destination="hUi-f3-pl9" eventType="touchUpInside" id="0lP-Ez-NX7"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmar senha:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAB-Fd-53H">
                                         <rect key="frame" x="0.0" y="208" width="286" height="19"/>

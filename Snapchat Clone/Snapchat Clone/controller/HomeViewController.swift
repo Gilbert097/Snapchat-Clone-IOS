@@ -23,10 +23,13 @@ class HomeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard  let identifier = segue.identifier else { return }
-    
+        
         if identifier == "loginSegue",
            let loginViewController = segue.destination as? LoginViewController {
             loginViewController.viewModel = LoginViewModel()
+        }else if identifier == "createAccountSegue",
+                 let createAccountViewController = segue.destination as? CreateAccountViewController {
+            createAccountViewController.viewModel = CreateAccountViewModel()
         }
         
     }
