@@ -31,8 +31,10 @@ class CreateAccountViewController: HomeNavigationBaseViewController {
     
     private func configureBind(){
         let output = viewModel.bind(input: input)
-        output.bind { (eventType) in
-            print("output: \(eventType)")
+        output.bind { (dynamicData) in
+            if case .showMessage = dynamicData.type, let alertViewModel = dynamicData.info as? InfoAlertViewModel {
+                AlertHelper.shared.showMessage(viewController: self, alertViewModel: alertViewModel)
+            }
         }
     }
     
@@ -42,15 +44,5 @@ class CreateAccountViewController: HomeNavigationBaseViewController {
         input.confirmPassword.value = confirmPasswordTextField.text!
         viewModel.createAccount()
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

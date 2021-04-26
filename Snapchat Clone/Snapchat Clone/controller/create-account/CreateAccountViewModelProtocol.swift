@@ -15,7 +15,7 @@ protocol CreateAccountViewModelProtocol{
         confirmPassword: Dynamic<String>
     )
     
-    typealias Output = Dynamic<CreateAccountEventType>
+    typealias Output = Dynamic<DynamicData<CreateAccountEventType>>
     
     func bind(input: Input) -> Output
     

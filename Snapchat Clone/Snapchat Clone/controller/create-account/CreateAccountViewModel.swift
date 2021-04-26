@@ -8,26 +8,27 @@
 import Foundation
 
 public class CreateAccountViewModel: CreateAccountViewModelProtocol {
+     
     private var email: String = ""
     private var password: String = ""
     private var confirmPassword: String = ""
-    private let output = Dynamic<CreateAccountEventType>(.none)
+    private let output = Dynamic<DynamicData<CreateAccountEventType>>(.init(type: .none))
     
     func bind(input: Input) -> Output {
-        
-        input.email.bind{
-            print("email changed")
-            self.email = $0
-        }
-        input.password.bind{ self.password = $0 }
-        input.confirmPassword.bind{ self.confirmPassword = $0 }
-        
+        input.email.bind { self.email = $0 }
+        input.password.bind { self.password = $0 }
+        input.confirmPassword.bind { self.confirmPassword = $0 }
        return output
     }
     
     func createAccount() {
-        print("email: \(email), password: \(password), confirmPassword: \(confirmPassword)")
-        output.value = .showMessage
+        UserAuthenticationService.shared.createUserAuthentication(email: email, password: password) { (user, error) in
+            if let user = user {
+                self.output.value = .init(type: .showMessage, info: InfoAlertViewModel(title: "Sucesso", message: "Usuário \(user.email) criado com sucesso!"))
+            } else if let error = error {
+                self.output.value = .init(type: .showMessage, info: InfoAlertViewModel(title: "Error", message: error))
+            }
+        }
     }
     
 }
