@@ -328,10 +328,24 @@
                     <view key="view" contentMode="scaleToFill" id="6ht-jw-V7R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R0h-vl-ZfR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Stories" id="zAG-fP-Hb6">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="camera.fill" catalog="system" id="IYZ-vJ-g4a"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="globe" catalog="system" id="vAG-mf-21K"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="T1h-Xi-fMe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="MNp-zj-CfV"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xph-cs-a10" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -351,12 +365,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixj-o5-hFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3981" y="-226"/>
+            <point key="canvasLocation" x="3980" y="-303"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XAX-q7-CGT">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="MY1-42-dCe" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="overFullScreen" id="MY1-42-dCe" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R2e-Ds-uhI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -399,9 +413,11 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="ugY-DS-TFD"/>
+        <segue reference="apr-5o-ySD"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <image name="globe" catalog="system" width="128" height="121"/>
         <image name="logo" width="200" height="200"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
