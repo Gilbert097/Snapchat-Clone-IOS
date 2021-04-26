@@ -32,8 +32,17 @@ class CreateAccountViewController: HomeNavigationBaseViewController {
     private func configureBind(){
         let output = viewModel.bind(input: input)
         output.bind { (dynamicData) in
-            if case .showMessage = dynamicData.type, let alertViewModel = dynamicData.info as? InfoAlertViewModel {
+            switch dynamicData.type {
+            case .showMessage:
+                guard let alertViewModel = dynamicData.info as? InfoAlertViewModel else { return }
                 AlertHelper.shared.showMessage(viewController: self, alertViewModel: alertViewModel)
+            case .navigation:
+                guard let alertViewModel = dynamicData.info as? InfoAlertViewModel else { return }
+                AlertHelper.shared.showMessage(viewController: self, alertViewModel: alertViewModel) {[weak self] action in
+                    self?.performSegue(withIdentifier: "createAccountToMainSegue", sender: nil)
+                }
+            case .none:
+                return
             }
         }
     }

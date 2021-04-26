@@ -387,7 +387,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XhO-0i-E76" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="93.750000000000014"/>
+            <point key="canvasLocation" x="155" y="165"/>
         </scene>
     </scenes>
     <designables>
@@ -399,7 +399,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="ohY-Pc-haE"/>
+        <segue reference="ugY-DS-TFD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="200" height="200"/>

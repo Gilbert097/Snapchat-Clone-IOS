@@ -24,7 +24,7 @@ public class CreateAccountViewModel: CreateAccountViewModelProtocol {
     func createAccount() {
         UserAuthenticationService.shared.createUserAuthentication(email: email, password: password) { (user, error) in
             if let user = user {
-                self.output.value = .init(type: .showMessage, info: InfoAlertViewModel(title: "Sucesso", message: "Usuário \(user.email) criado com sucesso!"))
+                self.output.value = .init(type: .navigation, info: InfoAlertViewModel(title: "Sucesso", message: "Usuário \(user.email) criado com sucesso!"))
             } else if let error = error {
                 self.output.value = .init(type: .showMessage, info: InfoAlertViewModel(title: "Error", message: error))
             }

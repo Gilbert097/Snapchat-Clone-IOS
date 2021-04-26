@@ -7,6 +7,11 @@
 
 import Foundation
 
-public protocol LoginViewModelProtocol {
+protocol LoginViewModelProtocol {
+    
+    typealias Input = (email: Dynamic<String>, password: Dynamic<String>)
+    typealias Output = Dynamic<DynamicData<LoginEventType>>
+    
+    func bind(input: Input) -> Output
     func login()
 }

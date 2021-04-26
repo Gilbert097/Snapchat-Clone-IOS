@@ -16,6 +16,7 @@
 		D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1DB2636521D000A2318 /* DynamicData.swift */; };
 		D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */; };
 		D480B1E926365ADE000A2318 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E826365ADE000A2318 /* AlertHelper.swift */; };
+		D480B1EC263715D2000A2318 /* LoginEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1EB263715D2000A2318 /* LoginEventType.swift */; };
 		D4B5CD4C2635C30800521FC8 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD4A2635C30800521FC8 /* UserAuthentication.swift */; };
 		D4B5CD4D2635C30800521FC8 /* UserAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD4B2635C30800521FC8 /* UserAuthenticationService.swift */; };
 		D4B5CD502635C35200521FC8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD4F2635C35200521FC8 /* LoginViewModel.swift */; };
@@ -44,6 +45,7 @@
 		D480B1DB2636521D000A2318 /* DynamicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicData.swift; sourceTree = "<group>"; };
 		D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertViewModel.swift; sourceTree = "<group>"; };
 		D480B1E826365ADE000A2318 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		D480B1EB263715D2000A2318 /* LoginEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEventType.swift; sourceTree = "<group>"; };
 		D4B5CD4A2635C30800521FC8 /* UserAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAuthentication.swift; sourceTree = "<group>"; };
 		D4B5CD4B2635C30800521FC8 /* UserAuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAuthenticationService.swift; sourceTree = "<group>"; };
 		D4B5CD4F2635C35200521FC8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				D4D095892633AB43008ECAC0 /* LoginViewController.swift */,
 				D4B5CD4F2635C35200521FC8 /* LoginViewModel.swift */,
 				D4B5CD552635C49900521FC8 /* LoginViewModelProtocol.swift */,
+				D480B1EB263715D2000A2318 /* LoginEventType.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				D480B1E926365ADE000A2318 /* AlertHelper.swift in Sources */,
 				D4B5CD562635C49900521FC8 /* LoginViewModelProtocol.swift in Sources */,
 				D4D0955C26339B0B008ECAC0 /* HomeViewController.swift in Sources */,
+				D480B1EC263715D2000A2318 /* LoginEventType.swift in Sources */,
 				D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
 				D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */,

@@ -10,4 +10,5 @@ import Foundation
 public enum CreateAccountEventType {
     case none
     case showMessage
+    case navigation
 }
