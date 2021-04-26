@@ -17,7 +17,7 @@ private extension String {
     static let loginUserError = "Erro ao tentar efeutar login."
 }
 
-public class UserAuthenticationService {
+public class UserAuthenticationService: UserAuthenticationServiceProtocol {
     
     typealias AuthDataError = (error: Error?, action: AuthenticationAction)
     
@@ -26,12 +26,7 @@ public class UserAuthenticationService {
         case createUser
     }
     
-    static let shared = UserAuthenticationService()
     private(set) var isUserLogged = false
-    
-    private init(){
-        registerUserAuthenticationStateListner()
-    }
     
     public func createUserAuthentication(
         email: String,
@@ -128,7 +123,7 @@ public class UserAuthenticationService {
         }
     }
     
-    private func registerUserAuthenticationStateListner() {
+    public func getUserAuthenticationState(completion: @escaping (Bool) -> Void) {
         Auth.auth().addStateDidChangeListener { [weak self] (firAuth, user) in
             guard let self = self else { return }
             if let user = user, let email = user.email {
@@ -138,6 +133,7 @@ public class UserAuthenticationService {
                 self.isUserLogged = false
                 print("Nenhum usuário logado!")
             }
+            completion(self.isUserLogged)
         }
     }
     

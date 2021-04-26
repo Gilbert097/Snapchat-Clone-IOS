@@ -13,6 +13,11 @@ public class CreateAccountViewModel: CreateAccountViewModelProtocol {
     private var password: String = ""
     private var confirmPassword: String = ""
     private let output = Dynamic<DynamicData<CreateAccountEventType>>(.init(type: .none))
+    private let authenticationService: UserAuthenticationServiceProtocol
+    
+    init(authenticationService: UserAuthenticationServiceProtocol) {
+        self.authenticationService = authenticationService
+    }
     
     func bind(input: Input) -> Output {
         input.email.bind { self.email = $0 }
@@ -22,7 +27,7 @@ public class CreateAccountViewModel: CreateAccountViewModelProtocol {
     }
     
     func createAccount() {
-        UserAuthenticationService.shared.createUserAuthentication(email: email, password: password) { (user, error) in
+        self.authenticationService.createUserAuthentication(email: email, password: password) { (user, error) in
             if let user = user {
                 self.output.value = .init(type: .navigation, info: InfoAlertViewModel(title: "Sucesso", message: "Usuário \(user.email) criado com sucesso!"))
             } else if let error = error {

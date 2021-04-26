@@ -11,7 +11,7 @@
         <!--Snapchat-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="HomeViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Criar conta"/>
                                 <connections>
-                                    <segue destination="hUi-f3-pl9" kind="show" identifier="createAccountSegue" id="KB8-Ew-jh8"/>
+                                    <segue destination="hUi-f3-pl9" kind="show" identifier="homeToCreateAccountSegue" id="KB8-Ew-jh8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gG7-dI-SqR">
@@ -39,7 +39,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Entrar"/>
                                 <connections>
-                                    <segue destination="6vm-cR-Q3v" kind="show" identifier="loginSegue" id="uBH-he-IlY"/>
+                                    <segue destination="6vm-cR-Q3v" kind="show" identifier="homeToLoginSegue" id="uBH-he-IlY"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sb7-3k-XYX">
@@ -321,7 +321,7 @@
             </objects>
             <point key="canvasLocation" x="2181.1594202898555" y="560.86956521739137"/>
         </scene>
-        <!--Item 2-->
+        <!--Teste-->
         <scene sceneID="M4x-dF-TRZ">
             <objects>
                 <viewController id="T7P-kI-cM3" sceneMemberID="viewController">
@@ -330,26 +330,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R0h-vl-ZfR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="119" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Stories" id="zAG-fP-Hb6">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="camera.fill" catalog="system" id="IYZ-vJ-g4a"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="globe" catalog="system" id="vAG-mf-21K"/>
-                                    </navigationItem>
-                                </items>
                             </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="T1h-Xi-fMe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="MNp-zj-CfV"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Teste" id="3ds-Yo-J2o">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="camera.fill" catalog="system" id="JYA-dp-qgq"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="globe" catalog="system" id="qWw-n7-hjW"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xph-cs-a10" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3981" y="381"/>
+            <point key="canvasLocation" x="4886.9565217391309" y="380.70652173913044"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="cEW-U4-gsc">
@@ -367,10 +364,11 @@
             </objects>
             <point key="canvasLocation" x="3980" y="-303"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="XAX-q7-CGT">
             <objects>
-                <tabBarController modalPresentationStyle="overFullScreen" id="MY1-42-dCe" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="currentContext" id="MY1-42-dCe" customClass="MainTabBarViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nFx-gl-ge0"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R2e-Ds-uhI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -378,7 +376,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="e0h-UX-3g0" kind="relationship" relationship="viewControllers" id="i5m-xb-Hpb"/>
-                        <segue destination="T7P-kI-cM3" kind="relationship" relationship="viewControllers" id="vxG-Sv-ekO"/>
+                        <segue destination="HsU-mF-g54" kind="relationship" relationship="viewControllers" id="vxG-Sv-ekO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qEY-lg-HZ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -403,6 +401,25 @@
             </objects>
             <point key="canvasLocation" x="155" y="165"/>
         </scene>
+        <!--Item 2-->
+        <scene sceneID="mRf-0s-TRa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HsU-mF-g54" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 2" id="MNp-zj-CfV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yTE-lE-Lwd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="T7P-kI-cM3" kind="relationship" relationship="rootViewController" id="3Ct-4R-5PW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="anK-PT-etX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3979.7101449275365" y="380.70652173913044"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="gh4-aZ-iBR">
@@ -413,7 +430,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="apr-5o-ySD"/>
+        <segue reference="ugY-DS-TFD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>

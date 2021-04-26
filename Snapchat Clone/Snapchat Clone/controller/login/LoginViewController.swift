@@ -33,7 +33,7 @@ public class LoginViewController: HomeNavigationBaseViewController {
             case .showMessage:
                 guard let alertViewModel = dynamicData.info as? InfoAlertViewModel else { return }
                 AlertHelper.shared.showMessage(viewController: self, alertViewModel: alertViewModel)
-            case .navigation:
+            case .navigationToMain:
                 self.performSegue(withIdentifier: "loginToMainSegue", sender: nil)
             case .none:
                 return

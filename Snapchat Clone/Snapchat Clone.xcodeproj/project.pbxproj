@@ -17,11 +17,16 @@
 		D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */; };
 		D480B1E926365ADE000A2318 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E826365ADE000A2318 /* AlertHelper.swift */; };
 		D480B1EC263715D2000A2318 /* LoginEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1EB263715D2000A2318 /* LoginEventType.swift */; };
+		D480B1F0263742CC000A2318 /* HomeViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1EF263742CC000A2318 /* HomeViewModelProtocol.swift */; };
+		D480B1F4263742F9000A2318 /* HomeEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1F3263742F9000A2318 /* HomeEventType.swift */; };
+		D480B1F72637434E000A2318 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1F62637434E000A2318 /* HomeViewModel.swift */; };
+		D480B1FA2637454F000A2318 /* UserAuthenticationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1F92637454F000A2318 /* UserAuthenticationServiceProtocol.swift */; };
 		D4B5CD4C2635C30800521FC8 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD4A2635C30800521FC8 /* UserAuthentication.swift */; };
 		D4B5CD4D2635C30800521FC8 /* UserAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD4B2635C30800521FC8 /* UserAuthenticationService.swift */; };
 		D4B5CD502635C35200521FC8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD4F2635C35200521FC8 /* LoginViewModel.swift */; };
 		D4B5CD532635C43400521FC8 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD522635C43400521FC8 /* Dynamic.swift */; };
 		D4B5CD562635C49900521FC8 /* LoginViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD552635C49900521FC8 /* LoginViewModelProtocol.swift */; };
+		D4B9A91C263755B600E83DD4 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */; };
 		D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955726339B0B008ECAC0 /* AppDelegate.swift */; };
 		D4D0955A26339B0B008ECAC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955926339B0B008ECAC0 /* SceneDelegate.swift */; };
 		D4D0955C26339B0B008ECAC0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955B26339B0B008ECAC0 /* HomeViewController.swift */; };
@@ -46,11 +51,16 @@
 		D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertViewModel.swift; sourceTree = "<group>"; };
 		D480B1E826365ADE000A2318 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		D480B1EB263715D2000A2318 /* LoginEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEventType.swift; sourceTree = "<group>"; };
+		D480B1EF263742CC000A2318 /* HomeViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocol.swift; sourceTree = "<group>"; };
+		D480B1F3263742F9000A2318 /* HomeEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventType.swift; sourceTree = "<group>"; };
+		D480B1F62637434E000A2318 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D480B1F92637454F000A2318 /* UserAuthenticationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationServiceProtocol.swift; sourceTree = "<group>"; };
 		D4B5CD4A2635C30800521FC8 /* UserAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAuthentication.swift; sourceTree = "<group>"; };
 		D4B5CD4B2635C30800521FC8 /* UserAuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAuthenticationService.swift; sourceTree = "<group>"; };
 		D4B5CD4F2635C35200521FC8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D4B5CD522635C43400521FC8 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		D4B5CD552635C49900521FC8 /* LoginViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelProtocol.swift; sourceTree = "<group>"; };
+		D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		D4D0955426339B0B008ECAC0 /* Snapchat Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapchat Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D0955726339B0B008ECAC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4D0955926339B0B008ECAC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +125,18 @@
 			path = alert;
 			sourceTree = "<group>";
 		};
+		D480B1EE263740CF000A2318 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				D4D0955B26339B0B008ECAC0 /* HomeViewController.swift */,
+				D4035DC626351533002CC47C /* HomeNavigationBaseViewController.swift */,
+				D480B1EF263742CC000A2318 /* HomeViewModelProtocol.swift */,
+				D480B1F3263742F9000A2318 /* HomeEventType.swift */,
+				D480B1F62637434E000A2318 /* HomeViewModel.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		D4B5CD462635C2AB00521FC8 /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +153,17 @@
 			children = (
 				D4B5CD4A2635C30800521FC8 /* UserAuthentication.swift */,
 				D4B5CD4B2635C30800521FC8 /* UserAuthenticationService.swift */,
+				D480B1F92637454F000A2318 /* UserAuthenticationServiceProtocol.swift */,
 			);
 			path = service;
+			sourceTree = "<group>";
+		};
+		D4B9A9152637555400E83DD4 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */,
+			);
+			path = main;
 			sourceTree = "<group>";
 		};
 		D4D0954B26339B0B008ECAC0 = {
@@ -174,11 +205,11 @@
 		D4D095842633AAEE008ECAC0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				D4B9A9152637555400E83DD4 /* main */,
+				D480B1EE263740CF000A2318 /* home */,
 				D480B1DE263653AB000A2318 /* alert */,
 				D4171EF82635E977009B5EB1 /* create-account */,
 				D4B5CD462635C2AB00521FC8 /* login */,
-				D4D0955B26339B0B008ECAC0 /* HomeViewController.swift */,
-				D4035DC626351533002CC47C /* HomeNavigationBaseViewController.swift */,
 				D4B5CD522635C43400521FC8 /* Dynamic.swift */,
 				D480B1DB2636521D000A2318 /* DynamicData.swift */,
 			);
@@ -303,7 +334,10 @@
 				D4D0958D263484EA008ECAC0 /* RoundButton.swift in Sources */,
 				D4035DC426351210002CC47C /* UIColorExtension.swift in Sources */,
 				D4171EFA2635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift in Sources */,
+				D480B1F0263742CC000A2318 /* HomeViewModelProtocol.swift in Sources */,
 				D4B5CD502635C35200521FC8 /* LoginViewModel.swift in Sources */,
+				D4B9A91C263755B600E83DD4 /* MainTabBarViewController.swift in Sources */,
+				D480B1F72637434E000A2318 /* HomeViewModel.swift in Sources */,
 				D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */,
 				D4171F002635EC69009B5EB1 /* CreateAccountViewModel.swift in Sources */,
 				D4B5CD4D2635C30800521FC8 /* UserAuthenticationService.swift in Sources */,
@@ -318,6 +352,8 @@
 				D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */,
 				D4B5CD4C2635C30800521FC8 /* UserAuthentication.swift in Sources */,
 				D4B5CD532635C43400521FC8 /* Dynamic.swift in Sources */,
+				D480B1FA2637454F000A2318 /* UserAuthenticationServiceProtocol.swift in Sources */,
+				D480B1F4263742F9000A2318 /* HomeEventType.swift in Sources */,
 				D4D0958A2633AB43008ECAC0 /* LoginViewController.swift in Sources */,
 				D4D0955A26339B0B008ECAC0 /* SceneDelegate.swift in Sources */,
 			);
