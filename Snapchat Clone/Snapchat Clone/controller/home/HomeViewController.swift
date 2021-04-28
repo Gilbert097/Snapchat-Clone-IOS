@@ -15,13 +15,14 @@ private extension String {
 
 class HomeViewController: UIViewController {
     
-    var viewModel = HomeViewModel(authenticationService: UserAuthenticationService())
+    var viewModel: HomeViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBind()
         viewModel.checkUserLogged()
     }
+    
     private func configureBind(){
         let output = viewModel.bind()
         output.bind { (dynamicData) in
