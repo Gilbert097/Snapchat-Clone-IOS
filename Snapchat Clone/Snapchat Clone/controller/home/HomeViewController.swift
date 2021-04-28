@@ -15,7 +15,7 @@ private extension String {
 
 class HomeViewController: UIViewController {
     
-    var viewModel: HomeViewModelProtocol!
+    var viewModel = HomeViewModel(authenticationService: UserAuthenticationService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
         let output = viewModel.bind()
         output.bind { (dynamicData) in
             if case .navigationToMain = dynamicData.type {
-                self.performSegue(withIdentifier: .homeToMainSegue, sender: nil)
+               self.performSegue(withIdentifier: .homeToMainSegue, sender: nil)
             }
         }
     }

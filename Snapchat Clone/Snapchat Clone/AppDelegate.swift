@@ -31,22 +31,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    
-}
-
-class ScnapchatSceneDelegate: SceneDelegate{
-    
-    override func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        let window = UIWindow(windowScene: windowScene)
-        self.window = window
-        
-        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = mainstoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        homeViewController.viewModel = HomeViewModel(authenticationService: UserAuthenticationService())
-        window.rootViewController = homeViewController
-        window.makeKeyAndVisible()
-    }
 }
 

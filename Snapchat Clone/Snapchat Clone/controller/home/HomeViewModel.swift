@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class HomeViewModel: HomeViewModelProtocol {
+public class HomeViewModel:NSObject, HomeViewModelProtocol {
     
     private let output = Dynamic<DynamicData<HomeEventType>>(.init(type: .none))
     private let authenticationService: UserAuthenticationServiceProtocol
