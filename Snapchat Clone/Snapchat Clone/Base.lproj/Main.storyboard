@@ -409,7 +409,7 @@
             </objects>
             <point key="canvasLocation" x="4886.9565217391309" y="379.89130434782612"/>
         </scene>
-        <!--Item 1-->
+        <!--View Controller-->
         <scene sceneID="cEW-U4-gsc">
             <objects>
                 <viewController id="e0h-UX-3g0" sceneMemberID="viewController">
@@ -419,7 +419,7 @@
                         <viewLayoutGuide key="safeArea" id="zHg-HY-Hqt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="F5N-Ls-Iqg"/>
+                    <tabBarItem key="tabBarItem" title="" image="chat-menu" id="F5N-Ls-Iqg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixj-o5-hFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -462,11 +462,11 @@
             </objects>
             <point key="canvasLocation" x="155" y="165"/>
         </scene>
-        <!--Item 2-->
+        <!--Navigation Controller-->
         <scene sceneID="mRf-0s-TRa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HsU-mF-g54" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="MNp-zj-CfV"/>
+                    <tabBarItem key="tabBarItem" title="" image="storie-menu" id="MNp-zj-CfV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yTE-lE-Lwd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -495,8 +495,10 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <image name="chat-menu" width="44" height="53"/>
         <image name="globe" catalog="system" width="128" height="121"/>
         <image name="logo" width="200" height="200"/>
+        <image name="storie-menu" width="56" height="53"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
