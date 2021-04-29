@@ -13,6 +13,8 @@
 		D4171EFA2635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4171EF92635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift */; };
 		D4171EFD2635EBC1009B5EB1 /* CreateAccountEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4171EFC2635EBC1009B5EB1 /* CreateAccountEventType.swift */; };
 		D4171F002635EC69009B5EB1 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4171EFF2635EC69009B5EB1 /* CreateAccountViewModel.swift */; };
+		D4645BB5263A205D002239C1 /* StorieTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB4263A205D002239C1 /* StorieTabViewController.swift */; };
+		D4645BB9263A35AE002239C1 /* StorieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB8263A35AE002239C1 /* StorieCollectionViewCell.swift */; };
 		D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1DB2636521D000A2318 /* DynamicData.swift */; };
 		D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */; };
 		D480B1E926365ADE000A2318 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E826365ADE000A2318 /* AlertHelper.swift */; };
@@ -47,6 +49,8 @@
 		D4171EF92635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModelProtocol.swift; sourceTree = "<group>"; };
 		D4171EFC2635EBC1009B5EB1 /* CreateAccountEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountEventType.swift; sourceTree = "<group>"; };
 		D4171EFF2635EC69009B5EB1 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		D4645BB4263A205D002239C1 /* StorieTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorieTabViewController.swift; sourceTree = "<group>"; };
+		D4645BB8263A35AE002239C1 /* StorieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorieCollectionViewCell.swift; sourceTree = "<group>"; };
 		D480B1DB2636521D000A2318 /* DynamicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicData.swift; sourceTree = "<group>"; };
 		D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertViewModel.swift; sourceTree = "<group>"; };
 		D480B1E826365ADE000A2318 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
@@ -116,6 +120,15 @@
 			path = "create-account";
 			sourceTree = "<group>";
 		};
+		D4645BB3263A2036002239C1 /* storie-tab */ = {
+			isa = PBXGroup;
+			children = (
+				D4645BB4263A205D002239C1 /* StorieTabViewController.swift */,
+				D4645BB8263A35AE002239C1 /* StorieCollectionViewCell.swift */,
+			);
+			path = "storie-tab";
+			sourceTree = "<group>";
+		};
 		D480B1DE263653AB000A2318 /* alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +174,7 @@
 		D4B9A9152637555400E83DD4 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				D4645BB3263A2036002239C1 /* storie-tab */,
 				D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */,
 			);
 			path = main;
@@ -337,6 +351,7 @@
 				D480B1F0263742CC000A2318 /* HomeViewModelProtocol.swift in Sources */,
 				D4B5CD502635C35200521FC8 /* LoginViewModel.swift in Sources */,
 				D4B9A91C263755B600E83DD4 /* MainTabBarViewController.swift in Sources */,
+				D4645BB9263A35AE002239C1 /* StorieCollectionViewCell.swift in Sources */,
 				D480B1F72637434E000A2318 /* HomeViewModel.swift in Sources */,
 				D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */,
 				D4171F002635EC69009B5EB1 /* CreateAccountViewModel.swift in Sources */,
@@ -353,6 +368,7 @@
 				D4B5CD4C2635C30800521FC8 /* UserAuthentication.swift in Sources */,
 				D4B5CD532635C43400521FC8 /* Dynamic.swift in Sources */,
 				D480B1FA2637454F000A2318 /* UserAuthenticationServiceProtocol.swift in Sources */,
+				D4645BB5263A205D002239C1 /* StorieTabViewController.swift in Sources */,
 				D480B1F4263742F9000A2318 /* HomeEventType.swift in Sources */,
 				D4D0958A2633AB43008ECAC0 /* LoginViewController.swift in Sources */,
 				D4D0955A26339B0B008ECAC0 /* SceneDelegate.swift in Sources */,
