@@ -481,27 +481,97 @@
             </objects>
             <point key="canvasLocation" x="3979.7101449275365" y="380.70652173913044"/>
         </scene>
-        <!--Snap Detail-->
+        <!--Snap-->
         <scene sceneID="usd-qK-lDI">
             <objects>
                 <viewController storyboardIdentifier="SnapDetailViewController" id="asC-NN-de0" customClass="SnapDetailViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bnp-4o-dQZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="padrao" translatesAutoresizingMaskIntoConstraints="NO" id="tGI-Iv-EkW">
+                                <rect key="frame" x="20" y="64" width="374" height="370"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="370" id="w4q-Sx-yqG"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ys9-8U-dPg" customClass="RoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
+                                <rect key="frame" x="108.66666666666669" y="642" width="197" height="44"/>
+                                <color key="backgroundColor" red="0.55294117649999996" green="0.36862745099999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="197" id="VzI-aE-Otl"/>
+                                    <constraint firstAttribute="height" constant="44" id="qPv-ED-gwF"/>
+                                </constraints>
+                                <state key="normal" title="Próximo">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createButtonClick:" destination="hUi-f3-pl9" eventType="touchUpInside" id="7aG-Wm-Ck5"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpE-4j-9VA">
+                                <rect key="frame" x="20" y="490" width="374" height="132"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="Mjg-9h-k2t"/>
+                                    <constraint firstAttribute="height" constant="132" id="atb-jC-kjY"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKD-ZK-agb">
+                                <rect key="frame" x="20" y="454" width="81" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="xQC-v6-orJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uJH-pF-17G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ys9-8U-dPg" firstAttribute="centerX" secondItem="bnp-4o-dQZ" secondAttribute="centerX" id="13j-6b-jxa"/>
+                            <constraint firstItem="Ys9-8U-dPg" firstAttribute="top" secondItem="BpE-4j-9VA" secondAttribute="bottom" constant="20" id="3A5-Dj-JMu"/>
+                            <constraint firstItem="BpE-4j-9VA" firstAttribute="top" secondItem="FKD-ZK-agb" secondAttribute="bottom" constant="15" id="5uC-8j-6o2"/>
+                            <constraint firstItem="uJH-pF-17G" firstAttribute="trailing" secondItem="tGI-Iv-EkW" secondAttribute="trailing" constant="20" id="9Ga-hA-11w"/>
+                            <constraint firstItem="uJH-pF-17G" firstAttribute="trailing" secondItem="BpE-4j-9VA" secondAttribute="trailing" constant="20" id="B82-aY-nfb"/>
+                            <constraint firstItem="FKD-ZK-agb" firstAttribute="leading" secondItem="uJH-pF-17G" secondAttribute="leading" constant="20" id="V94-hV-cd5"/>
+                            <constraint firstItem="tGI-Iv-EkW" firstAttribute="leading" secondItem="uJH-pF-17G" secondAttribute="leading" constant="20" id="c2n-5k-drh"/>
+                            <constraint firstItem="tGI-Iv-EkW" firstAttribute="top" secondItem="uJH-pF-17G" secondAttribute="top" constant="20" id="erO-HI-j3i"/>
+                            <constraint firstItem="BpE-4j-9VA" firstAttribute="leading" secondItem="uJH-pF-17G" secondAttribute="leading" constant="20" id="flm-5i-0rv"/>
+                            <constraint firstItem="tGI-Iv-EkW" firstAttribute="top" secondItem="uJH-pF-17G" secondAttribute="top" constant="20" id="gl0-aa-Vvd"/>
+                            <constraint firstItem="tGI-Iv-EkW" firstAttribute="trailing" secondItem="BpE-4j-9VA" secondAttribute="trailing" id="gma-VW-qt1"/>
+                            <constraint firstItem="FKD-ZK-agb" firstAttribute="top" secondItem="tGI-Iv-EkW" secondAttribute="bottom" constant="20" id="jkY-fW-tA3"/>
+                            <constraint firstItem="FKD-ZK-agb" firstAttribute="top" secondItem="tGI-Iv-EkW" secondAttribute="bottom" constant="20" id="wuk-lR-d28"/>
+                            <constraint firstItem="tGI-Iv-EkW" firstAttribute="leading" secondItem="FKD-ZK-agb" secondAttribute="leading" id="zeV-Wl-TGB"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Snap Detail" id="ntZ-6T-vx5">
+                    <navigationItem key="navigationItem" title="Snap" id="ntZ-6T-vx5">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="WIB-lO-DTu">
                             <connections>
                                 <action selector="onBackButtonClick:" destination="asC-NN-de0" id="fpy-DH-B5J"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera.fill" catalog="system" id="ScA-cT-8Ri"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSS-iQ-zAC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4881.159420289855" y="1062.2282608695652"/>
+            <point key="canvasLocation" x="4879.7101449275369" y="1062.2282608695652"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="slH-xH-tRR">
@@ -523,6 +593,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="Ys9-8U-dPg">
+            <size key="intrinsicContentSize" width="56" height="30"/>
+        </designable>
         <designable name="gh4-aZ-iBR">
             <size key="intrinsicContentSize" width="38" height="30"/>
         </designable>
@@ -531,7 +604,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="apr-5o-ySD"/>
+        <segue reference="ugY-DS-TFD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
@@ -539,7 +612,11 @@
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="globe" catalog="system" width="128" height="121"/>
         <image name="logo" width="200" height="200"/>
+        <image name="padrao" width="500" height="446"/>
         <image name="storie-menu-20x20" width="20" height="20"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
