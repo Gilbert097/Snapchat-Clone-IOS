@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StorieTabViewController: UIViewController {
+class SnapListTabViewController: UIViewController {
     
     @IBOutlet weak var storieCollectionView: UICollectionView!
     let manager = StorieCollectionManager()

@@ -322,10 +322,10 @@
             </objects>
             <point key="canvasLocation" x="2181.1594202898555" y="560.86956521739137"/>
         </scene>
-        <!--Teste-->
+        <!--Snaps-->
         <scene sceneID="M4x-dF-TRZ">
             <objects>
-                <viewController id="T7P-kI-cM3" customClass="StorieTabViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="T7P-kI-cM3" customClass="SnapListTabViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ht-jw-V7R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -396,7 +396,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Teste" id="3ds-Yo-J2o">
+                    <navigationItem key="navigationItem" title="Snaps" id="3ds-Yo-J2o">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="camera.fill" catalog="system" id="JYA-dp-qgq"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="globe" catalog="system" id="qWw-n7-hjW"/>
                     </navigationItem>
