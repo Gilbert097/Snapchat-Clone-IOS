@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5LQ-6o-JrO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5LQ-6o-JrO">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -447,7 +447,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ryP-EY-giM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5LQ-6o-JrO" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="5LQ-6o-JrO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FVo-Rx-nhc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -481,6 +481,46 @@
             </objects>
             <point key="canvasLocation" x="3979.7101449275365" y="380.70652173913044"/>
         </scene>
+        <!--Snap Detail-->
+        <scene sceneID="usd-qK-lDI">
+            <objects>
+                <viewController storyboardIdentifier="SnapDetailViewController" id="asC-NN-de0" customClass="SnapDetailViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bnp-4o-dQZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uJH-pF-17G"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Snap Detail" id="ntZ-6T-vx5">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="WIB-lO-DTu">
+                            <connections>
+                                <action selector="onBackButtonClick:" destination="asC-NN-de0" id="fpy-DH-B5J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JSS-iQ-zAC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4881.159420289855" y="1062.2282608695652"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="slH-xH-tRR">
+            <objects>
+                <navigationController storyboardIdentifier="SnapDetailNavigation" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="iPu-NF-ira" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z3V-qf-JIn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="asC-NN-de0" kind="relationship" relationship="rootViewController" id="sZF-Vw-KSc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UGa-z9-ymX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3973.913043478261" y="1062.2282608695652"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="gh4-aZ-iBR">
@@ -491,11 +531,12 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="ugY-DS-TFD"/>
+        <segue reference="apr-5o-ySD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="chat-menu-20x20" width="20" height="20"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="globe" catalog="system" width="128" height="121"/>
         <image name="logo" width="200" height="200"/>
         <image name="storie-menu-20x20" width="20" height="20"/>

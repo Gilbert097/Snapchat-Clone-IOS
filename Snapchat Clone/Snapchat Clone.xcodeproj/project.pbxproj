@@ -35,10 +35,11 @@
 		D4D0955F26339B0B008ECAC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4D0955D26339B0B008ECAC0 /* Main.storyboard */; };
 		D4D0956126339B0E008ECAC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4D0956026339B0E008ECAC0 /* Assets.xcassets */; };
 		D4D0956426339B0E008ECAC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4D0956226339B0E008ECAC0 /* LaunchScreen.storyboard */; };
-		D4D0956D26339CB6008ECAC0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4D0956C26339CB6008ECAC0 /* GoogleService-Info.plist */; };
 		D4D095862633AB35008ECAC0 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D095852633AB35008ECAC0 /* CreateAccountViewController.swift */; };
 		D4D0958A2633AB43008ECAC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D095892633AB43008ECAC0 /* LoginViewController.swift */; };
 		D4D0958D263484EA008ECAC0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0958C263484EA008ECAC0 /* RoundButton.swift */; };
+		D4F4ACC42716015C00FF200F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4F4ACC32716015C00FF200F /* GoogleService-Info.plist */; };
+		D4F4ACC72716197800FF200F /* SnapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4ACC62716197800FF200F /* SnapDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,10 +74,11 @@
 		D4D0956026339B0E008ECAC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4D0956326339B0E008ECAC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4D0956526339B0E008ECAC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4D0956C26339CB6008ECAC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4D095852633AB35008ECAC0 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		D4D095892633AB43008ECAC0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D4D0958C263484EA008ECAC0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		D4F4ACC32716015C00FF200F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D4F4ACC62716197800FF200F /* SnapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapDetailViewController.swift; sourceTree = "<group>"; };
 		FF25954C7DCE0D9F01F6EEA7 /* Pods-Snapchat Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snapchat Clone.debug.xcconfig"; path = "Target Support Files/Pods-Snapchat Clone/Pods-Snapchat Clone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 		D4B9A9152637555400E83DD4 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				D4F4ACC52716195100FF200F /* snap-detail */,
 				D4645BB3263A2036002239C1 /* storie-tab */,
 				D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */,
 			);
@@ -209,7 +212,7 @@
 				D4D0956026339B0E008ECAC0 /* Assets.xcassets */,
 				D4D0956226339B0E008ECAC0 /* LaunchScreen.storyboard */,
 				D4D0956526339B0E008ECAC0 /* Info.plist */,
-				D4D0956C26339CB6008ECAC0 /* GoogleService-Info.plist */,
+				D4F4ACC32716015C00FF200F /* GoogleService-Info.plist */,
 				D4D0958C263484EA008ECAC0 /* RoundButton.swift */,
 				D4035DC326351210002CC47C /* UIColorExtension.swift */,
 			);
@@ -228,6 +231,14 @@
 				D480B1DB2636521D000A2318 /* DynamicData.swift */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		D4F4ACC52716195100FF200F /* snap-detail */ = {
+			isa = PBXGroup;
+			children = (
+				D4F4ACC62716197800FF200F /* SnapDetailViewController.swift */,
+			);
+			path = "snap-detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,9 +301,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4D0956426339B0E008ECAC0 /* LaunchScreen.storyboard in Resources */,
+				D4F4ACC42716015C00FF200F /* GoogleService-Info.plist in Resources */,
 				D4D0956126339B0E008ECAC0 /* Assets.xcassets in Resources */,
 				D4D0955F26339B0B008ECAC0 /* Main.storyboard in Resources */,
-				D4D0956D26339CB6008ECAC0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +373,7 @@
 				D4B5CD562635C49900521FC8 /* LoginViewModelProtocol.swift in Sources */,
 				D4D0955C26339B0B008ECAC0 /* HomeViewController.swift in Sources */,
 				D480B1EC263715D2000A2318 /* LoginEventType.swift in Sources */,
+				D4F4ACC72716197800FF200F /* SnapDetailViewController.swift in Sources */,
 				D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
 				D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */,

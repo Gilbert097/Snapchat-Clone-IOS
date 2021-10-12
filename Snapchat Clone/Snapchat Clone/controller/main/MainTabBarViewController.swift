@@ -15,15 +15,22 @@ class MainTabBarViewController: UITabBarController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-//        button.setTitle("Cam", for: .normal)
-//        button.setTitleColor(.black, for: .normal)
-//        button.setTitleColor(.yellow, for: .highlighted)
+        //        button.setTitle("Cam", for: .normal)
+        //        button.setTitleColor(.black, for: .normal)
+        //        button.setTitleColor(.yellow, for: .highlighted)
         
         button.backgroundColor = .white
         button.layer.cornerRadius = 32
         button.layer.borderWidth = 4
         button.layer.borderColor = UIColor.gray.cgColor
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         self.view.insertSubview(button, aboveSubview: self.tabBar)
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let snapDetailViewController = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
+        present(snapDetailViewController, animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
