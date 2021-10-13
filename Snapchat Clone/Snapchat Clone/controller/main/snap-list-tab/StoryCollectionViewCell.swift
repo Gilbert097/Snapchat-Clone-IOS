@@ -7,12 +7,12 @@
 
 import UIKit
 
-class StorieCollectionViewCell: UICollectionViewCell {
+class StoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var viewContainer: UIView!
     
     class var reuseIdentifier: String {
-        return "StorieCollectionViewCellReuseIdentifier"
+        return "StoryCollectionViewCellReuseIdentifier"
     }
     
 }

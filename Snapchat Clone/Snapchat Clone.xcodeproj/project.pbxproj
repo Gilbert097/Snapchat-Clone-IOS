@@ -14,7 +14,7 @@
 		D4171EFD2635EBC1009B5EB1 /* CreateAccountEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4171EFC2635EBC1009B5EB1 /* CreateAccountEventType.swift */; };
 		D4171F002635EC69009B5EB1 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4171EFF2635EC69009B5EB1 /* CreateAccountViewModel.swift */; };
 		D4645BB5263A205D002239C1 /* SnapListTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */; };
-		D4645BB9263A35AE002239C1 /* StorieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB8263A35AE002239C1 /* StorieCollectionViewCell.swift */; };
+		D4645BB9263A35AE002239C1 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */; };
 		D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1DB2636521D000A2318 /* DynamicData.swift */; };
 		D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */; };
 		D480B1E926365ADE000A2318 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E826365ADE000A2318 /* AlertHelper.swift */; };
@@ -54,7 +54,7 @@
 		D4171EFC2635EBC1009B5EB1 /* CreateAccountEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountEventType.swift; sourceTree = "<group>"; };
 		D4171EFF2635EC69009B5EB1 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
 		D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListTabViewController.swift; sourceTree = "<group>"; };
-		D4645BB8263A35AE002239C1 /* StorieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorieCollectionViewCell.swift; sourceTree = "<group>"; };
+		D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D480B1DB2636521D000A2318 /* DynamicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicData.swift; sourceTree = "<group>"; };
 		D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertViewModel.swift; sourceTree = "<group>"; };
 		D480B1E826365ADE000A2318 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 				D4F4ACCA2716481B00FF200F /* SnapListViewModel.swift */,
 				D4F4ACC8271646CD00FF200F /* SnapListEventType.swift */,
 				D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */,
-				D4645BB8263A35AE002239C1 /* StorieCollectionViewCell.swift */,
+				D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */,
 			);
 			path = "snap-list-tab";
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 				D480B1F0263742CC000A2318 /* HomeViewModelProtocol.swift in Sources */,
 				D4B5CD502635C35200521FC8 /* LoginViewModel.swift in Sources */,
 				D4B9A91C263755B600E83DD4 /* MainTabBarViewController.swift in Sources */,
-				D4645BB9263A35AE002239C1 /* StorieCollectionViewCell.swift in Sources */,
+				D4645BB9263A35AE002239C1 /* StoryCollectionViewCell.swift in Sources */,
 				D480B1F72637434E000A2318 /* HomeViewModel.swift in Sources */,
 				D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */,
 				D4171F002635EC69009B5EB1 /* CreateAccountViewModel.swift in Sources */,

@@ -11,7 +11,7 @@ class SnapListTabViewController: UIViewController {
     
     @IBOutlet weak var storieCollectionView: UICollectionView!
     
-    let manager = StorieCollectionManager()
+    let manager = StoryCollectionManager()
     var viewModel: SnapListViewModelProtocol!
     
     override func viewDidLoad() {
@@ -44,7 +44,7 @@ class SnapListTabViewController: UIViewController {
 }
 
 
-public class StorieCollectionManager: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
+public class StoryCollectionManager: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var colors:[UIColor] = []
     
@@ -57,8 +57,8 @@ public class StorieCollectionManager: NSObject, UICollectionViewDelegate, UIColl
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StorieCollectionViewCell.reuseIdentifier,
-                                                         for: indexPath) as? StorieCollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryCollectionViewCell.reuseIdentifier,
+                                                         for: indexPath) as? StoryCollectionViewCell {
             let index = arc4random_uniform(UInt32(colors.count))
             let color = colors[Int(index)]
             cell.viewContainer.backgroundColor = color
