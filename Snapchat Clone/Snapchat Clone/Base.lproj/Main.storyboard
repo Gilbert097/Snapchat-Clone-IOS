@@ -325,7 +325,7 @@
         <!--Snaps-->
         <scene sceneID="M4x-dF-TRZ">
             <objects>
-                <viewController id="T7P-kI-cM3" customClass="SnapListTabViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SnapListTabViewController" id="T7P-kI-cM3" customClass="SnapListTabViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ht-jw-V7R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -397,7 +397,12 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Snaps" id="3ds-Yo-J2o">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="camera.fill" catalog="system" id="JYA-dp-qgq"/>
+                        <barButtonItem key="leftBarButtonItem" title="Sair" id="JYA-dp-qgq">
+                            <color key="tintColor" systemColor="systemPinkColor"/>
+                            <connections>
+                                <action selector="onSignOutButtonClick:" destination="T7P-kI-cM3" id="Fcg-wV-0yd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="globe" catalog="system" id="qWw-n7-hjW"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>

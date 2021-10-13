@@ -19,13 +19,10 @@ public class LoginViewModel: LoginViewModelProtocol {
     }
     
     func bind(input: Input) -> Output {
-        input.email.bind {
-            print("email changed")
-            self.email = $0 }
+        input.email.bind { self.email = $0 }
         input.password.bind { self.password = $0 }
         return output
     }
-    
     
     public func login() {
         self.authenticationService.signIn(email: email, password: password) { (user, error) in

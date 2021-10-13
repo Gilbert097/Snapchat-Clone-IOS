@@ -40,6 +40,9 @@
 		D4D0958D263484EA008ECAC0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0958C263484EA008ECAC0 /* RoundButton.swift */; };
 		D4F4ACC42716015C00FF200F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4F4ACC32716015C00FF200F /* GoogleService-Info.plist */; };
 		D4F4ACC72716197800FF200F /* SnapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4ACC62716197800FF200F /* SnapDetailViewController.swift */; };
+		D4F4ACC9271646CD00FF200F /* SnapListEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4ACC8271646CD00FF200F /* SnapListEventType.swift */; };
+		D4F4ACCB2716481B00FF200F /* SnapListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4ACCA2716481B00FF200F /* SnapListViewModel.swift */; };
+		D4F4ACCD2716485200FF200F /* SnapListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4ACCC2716485200FF200F /* SnapListViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +82,9 @@
 		D4D0958C263484EA008ECAC0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		D4F4ACC32716015C00FF200F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4F4ACC62716197800FF200F /* SnapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapDetailViewController.swift; sourceTree = "<group>"; };
+		D4F4ACC8271646CD00FF200F /* SnapListEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListEventType.swift; sourceTree = "<group>"; };
+		D4F4ACCA2716481B00FF200F /* SnapListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListViewModel.swift; sourceTree = "<group>"; };
+		D4F4ACCC2716485200FF200F /* SnapListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListViewModelProtocol.swift; sourceTree = "<group>"; };
 		FF25954C7DCE0D9F01F6EEA7 /* Pods-Snapchat Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snapchat Clone.debug.xcconfig"; path = "Target Support Files/Pods-Snapchat Clone/Pods-Snapchat Clone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +131,9 @@
 		D4645BB3263A2036002239C1 /* snap-list-tab */ = {
 			isa = PBXGroup;
 			children = (
+				D4F4ACCC2716485200FF200F /* SnapListViewModelProtocol.swift */,
+				D4F4ACCA2716481B00FF200F /* SnapListViewModel.swift */,
+				D4F4ACC8271646CD00FF200F /* SnapListEventType.swift */,
 				D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */,
 				D4645BB8263A35AE002239C1 /* StorieCollectionViewCell.swift */,
 			);
@@ -356,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F4ACC9271646CD00FF200F /* SnapListEventType.swift in Sources */,
 				D4D0958D263484EA008ECAC0 /* RoundButton.swift in Sources */,
 				D4035DC426351210002CC47C /* UIColorExtension.swift in Sources */,
 				D4171EFA2635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift in Sources */,
@@ -366,6 +376,7 @@
 				D480B1F72637434E000A2318 /* HomeViewModel.swift in Sources */,
 				D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */,
 				D4171F002635EC69009B5EB1 /* CreateAccountViewModel.swift in Sources */,
+				D4F4ACCB2716481B00FF200F /* SnapListViewModel.swift in Sources */,
 				D4B5CD4D2635C30800521FC8 /* UserAuthenticationService.swift in Sources */,
 				D4171EFD2635EBC1009B5EB1 /* CreateAccountEventType.swift in Sources */,
 				D4D095862633AB35008ECAC0 /* CreateAccountViewController.swift in Sources */,
@@ -374,6 +385,7 @@
 				D4D0955C26339B0B008ECAC0 /* HomeViewController.swift in Sources */,
 				D480B1EC263715D2000A2318 /* LoginEventType.swift in Sources */,
 				D4F4ACC72716197800FF200F /* SnapDetailViewController.swift in Sources */,
+				D4F4ACCD2716485200FF200F /* SnapListViewModelProtocol.swift in Sources */,
 				D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
 				D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */,

@@ -12,9 +12,22 @@ class MainTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        configTabs()
+        configButtonCustom()
+    }
+    
+    private func configTabs() {
+        if let last = self.viewControllers?.last, last is UINavigationController{
+            let nv = last as! UINavigationController
+            
+            if let nvLast = nv.viewControllers.last, nvLast is SnapListTabViewController {
+                let snapListViewController = nvLast as! SnapListTabViewController
+                snapListViewController.viewModel = SnapListViewModel(authenticationService: UserAuthenticationService())
+            }
+        }
+    }
+    
+    private func configButtonCustom() {
         //        button.setTitle("Cam", for: .normal)
         //        button.setTitleColor(.black, for: .normal)
         //        button.setTitleColor(.yellow, for: .highlighted)
@@ -23,11 +36,11 @@ class MainTabBarViewController: UITabBarController {
         button.layer.cornerRadius = 32
         button.layer.borderWidth = 4
         button.layer.borderColor = UIColor.gray.cgColor
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onButtonCustomClick), for: .touchUpInside)
         self.view.insertSubview(button, aboveSubview: self.tabBar)
     }
     
-    @objc func buttonAction(sender: UIButton!) {
+    @objc func onButtonCustomClick(sender: UIButton!) {
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let snapDetailViewController = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
         present(snapDetailViewController, animated: true, completion: nil)
@@ -39,16 +52,5 @@ class MainTabBarViewController: UITabBarController {
         // safe place to set the frame of button manually
         button.frame = CGRect.init(x: self.tabBar.center.x - 32, y: self.view.bounds.height - 74, width: 64, height: 64)
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

@@ -10,16 +10,26 @@ import UIKit
 class SnapListTabViewController: UIViewController {
     
     @IBOutlet weak var storieCollectionView: UICollectionView!
+    
     let manager = StorieCollectionManager()
+    var viewModel: SnapListViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         manager.colors = [UIColor.red, UIColor.blue, UIColor.yellow]
         storieCollectionView.dataSource = manager
         storieCollectionView.delegate = manager
-        // Do any additional setup after loading the view.
+        let output = viewModel.bind()
+        output.bind { data in
+            if data.type == .navigationToBack{
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
+    @IBAction func onSignOutButtonClick(_ sender: UIBarButtonItem) {
+        viewModel.signOut()
+    }
     
     /*
      // MARK: - Navigation
@@ -34,7 +44,7 @@ class SnapListTabViewController: UIViewController {
 }
 
 
- public class StorieCollectionManager: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
+public class StorieCollectionManager: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var colors:[UIColor] = []
     
