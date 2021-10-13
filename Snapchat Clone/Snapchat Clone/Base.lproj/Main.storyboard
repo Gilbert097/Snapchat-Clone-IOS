@@ -571,8 +571,16 @@
                                 <action selector="onBackButtonClick:" destination="asC-NN-de0" id="fpy-DH-B5J"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera.fill" catalog="system" id="ScA-cT-8Ri"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera.fill" catalog="system" id="ScA-cT-8Ri">
+                            <connections>
+                                <action selector="onCameraButtonClick:" destination="asC-NN-de0" id="Bye-Le-GOI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="BpE-4j-9VA" id="TQ3-ty-aaM"/>
+                        <outlet property="imageView" destination="tGI-Iv-EkW" id="tKG-FT-2V3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSS-iQ-zAC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -609,7 +617,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="ugY-DS-TFD"/>
+        <segue reference="apr-5o-ySD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>

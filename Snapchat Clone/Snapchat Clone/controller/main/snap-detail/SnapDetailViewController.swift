@@ -7,26 +7,33 @@
 
 import UIKit
 
-class SnapDetailViewController: UIViewController {
+class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var descriptionTextField: UITextView!
+    
+    private var imagePickerViewController = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        imagePickerViewController.delegate = self
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let originalImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        imageView.image = originalImage
+        imagePickerViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onCameraButtonClick(_ sender: UIBarButtonItem) {
+        imagePickerViewController.sourceType = .savedPhotosAlbum
+        
+        present(imagePickerViewController, animated: true, completion: nil)
     }
     
     @IBAction func onBackButtonClick(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
