@@ -523,6 +523,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createButtonClick:" destination="hUi-f3-pl9" eventType="touchUpInside" id="7aG-Wm-Ck5"/>
+                                    <action selector="onNextButtonClick:" destination="asC-NN-de0" eventType="touchUpInside" id="Frz-ms-Ufn"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpE-4j-9VA">
@@ -580,6 +581,7 @@
                     <connections>
                         <outlet property="descriptionTextField" destination="BpE-4j-9VA" id="TQ3-ty-aaM"/>
                         <outlet property="imageView" destination="tGI-Iv-EkW" id="tKG-FT-2V3"/>
+                        <outlet property="nextButton" destination="Ys9-8U-dPg" id="NO3-ni-GcW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSS-iQ-zAC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

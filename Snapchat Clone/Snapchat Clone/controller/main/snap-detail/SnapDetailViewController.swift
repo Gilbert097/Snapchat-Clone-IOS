@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionTextField: UITextView!
+    @IBOutlet weak var nextButton: RoundButton!
     
     private var imagePickerViewController = UIImagePickerController()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerViewController.delegate = self
@@ -26,14 +28,41 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
         imagePickerViewController.dismiss(animated: true, completion: nil)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     @IBAction func onCameraButtonClick(_ sender: UIBarButtonItem) {
         imagePickerViewController.sourceType = .savedPhotosAlbum
         
         present(imagePickerViewController, animated: true, completion: nil)
     }
     
+    @IBAction func onNextButtonClick(_ sender: RoundButton) {
+        nextButton.isEnabled = false
+        nextButton.setTitle("Carregando...", for: .normal)
+        
+        let storage = Storage.storage().reference()
+        let imagePath = storage.child("imagens")
+        
+        if let imageSelected = imageView.image,
+           let imageData = imageSelected.jpegData(compressionQuality: 0.5) {
+            
+            imagePath.child("imagem.jpg").putData(imageData, metadata: nil) { metadata, error in
+                if error == nil {
+                    print("Upload Success!")
+                } else {
+                    print("Upload Error!")
+                }
+                self.nextButton.isEnabled = true
+                self.nextButton.setTitle("Próximo", for: .normal)
+            }
+        }
+        
+    }
+    
     @IBAction func onBackButtonClick(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-
+    
 }
