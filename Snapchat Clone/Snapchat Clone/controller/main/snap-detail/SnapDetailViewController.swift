@@ -19,12 +19,17 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerViewController.delegate = self
+        self.nextButton.isEnabled = false
+        self.nextButton.backgroundColor = .gray
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let originalImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         imageView.image = originalImage
+        self.nextButton.isEnabled = true
+        self.nextButton.backgroundColor = UIColor.hexStringToUIColor(hex:  "#98599D")
+        
         imagePickerViewController.dismiss(animated: true, completion: nil)
     }
     
@@ -47,8 +52,8 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
         
         if let imageSelected = imageView.image,
            let imageData = imageSelected.jpegData(compressionQuality: 0.5) {
-            
-            imagePath.child("imagem.jpg").putData(imageData, metadata: nil) { metadata, error in
+           let imageId = NSUUID().uuidString
+            imagePath.child("\(imageId).jpg").putData(imageData, metadata: nil) { metadata, error in
                 if error == nil {
                     print("Upload Success!")
                 } else {

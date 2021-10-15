@@ -238,7 +238,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPE-sX-WrA" customClass="RoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
                                         <rect key="frame" x="44.666666666666686" y="318" width="197" height="44"/>
-                                        <color key="backgroundColor" red="0.55294117647058827" green="0.36862745098039218" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.64702248569999998" green="0.5118762255" blue="0.81384414429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Rph-5K-3El"/>
                                             <constraint firstAttribute="width" constant="197" id="Vqg-QA-XfA"/>
@@ -619,7 +619,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="apr-5o-ySD"/>
+        <segue reference="ugY-DS-TFD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
