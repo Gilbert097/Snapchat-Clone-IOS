@@ -23,6 +23,9 @@
 		D480B1F4263742F9000A2318 /* HomeEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1F3263742F9000A2318 /* HomeEventType.swift */; };
 		D480B1F72637434E000A2318 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1F62637434E000A2318 /* HomeViewModel.swift */; };
 		D480B1FA2637454F000A2318 /* UserAuthenticationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1F92637454F000A2318 /* UserAuthenticationServiceProtocol.swift */; };
+		D4A96053274192F20095E636 /* SnapDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96052274192F20095E636 /* SnapDetailViewModel.swift */; };
+		D4A96055274193210095E636 /* SnapDetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96054274193200095E636 /* SnapDetailViewModelProtocol.swift */; };
+		D4A96057274194180095E636 /* SnapDetailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96056274194180095E636 /* SnapDetailEvent.swift */; };
 		D4B5CD4C2635C30800521FC8 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD4A2635C30800521FC8 /* UserAuthentication.swift */; };
 		D4B5CD4D2635C30800521FC8 /* UserAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD4B2635C30800521FC8 /* UserAuthenticationService.swift */; };
 		D4B5CD502635C35200521FC8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD4F2635C35200521FC8 /* LoginViewModel.swift */; };
@@ -63,6 +66,9 @@
 		D480B1F3263742F9000A2318 /* HomeEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventType.swift; sourceTree = "<group>"; };
 		D480B1F62637434E000A2318 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D480B1F92637454F000A2318 /* UserAuthenticationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationServiceProtocol.swift; sourceTree = "<group>"; };
+		D4A96052274192F20095E636 /* SnapDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapDetailViewModel.swift; sourceTree = "<group>"; };
+		D4A96054274193200095E636 /* SnapDetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapDetailViewModelProtocol.swift; sourceTree = "<group>"; };
+		D4A96056274194180095E636 /* SnapDetailEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapDetailEvent.swift; sourceTree = "<group>"; };
 		D4B5CD4A2635C30800521FC8 /* UserAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAuthentication.swift; sourceTree = "<group>"; };
 		D4B5CD4B2635C30800521FC8 /* UserAuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAuthenticationService.swift; sourceTree = "<group>"; };
 		D4B5CD4F2635C35200521FC8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -246,6 +252,9 @@
 			isa = PBXGroup;
 			children = (
 				D4F4ACC62716197800FF200F /* SnapDetailViewController.swift */,
+				D4A96052274192F20095E636 /* SnapDetailViewModel.swift */,
+				D4A96054274193200095E636 /* SnapDetailViewModelProtocol.swift */,
+				D4A96056274194180095E636 /* SnapDetailEvent.swift */,
 			);
 			path = "snap-detail";
 			sourceTree = "<group>";
@@ -370,6 +379,7 @@
 				D4035DC426351210002CC47C /* UIColorExtension.swift in Sources */,
 				D4171EFA2635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift in Sources */,
 				D480B1F0263742CC000A2318 /* HomeViewModelProtocol.swift in Sources */,
+				D4A96053274192F20095E636 /* SnapDetailViewModel.swift in Sources */,
 				D4B5CD502635C35200521FC8 /* LoginViewModel.swift in Sources */,
 				D4B9A91C263755B600E83DD4 /* MainTabBarViewController.swift in Sources */,
 				D4645BB9263A35AE002239C1 /* StoryCollectionViewCell.swift in Sources */,
@@ -379,6 +389,7 @@
 				D4F4ACCB2716481B00FF200F /* SnapListViewModel.swift in Sources */,
 				D4B5CD4D2635C30800521FC8 /* UserAuthenticationService.swift in Sources */,
 				D4171EFD2635EBC1009B5EB1 /* CreateAccountEventType.swift in Sources */,
+				D4A96057274194180095E636 /* SnapDetailEvent.swift in Sources */,
 				D4D095862633AB35008ECAC0 /* CreateAccountViewController.swift in Sources */,
 				D480B1E926365ADE000A2318 /* AlertHelper.swift in Sources */,
 				D4B5CD562635C49900521FC8 /* LoginViewModelProtocol.swift in Sources */,
@@ -388,6 +399,7 @@
 				D4F4ACCD2716485200FF200F /* SnapListViewModelProtocol.swift in Sources */,
 				D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
+				D4A96055274193210095E636 /* SnapDetailViewModelProtocol.swift in Sources */,
 				D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */,
 				D4B5CD4C2635C30800521FC8 /* UserAuthentication.swift in Sources */,
 				D4B5CD532635C43400521FC8 /* Dynamic.swift in Sources */,
@@ -544,6 +556,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DS78P94X2F;
 				INFOPLIST_FILE = "Snapchat Clone/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -563,6 +576,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DS78P94X2F;
 				INFOPLIST_FILE = "Snapchat Clone/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

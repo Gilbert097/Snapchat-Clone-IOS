@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseStorage
+
 
 class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -14,16 +14,33 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var descriptionTextField: UITextView!
     @IBOutlet weak var nextButton: RoundButton!
     
+    var viewModel: SnapDetailViewModelProtocol!
     private var imagePickerViewController = UIImagePickerController()
+    private var imageData = Dynamic<Data?>(nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerViewController.delegate = self
         self.nextButton.isEnabled = false
         self.nextButton.backgroundColor = .gray
-        
+        self.configureBind()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func configureBind(){
+        let output = viewModel.bind(imageData: imageData)
+        output.bind { (dynamicData) in
+            switch dynamicData.type {
+            case .showMessageUploadImage:
+                guard let alertViewModel = dynamicData.info as? InfoAlertViewModel else { return }
+                self.updateNextButton(title: "Próximo")
+                AlertHelper.shared.showMessage(viewController: self, alertViewModel: alertViewModel)
+                return
+            case .none:
+                return
+            }
+        }
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -55,32 +72,27 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func onCameraButtonClick(_ sender: UIBarButtonItem) {
-        imagePickerViewController.sourceType = .savedPhotosAlbum
+        imagePickerViewController.sourceType = .camera
         
         present(imagePickerViewController, animated: true, completion: nil)
     }
     
     @IBAction func onNextButtonClick(_ sender: RoundButton) {
-        nextButton.isEnabled = false
-        nextButton.setTitle("Carregando...", for: .normal)
-        
-        let storage = Storage.storage().reference()
-        let imagePath = storage.child("imagens")
+        updateNextButton(isEnabled: false, title:"Carregando...")
         
         if let imageSelected = imageView.image,
            let imageData = imageSelected.jpegData(compressionQuality: 0.5) {
-            let imageId = NSUUID().uuidString
-            imagePath.child("\(imageId).jpg").putData(imageData, metadata: nil) { metadata, error in
-                if error == nil {
-                    print("Upload Success!")
-                } else {
-                    print("Upload Error!")
-                }
-                self.nextButton.isEnabled = true
-                self.nextButton.setTitle("Próximo", for: .normal)
-            }
+            
+            self.imageData.value = imageData
+            viewModel.uploadImage()
+        }else{
+            updateNextButton(title: "Próximo")
         }
-        
+    }
+    
+    private func updateNextButton(isEnabled: Bool = true, title: String){
+        self.nextButton.isEnabled = true
+        self.nextButton.setTitle(title, for: .normal)
     }
     
     @IBAction func onBackButtonClick(_ sender: UIBarButtonItem) {

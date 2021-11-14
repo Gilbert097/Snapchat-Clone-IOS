@@ -42,8 +42,10 @@ class MainTabBarViewController: UITabBarController {
     
     @objc func onButtonCustomClick(sender: UIButton!) {
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let snapDetailViewController = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
-        present(snapDetailViewController, animated: true, completion: nil)
+        let snapDetailNavigation = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
+        let snapDetailViewController = snapDetailNavigation.viewControllers.first as! SnapDetailViewController
+        snapDetailViewController.viewModel = SnapDetailViewModel()
+        present(snapDetailNavigation, animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
