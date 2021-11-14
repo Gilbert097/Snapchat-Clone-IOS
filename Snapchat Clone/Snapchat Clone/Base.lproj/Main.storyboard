@@ -153,24 +153,24 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="8Tw-XC-xYs" firstAttribute="leading" secondItem="e1h-b0-DHv" secondAttribute="leading" id="1uI-YF-MWy"/>
                                     <constraint firstItem="VxG-PE-THS" firstAttribute="top" secondItem="Zdk-QG-bJh" secondAttribute="bottom" constant="8" id="2TO-54-x24"/>
                                     <constraint firstItem="Zdk-QG-bJh" firstAttribute="top" secondItem="8Tw-XC-xYs" secondAttribute="bottom" constant="31" id="5hz-Ij-RkM"/>
                                     <constraint firstItem="VxG-PE-THS" firstAttribute="leading" secondItem="e1h-b0-DHv" secondAttribute="leading" id="BSY-hn-bFZ"/>
                                     <constraint firstAttribute="trailing" secondItem="8Tw-XC-xYs" secondAttribute="trailing" id="Ctr-WF-xYQ"/>
+                                    <constraint firstItem="gh4-aZ-iBR" firstAttribute="centerX" secondItem="6cd-Kj-b9k" secondAttribute="centerX" id="DiD-GQ-nql"/>
                                     <constraint firstItem="U6o-sc-vhA" firstAttribute="leading" secondItem="e1h-b0-DHv" secondAttribute="leading" id="ExK-qz-QSf"/>
-                                    <constraint firstAttribute="bottom" secondItem="gh4-aZ-iBR" secondAttribute="bottom" id="Kfy-hj-wUk"/>
+                                    <constraint firstItem="gh4-aZ-iBR" firstAttribute="top" secondItem="6cd-Kj-b9k" secondAttribute="bottom" constant="78.666666666666657" id="RSw-WI-6YL"/>
                                     <constraint firstItem="6cd-Kj-b9k" firstAttribute="centerX" secondItem="e1h-b0-DHv" secondAttribute="centerX" id="UfT-sf-t56"/>
                                     <constraint firstItem="6cd-Kj-b9k" firstAttribute="top" secondItem="lKG-gN-In8" secondAttribute="bottom" constant="20" id="Vcx-Q6-zUH"/>
                                     <constraint firstItem="8Tw-XC-xYs" firstAttribute="top" secondItem="e1h-b0-DHv" secondAttribute="top" id="bIi-nT-6L8"/>
                                     <constraint firstAttribute="trailing" secondItem="VxG-PE-THS" secondAttribute="trailing" id="dGo-3V-8TC"/>
                                     <constraint firstItem="lKG-gN-In8" firstAttribute="leading" secondItem="e1h-b0-DHv" secondAttribute="leading" id="iAW-Gk-JTl"/>
+                                    <constraint firstAttribute="bottom" secondItem="gh4-aZ-iBR" secondAttribute="bottom" id="jSf-Er-mEa"/>
                                     <constraint firstAttribute="trailing" secondItem="lKG-gN-In8" secondAttribute="trailing" id="me8-x6-G4n"/>
                                     <constraint firstAttribute="trailing" secondItem="U6o-sc-vhA" secondAttribute="trailing" id="nvI-dp-dpb"/>
                                     <constraint firstItem="Zdk-QG-bJh" firstAttribute="leading" secondItem="e1h-b0-DHv" secondAttribute="leading" id="v7M-0Z-nt7"/>
-                                    <constraint firstItem="gh4-aZ-iBR" firstAttribute="centerX" secondItem="e1h-b0-DHv" secondAttribute="centerX" id="v9D-0N-ygb"/>
                                     <constraint firstAttribute="trailing" secondItem="Zdk-QG-bJh" secondAttribute="trailing" id="wty-Vl-HUE"/>
                                     <constraint firstItem="U6o-sc-vhA" firstAttribute="top" secondItem="VxG-PE-THS" secondAttribute="bottom" constant="15" id="xdw-MP-IYR"/>
                                     <constraint firstItem="lKG-gN-In8" firstAttribute="top" secondItem="U6o-sc-vhA" secondAttribute="bottom" constant="8" id="xz5-zc-ont"/>
@@ -181,7 +181,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="e1h-b0-DHv" firstAttribute="top" secondItem="7hd-eI-GXz" secondAttribute="top" constant="104" id="0q8-Fy-dkK"/>
-                            <constraint firstItem="7hd-eI-GXz" firstAttribute="bottom" secondItem="e1h-b0-DHv" secondAttribute="bottom" constant="233" id="8IN-NM-Ujh"/>
                             <constraint firstItem="7hd-eI-GXz" firstAttribute="trailing" secondItem="e1h-b0-DHv" secondAttribute="trailing" constant="64" id="Gmq-FO-ZQ9"/>
                             <constraint firstItem="e1h-b0-DHv" firstAttribute="leading" secondItem="7hd-eI-GXz" secondAttribute="leading" constant="64" id="J8y-x7-7uY"/>
                         </constraints>
@@ -619,7 +618,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="ugY-DS-TFD"/>
+        <segue reference="apr-5o-ySD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
