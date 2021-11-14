@@ -21,6 +21,23 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
         imagePickerViewController.delegate = self
         self.nextButton.isEnabled = false
         self.nextButton.backgroundColor = .gray
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -52,7 +69,7 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
         
         if let imageSelected = imageView.image,
            let imageData = imageSelected.jpegData(compressionQuality: 0.5) {
-           let imageId = NSUUID().uuidString
+            let imageId = NSUUID().uuidString
             imagePath.child("\(imageId).jpg").putData(imageData, metadata: nil) { metadata, error in
                 if error == nil {
                     print("Upload Success!")
