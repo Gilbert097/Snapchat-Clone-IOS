@@ -500,7 +500,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ys9-8U-dPg" customClass="RoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
-                                <rect key="frame" x="108.66666666666669" y="642" width="197" height="44"/>
+                                <rect key="frame" x="108.66666666666669" y="672" width="197" height="44"/>
                                 <color key="backgroundColor" red="0.55294117649999996" green="0.36862745099999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="197" id="VzI-aE-Otl"/>
@@ -526,11 +526,10 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpE-4j-9VA">
-                                <rect key="frame" x="20" y="490" width="374" height="132"/>
+                                <rect key="frame" x="20" y="490" width="374" height="162"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="Mjg-9h-k2t"/>
-                                    <constraint firstAttribute="height" constant="132" id="atb-jC-kjY"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
@@ -549,11 +548,11 @@
                         <viewLayoutGuide key="safeArea" id="uJH-pF-17G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ys9-8U-dPg" firstAttribute="centerX" secondItem="bnp-4o-dQZ" secondAttribute="centerX" id="13j-6b-jxa"/>
-                            <constraint firstItem="Ys9-8U-dPg" firstAttribute="top" secondItem="BpE-4j-9VA" secondAttribute="bottom" constant="20" id="3A5-Dj-JMu"/>
                             <constraint firstItem="BpE-4j-9VA" firstAttribute="top" secondItem="FKD-ZK-agb" secondAttribute="bottom" constant="15" id="5uC-8j-6o2"/>
                             <constraint firstItem="uJH-pF-17G" firstAttribute="trailing" secondItem="tGI-Iv-EkW" secondAttribute="trailing" constant="20" id="9Ga-hA-11w"/>
                             <constraint firstItem="uJH-pF-17G" firstAttribute="trailing" secondItem="BpE-4j-9VA" secondAttribute="trailing" constant="20" id="B82-aY-nfb"/>
+                            <constraint firstItem="Ys9-8U-dPg" firstAttribute="centerX" secondItem="bnp-4o-dQZ" secondAttribute="centerX" id="IkN-zm-bro"/>
+                            <constraint firstItem="uJH-pF-17G" firstAttribute="bottom" secondItem="Ys9-8U-dPg" secondAttribute="bottom" constant="20" id="SVL-U9-btz"/>
                             <constraint firstItem="FKD-ZK-agb" firstAttribute="leading" secondItem="uJH-pF-17G" secondAttribute="leading" constant="20" id="V94-hV-cd5"/>
                             <constraint firstItem="tGI-Iv-EkW" firstAttribute="leading" secondItem="uJH-pF-17G" secondAttribute="leading" constant="20" id="c2n-5k-drh"/>
                             <constraint firstItem="tGI-Iv-EkW" firstAttribute="top" secondItem="uJH-pF-17G" secondAttribute="top" constant="20" id="erO-HI-j3i"/>
@@ -562,6 +561,7 @@
                             <constraint firstItem="tGI-Iv-EkW" firstAttribute="trailing" secondItem="BpE-4j-9VA" secondAttribute="trailing" id="gma-VW-qt1"/>
                             <constraint firstItem="FKD-ZK-agb" firstAttribute="top" secondItem="tGI-Iv-EkW" secondAttribute="bottom" constant="20" id="jkY-fW-tA3"/>
                             <constraint firstItem="FKD-ZK-agb" firstAttribute="top" secondItem="tGI-Iv-EkW" secondAttribute="bottom" constant="20" id="wuk-lR-d28"/>
+                            <constraint firstItem="Ys9-8U-dPg" firstAttribute="top" secondItem="BpE-4j-9VA" secondAttribute="bottom" constant="20" id="yOp-dn-WPl"/>
                             <constraint firstItem="tGI-Iv-EkW" firstAttribute="leading" secondItem="FKD-ZK-agb" secondAttribute="leading" id="zeV-Wl-TGB"/>
                         </constraints>
                     </view>
