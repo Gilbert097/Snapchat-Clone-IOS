@@ -13,6 +13,7 @@ class CreateAccountViewController: HomeNavigationBaseViewController {
     @IBOutlet weak var emailTextField: MDCFilledTextField!
     @IBOutlet weak var passwordTextField: MDCFilledTextField!
     @IBOutlet weak var confirmPasswordTextField: MDCFilledTextField!
+    @IBOutlet weak var fullNameTextField: MDCFilledTextField!
     
     var viewModel: CreateAccountViewModelProtocol!
     private let input: CreateAccountViewModelProtocol.Input = (
@@ -26,6 +27,7 @@ class CreateAccountViewController: HomeNavigationBaseViewController {
         configureFilledTextField(textField: emailTextField)
         configureFilledTextField(textField: passwordTextField)
         configureFilledTextField(textField: confirmPasswordTextField)
+        configureFilledTextField(textField: fullNameTextField)
         configureBind()
     }
     
