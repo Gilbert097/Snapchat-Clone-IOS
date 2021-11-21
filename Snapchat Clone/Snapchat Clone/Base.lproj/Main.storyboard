@@ -94,38 +94,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1h-b0-DHv">
-                                <rect key="frame" x="64" y="148" width="286" height="355"/>
+                                <rect key="frame" x="34" y="148" width="346" height="355"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tw-XC-xYs">
-                                        <rect key="frame" x="0.0" y="0.0" width="286" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="346" height="25"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdk-QG-bJh">
-                                        <rect key="frame" x="0.0" y="56" width="286" height="19"/>
+                                        <rect key="frame" x="0.0" y="56" width="346" height="19"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                         <color key="textColor" red="0.58823529411764708" green="0.61176470588235299" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VxG-PE-THS" customClass="MDCFilledTextField">
-                                        <rect key="frame" x="0.0" y="83" width="286" height="34"/>
+                                        <rect key="frame" x="0.0" y="83" width="346" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Senha:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6o-sc-vhA">
-                                        <rect key="frame" x="0.0" y="132" width="286" height="19"/>
+                                        <rect key="frame" x="0.0" y="132" width="346" height="19"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                         <color key="textColor" red="0.58823529411764708" green="0.61176470588235299" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKG-gN-In8" customClass="MDCFilledTextField">
-                                        <rect key="frame" x="0.0" y="159" width="286" height="34"/>
+                                        <rect key="frame" x="0.0" y="159" width="346" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Esqueceu sua senha?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cd-Kj-b9k">
-                                        <rect key="frame" x="76.666666666666657" y="213" width="133" height="19.333333333333343"/>
+                                        <rect key="frame" x="106.66666666666666" y="213" width="133" height="19.333333333333343"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19.329999999999998" id="SPj-b4-poB"/>
                                             <constraint firstAttribute="width" constant="133" id="llV-y2-mAH"/>
@@ -135,7 +135,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh4-aZ-iBR" customClass="RoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
-                                        <rect key="frame" x="44.666666666666686" y="311" width="197" height="44"/>
+                                        <rect key="frame" x="74.666666666666686" y="311" width="197" height="44"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.75294117650000003" blue="0.78039215689999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="197" id="MW7-Rp-fvr"/>
@@ -182,8 +182,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="e1h-b0-DHv" firstAttribute="top" secondItem="7hd-eI-GXz" secondAttribute="top" constant="104" id="0q8-Fy-dkK"/>
-                            <constraint firstItem="7hd-eI-GXz" firstAttribute="trailing" secondItem="e1h-b0-DHv" secondAttribute="trailing" constant="64" id="Gmq-FO-ZQ9"/>
-                            <constraint firstItem="e1h-b0-DHv" firstAttribute="leading" secondItem="7hd-eI-GXz" secondAttribute="leading" constant="64" id="J8y-x7-7uY"/>
+                            <constraint firstItem="7hd-eI-GXz" firstAttribute="trailing" secondItem="e1h-b0-DHv" secondAttribute="trailing" constant="34" id="Gmq-FO-ZQ9"/>
+                            <constraint firstItem="e1h-b0-DHv" firstAttribute="leading" secondItem="7hd-eI-GXz" secondAttribute="leading" constant="34" id="J8y-x7-7uY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fkG-ml-dog"/>
@@ -653,7 +653,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="ugY-DS-TFD"/>
+        <segue reference="apr-5o-ySD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
