@@ -17,6 +17,7 @@ class CreateAccountViewController: HomeNavigationBaseViewController {
     
     var viewModel: CreateAccountViewModelProtocol!
     private let input: CreateAccountViewModelProtocol.Input = (
+        fullName: Dynamic<String>(""),
         email: Dynamic<String>(""),
         password: Dynamic<String>(""),
         confirmPassword: Dynamic<String>("")
@@ -24,10 +25,10 @@ class CreateAccountViewController: HomeNavigationBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureFilledTextField(textField: fullNameTextField)
         configureFilledTextField(textField: emailTextField)
         configureFilledTextField(textField: passwordTextField)
         configureFilledTextField(textField: confirmPasswordTextField)
-        configureFilledTextField(textField: fullNameTextField)
         configureBind()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -52,7 +53,8 @@ class CreateAccountViewController: HomeNavigationBaseViewController {
         }
     }
     
-    @IBAction func createButtonClick(_ sender: Any) {
+    @IBAction func onCreateCountButtonClick(_ sender: RoundButton) {
+        input.fullName.value = fullNameTextField.text!
         input.email.value = emailTextField.text!
         input.password.value = passwordTextField.text!
         input.confirmPassword.value = confirmPasswordTextField.text!

@@ -41,6 +41,9 @@
 		D4D095862633AB35008ECAC0 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D095852633AB35008ECAC0 /* CreateAccountViewController.swift */; };
 		D4D0958A2633AB43008ECAC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D095892633AB43008ECAC0 /* LoginViewController.swift */; };
 		D4D0958D263484EA008ECAC0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0958C263484EA008ECAC0 /* RoundButton.swift */; };
+		D4E2012E274B2CAA0020B9B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2012D274B2CAA0020B9B5 /* User.swift */; };
+		D4E20130274B2EFF0020B9B5 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2012F274B2EFF0020B9B5 /* UserRepository.swift */; };
+		D4E20132274B2F150020B9B5 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E20131274B2F150020B9B5 /* UserRepositoryProtocol.swift */; };
 		D4F4ACC42716015C00FF200F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4F4ACC32716015C00FF200F /* GoogleService-Info.plist */; };
 		D4F4ACC72716197800FF200F /* SnapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4ACC62716197800FF200F /* SnapDetailViewController.swift */; };
 		D4F4ACC9271646CD00FF200F /* SnapListEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4ACC8271646CD00FF200F /* SnapListEventType.swift */; };
@@ -86,6 +89,9 @@
 		D4D095852633AB35008ECAC0 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		D4D095892633AB43008ECAC0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D4D0958C263484EA008ECAC0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		D4E2012D274B2CAA0020B9B5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D4E2012F274B2EFF0020B9B5 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		D4E20131274B2F150020B9B5 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
 		D4F4ACC32716015C00FF200F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4F4ACC62716197800FF200F /* SnapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapDetailViewController.swift; sourceTree = "<group>"; };
 		D4F4ACC8271646CD00FF200F /* SnapListEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListEventType.swift; sourceTree = "<group>"; };
@@ -219,6 +225,8 @@
 		D4D0955626339B0B008ECAC0 /* Snapchat Clone */ = {
 			isa = PBXGroup;
 			children = (
+				D4E2012C274B2C950020B9B5 /* model */,
+				D4E2012B274B2C8A0020B9B5 /* repository */,
 				D4B5CD492635C2E400521FC8 /* service */,
 				D4D095842633AAEE008ECAC0 /* controller */,
 				D4D0955726339B0B008ECAC0 /* AppDelegate.swift */,
@@ -246,6 +254,23 @@
 				D480B1DB2636521D000A2318 /* DynamicData.swift */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		D4E2012B274B2C8A0020B9B5 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				D4E2012F274B2EFF0020B9B5 /* UserRepository.swift */,
+				D4E20131274B2F150020B9B5 /* UserRepositoryProtocol.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		D4E2012C274B2C950020B9B5 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D4E2012D274B2CAA0020B9B5 /* User.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		D4F4ACC52716195100FF200F /* snap-detail */ = {
@@ -376,6 +401,8 @@
 			files = (
 				D4F4ACC9271646CD00FF200F /* SnapListEventType.swift in Sources */,
 				D4D0958D263484EA008ECAC0 /* RoundButton.swift in Sources */,
+				D4E20132274B2F150020B9B5 /* UserRepositoryProtocol.swift in Sources */,
+				D4E20130274B2EFF0020B9B5 /* UserRepository.swift in Sources */,
 				D4035DC426351210002CC47C /* UIColorExtension.swift in Sources */,
 				D4171EFA2635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift in Sources */,
 				D480B1F0263742CC000A2318 /* HomeViewModelProtocol.swift in Sources */,
@@ -387,6 +414,7 @@
 				D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */,
 				D4171F002635EC69009B5EB1 /* CreateAccountViewModel.swift in Sources */,
 				D4F4ACCB2716481B00FF200F /* SnapListViewModel.swift in Sources */,
+				D4E2012E274B2CAA0020B9B5 /* User.swift in Sources */,
 				D4B5CD4D2635C30800521FC8 /* UserAuthenticationService.swift in Sources */,
 				D4171EFD2635EBC1009B5EB1 /* CreateAccountEventType.swift in Sources */,
 				D4A96057274194180095E636 /* SnapDetailEvent.swift in Sources */,

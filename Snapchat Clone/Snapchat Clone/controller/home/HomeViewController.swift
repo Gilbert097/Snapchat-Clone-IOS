@@ -47,7 +47,10 @@ class HomeViewController: UIViewController {
             loginViewController.viewModel = LoginViewModel(authenticationService: UserAuthenticationService())
         } else if identifier == .homeToCreateAccountSegue,
                  let createAccountViewController = segue.destination as? CreateAccountViewController {
-            createAccountViewController.viewModel = CreateAccountViewModel(authenticationService: UserAuthenticationService())
+            createAccountViewController.viewModel = CreateAccountViewModel(
+                authenticationService: UserAuthenticationService(),
+                userRepository: UserRepository()
+            )
         }
         
     }

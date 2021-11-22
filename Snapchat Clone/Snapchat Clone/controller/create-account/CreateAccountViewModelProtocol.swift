@@ -10,6 +10,7 @@ import Foundation
 protocol CreateAccountViewModelProtocol{
     
     typealias Input = (
+        fullName: Dynamic<String>,
         email: Dynamic<String>,
         password: Dynamic<String>,
         confirmPassword: Dynamic<String>
