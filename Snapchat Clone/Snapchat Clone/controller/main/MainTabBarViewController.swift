@@ -18,11 +18,11 @@ class MainTabBarViewController: UITabBarController {
     }
     
     private func configTabs() {
-        if let last = self.viewControllers?.last, last is UINavigationController{
-            let nv = last as! UINavigationController
+        if let first = self.viewControllers?.first, first is UINavigationController{
+            let nv = first as! UINavigationController
             
-            if let nvLast = nv.viewControllers.last, nvLast is SnapListTabViewController {
-                let snapListViewController = nvLast as! SnapListTabViewController
+            if let nvFirst = nv.viewControllers.last, nvFirst is SnapListTabViewController {
+                let snapListViewController = nvFirst as! SnapListTabViewController
                 snapListViewController.viewModel = SnapListViewModel(authenticationService: UserAuthenticationService())
             }
         }

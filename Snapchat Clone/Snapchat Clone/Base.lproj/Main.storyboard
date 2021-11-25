@@ -453,22 +453,6 @@
             </objects>
             <point key="canvasLocation" x="4886.9565217391309" y="379.89130434782612"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="cEW-U4-gsc">
-            <objects>
-                <viewController id="e0h-UX-3g0" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3f3-OM-fkX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="zHg-HY-Hqt"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="chat-menu-20x20" id="F5N-Ls-Iqg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ixj-o5-hFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3980" y="-303"/>
-        </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="XAX-q7-CGT">
             <objects>
@@ -480,8 +464,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="e0h-UX-3g0" kind="relationship" relationship="viewControllers" id="i5m-xb-Hpb"/>
                         <segue destination="HsU-mF-g54" kind="relationship" relationship="viewControllers" id="vxG-Sv-ekO"/>
+                        <segue destination="qER-2N-bXg" kind="relationship" relationship="viewControllers" id="69y-ia-SFg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qEY-lg-HZ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -506,6 +490,23 @@
             </objects>
             <point key="canvasLocation" x="155" y="165"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="UQr-Ty-CRP">
+            <objects>
+                <viewController id="qER-2N-bXg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LjL-IK-Hub">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Wg5-8V-Reu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="chat-menu-20x20" id="7xn-Ge-Lfd"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dta-OY-FtV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4089" y="-340"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="mRf-0s-TRa">
             <objects>
@@ -523,7 +524,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anK-PT-etX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3979.7101449275365" y="380.70652173913044"/>
+            <point key="canvasLocation" x="3974" y="379"/>
         </scene>
         <!--Snap-->
         <scene sceneID="usd-qK-lDI">
