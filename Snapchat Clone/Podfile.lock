@@ -49,6 +49,7 @@ PODS:
   - FirebaseStorage (7.10.0):
     - FirebaseCore (~> 7.0)
     - GTMSessionFetcher/Core (~> 1.4)
+  - FittedSheets (2.4.2)
   - GoogleAppMeasurement (7.10.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
     - GoogleUtilities/MethodSwizzler (~> 7.0)
@@ -136,6 +137,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - FittedSheets
   - "MaterialComponents/TextControls+FilledTextAreas"
   - "MaterialComponents/TextControls+FilledTextFields"
 
@@ -149,6 +151,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInstallations
     - FirebaseStorage
+    - FittedSheets
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -168,6 +171,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: ed9c5fc2568e92a22a40cab1ccaf4e0e9e9c8ae6
   FirebaseInstallations: bf2ec8dbf36ff4c91af6b9a003d15855757680c1
   FirebaseStorage: d88ef8e9f152c6a17e44540ae2b93c3be74e9b60
+  FittedSheets: 661408776eb4ff514a31da75b3600bd7222b2b3d
   GoogleAppMeasurement: 1c863b1161fc3c8cf614a7460d1be6a7c262aab3
   GoogleDataTransport: cd9db2180fcecd8da1b561aea31e3e56cf834aa7
   GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
@@ -178,6 +182,6 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 32e3f0249384524cf96fe63bfdf28b40245c3a18
+PODFILE CHECKSUM: f3f02c0ac9d946794a6c11580098df1816fbce59
 
 COCOAPODS: 1.11.2

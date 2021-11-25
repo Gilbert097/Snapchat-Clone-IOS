@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FittedSheets
 
 class MainTabBarViewController: UITabBarController {
     let button = UIButton.init(type: .custom)
@@ -42,10 +43,18 @@ class MainTabBarViewController: UITabBarController {
     
     @objc func onButtonCustomClick(sender: UIButton!) {
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let snapDetailNavigation = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
-        let snapDetailViewController = snapDetailNavigation.viewControllers.first as! SnapDetailViewController
-        snapDetailViewController.viewModel = SnapDetailViewModel()
-        present(snapDetailNavigation, animated: true, completion: nil)
+        let controller = mainstoryboard.instantiateViewController(withIdentifier: "OptionsViewController") as! OptionsViewController
+
+        let sheetController = SheetViewController(controller: controller, sizes: [ .fixed(150)])
+
+        self.present(sheetController, animated: true, completion: nil)
+        
+        
+//        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let snapDetailNavigation = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
+//        let snapDetailViewController = snapDetailNavigation.viewControllers.first as! SnapDetailViewController
+//        snapDetailViewController.viewModel = SnapDetailViewModel()
+//        present(snapDetailNavigation, animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {

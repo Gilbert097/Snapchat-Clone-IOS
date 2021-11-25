@@ -645,6 +645,71 @@
             </objects>
             <point key="canvasLocation" x="3973.913043478261" y="1062.2282608695652"/>
         </scene>
+        <!--Options View Controller-->
+        <scene sceneID="Itk-6z-S3F">
+            <objects>
+                <viewController storyboardIdentifier="OptionsViewController" id="9mw-bk-ftX" customClass="OptionsViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cR6-2c-edJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram-stories_24px" translatesAutoresizingMaskIntoConstraints="NO" id="4Of-XI-tGg" userLabel="Story Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="RcO-1U-tCx"/>
+                                    <constraint firstAttribute="height" constant="50" id="sVi-no-IwE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdW-aA-BY1" userLabel="Story Label">
+                                <rect key="frame" x="50" y="0.0" width="325" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="p9c-hd-oeA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit_24px" translatesAutoresizingMaskIntoConstraints="NO" id="VU2-wf-88t" userLabel="Post Image View">
+                                <rect key="frame" x="0.0" y="50" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="J3G-8j-iTW"/>
+                                    <constraint firstAttribute="height" constant="50" id="LfP-rs-4Uh"/>
+                                    <constraint firstAttribute="width" constant="50" id="SDq-fZ-ZbE"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Vph-HO-NkS"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Eu-mf-Upl" userLabel="Publish Label">
+                                <rect key="frame" x="50" y="50" width="325" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="V97-Og-Lvz"/>
+                                    <constraint firstAttribute="height" constant="50" id="tRe-HQ-QuY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LmS-Xc-BSD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LmS-Xc-BSD" firstAttribute="trailing" secondItem="0Eu-mf-Upl" secondAttribute="trailing" id="8dh-7Q-w3b"/>
+                            <constraint firstItem="0Eu-mf-Upl" firstAttribute="top" secondItem="HdW-aA-BY1" secondAttribute="bottom" id="BKv-dY-VpD"/>
+                            <constraint firstItem="VU2-wf-88t" firstAttribute="top" secondItem="4Of-XI-tGg" secondAttribute="bottom" id="BlA-JA-cJ2"/>
+                            <constraint firstAttribute="trailing" secondItem="HdW-aA-BY1" secondAttribute="trailing" id="CRf-kI-0dI"/>
+                            <constraint firstItem="4Of-XI-tGg" firstAttribute="leading" secondItem="LmS-Xc-BSD" secondAttribute="leading" id="H1I-8e-2RN"/>
+                            <constraint firstItem="0Eu-mf-Upl" firstAttribute="leading" secondItem="VU2-wf-88t" secondAttribute="trailing" id="J3j-e7-y4c"/>
+                            <constraint firstItem="4Of-XI-tGg" firstAttribute="top" secondItem="LmS-Xc-BSD" secondAttribute="top" id="XUA-lT-ZNT"/>
+                            <constraint firstItem="HdW-aA-BY1" firstAttribute="top" secondItem="LmS-Xc-BSD" secondAttribute="top" id="cn6-0S-NNp"/>
+                            <constraint firstItem="VU2-wf-88t" firstAttribute="leading" secondItem="LmS-Xc-BSD" secondAttribute="leading" id="gR3-lZ-mPz"/>
+                            <constraint firstItem="HdW-aA-BY1" firstAttribute="leading" secondItem="4Of-XI-tGg" secondAttribute="trailing" id="pTd-hL-fI9"/>
+                            <constraint firstItem="0Eu-mf-Upl" firstAttribute="leading" secondItem="VU2-wf-88t" secondAttribute="trailing" id="vcK-9L-SIf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BEL-oz-kbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3973.5999999999999" y="1771.6641679160421"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="6lz-6X-mGl">
@@ -658,13 +723,15 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="ugY-DS-TFD"/>
+        <segue reference="apr-5o-ySD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="chat-menu-20x20" width="20" height="20"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="edit_24px" width="24" height="24"/>
         <image name="globe" catalog="system" width="128" height="121"/>
+        <image name="instagram-stories_24px" width="24" height="24"/>
         <image name="logo" width="200" height="200"/>
         <image name="padrao" width="500" height="446"/>
         <image name="storie-menu-20x20" width="20" height="20"/>

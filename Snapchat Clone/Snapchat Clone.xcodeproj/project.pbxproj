@@ -13,6 +13,7 @@
 		D4171EFA2635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4171EF92635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift */; };
 		D4171EFD2635EBC1009B5EB1 /* CreateAccountEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4171EFC2635EBC1009B5EB1 /* CreateAccountEventType.swift */; };
 		D4171F002635EC69009B5EB1 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4171EFF2635EC69009B5EB1 /* CreateAccountViewModel.swift */; };
+		D431392E275008F900DDAC81 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D431392D275008F900DDAC81 /* OptionsViewController.swift */; };
 		D4645BB5263A205D002239C1 /* SnapListTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */; };
 		D4645BB9263A35AE002239C1 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */; };
 		D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1DB2636521D000A2318 /* DynamicData.swift */; };
@@ -59,6 +60,7 @@
 		D4171EF92635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModelProtocol.swift; sourceTree = "<group>"; };
 		D4171EFC2635EBC1009B5EB1 /* CreateAccountEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountEventType.swift; sourceTree = "<group>"; };
 		D4171EFF2635EC69009B5EB1 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		D431392D275008F900DDAC81 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListTabViewController.swift; sourceTree = "<group>"; };
 		D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D480B1DB2636521D000A2318 /* DynamicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicData.swift; sourceTree = "<group>"; };
@@ -140,6 +142,14 @@
 			path = "create-account";
 			sourceTree = "<group>";
 		};
+		D431392C275008C900DDAC81 /* options */ = {
+			isa = PBXGroup;
+			children = (
+				D431392D275008F900DDAC81 /* OptionsViewController.swift */,
+			);
+			path = options;
+			sourceTree = "<group>";
+		};
 		D4645BB3263A2036002239C1 /* snap-list-tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +207,7 @@
 		D4B9A9152637555400E83DD4 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				D431392C275008C900DDAC81 /* options */,
 				D4F4ACC52716195100FF200F /* snap-detail */,
 				D4645BB3263A2036002239C1 /* snap-list-tab */,
 				D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */,
@@ -430,6 +441,7 @@
 				D4A96055274193210095E636 /* SnapDetailViewModelProtocol.swift in Sources */,
 				D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */,
 				D4B5CD4C2635C30800521FC8 /* UserAuthentication.swift in Sources */,
+				D431392E275008F900DDAC81 /* OptionsViewController.swift in Sources */,
 				D4B5CD532635C43400521FC8 /* Dynamic.swift in Sources */,
 				D480B1FA2637454F000A2318 /* UserAuthenticationServiceProtocol.swift in Sources */,
 				D4645BB5263A205D002239C1 /* SnapListTabViewController.swift in Sources */,
