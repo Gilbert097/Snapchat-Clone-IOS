@@ -646,10 +646,10 @@
             </objects>
             <point key="canvasLocation" x="3973.913043478261" y="1062.2282608695652"/>
         </scene>
-        <!--Options View Controller-->
+        <!--Media Options View Controller-->
         <scene sceneID="Itk-6z-S3F">
             <objects>
-                <viewController storyboardIdentifier="OptionsViewController" id="9mw-bk-ftX" customClass="OptionsViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OptionsViewController" id="9mw-bk-ftX" customClass="MediaOptionsViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cR6-2c-edJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -706,6 +706,10 @@
                             <constraint firstItem="0Eu-mf-Upl" firstAttribute="leading" secondItem="VU2-wf-88t" secondAttribute="trailing" id="vcK-9L-SIf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="publishLabel" destination="0Eu-mf-Upl" id="Y5n-GO-Yco"/>
+                        <outlet property="storyLabel" destination="HdW-aA-BY1" id="TVq-wm-qgB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEL-oz-kbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -724,7 +728,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="apr-5o-ySD"/>
+        <segue reference="ugY-DS-TFD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>

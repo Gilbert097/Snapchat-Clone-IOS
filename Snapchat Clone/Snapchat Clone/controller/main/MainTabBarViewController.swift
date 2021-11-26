@@ -43,18 +43,35 @@ class MainTabBarViewController: UITabBarController {
     
     @objc func onButtonCustomClick(sender: UIButton!) {
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = mainstoryboard.instantiateViewController(withIdentifier: "OptionsViewController") as! OptionsViewController
-
+        let controller = mainstoryboard.instantiateViewController(withIdentifier: "OptionsViewController") as! MediaOptionsViewController
+        let mediaOptionsViewModel = MediaOptionsViewModel()
+        controller.viewModel = mediaOptionsViewModel
         let sheetController = SheetViewController(controller: controller, sizes: [ .fixed(150)])
-
+        bindMediaOptionsViewModel(mediaOptionsViewModel)
         self.present(sheetController, animated: true, completion: nil)
-        
-        
-//        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let snapDetailNavigation = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
-//        let snapDetailViewController = snapDetailNavigation.viewControllers.first as! SnapDetailViewController
-//        snapDetailViewController.viewModel = SnapDetailViewModel()
-//        present(snapDetailNavigation, animated: true, completion: nil)
+    }
+    
+    private func bindMediaOptionsViewModel(_ mediaOptionsViewModel: MediaOptionsViewModel) {
+        let output = mediaOptionsViewModel.bind()
+        output.bind { event in
+            switch(event.type){
+            case .createStory:
+                break
+            case .createPublish:
+                self.navigateSnapDetailController()
+                break
+            case .none:
+                break
+            }
+        }
+    }
+    
+    private func navigateSnapDetailController() {
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let snapDetailNavigation = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
+        let snapDetailViewController = snapDetailNavigation.viewControllers.first as! SnapDetailViewController
+        snapDetailViewController.viewModel = SnapDetailViewModel()
+        self.present(snapDetailNavigation, animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
