@@ -61,6 +61,7 @@ class MainTabBarViewController: UITabBarController {
                 self.navigateSnapDetailController()
                 break
             case .none:
+                print("teste")
                 break
             }
         }
