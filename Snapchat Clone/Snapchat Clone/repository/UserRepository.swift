@@ -10,14 +10,14 @@ import FirebaseDatabase
 
 class UserRepository: UserRepositoryProtocol{
     
-    let database: DatabaseReference
+    let users: DatabaseReference
     
     init() {
-        database = Database.database().reference()
+        let database = Database.database().reference()
+        users = database.child("users")
     }
     
     func insert(user: User, completion: @escaping (Bool) -> Void){
-        let users = database.child("users")
         users.child(user.id).setValue(user.toDictionary()) { error, _ in
             let isSuccess = error != nil
             if !isSuccess {
@@ -25,6 +25,16 @@ class UserRepository: UserRepositoryProtocol{
                 print("Error: \(String(describing: error?.localizedDescription))")
             }
             completion(isSuccess)
+        }
+    }
+    
+    func registerObserveUser(completion: @escaping (User) -> Void){
+        users.observe(.childAdded) { snapshot in
+            if let data = snapshot.value as? NSDictionary{
+                let user = User.create(id: snapshot.key, dictionary: data)
+                print(user.toString())
+                completion(user)
+            }
         }
     }
     

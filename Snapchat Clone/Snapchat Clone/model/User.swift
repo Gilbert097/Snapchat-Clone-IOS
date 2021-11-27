@@ -7,30 +7,38 @@
 
 import Foundation
 
+
+
 class User {
     var id: String
     var fullName: String
     var email: String
-    var password: String
-    var confirmPassword: String
     
     init(
         id: String,
         fullName: String,
-        email: String,
-        password: String,
-        confirmPassword: String
+        email: String
     ) {
         self.id = id
         self.fullName = fullName
         self.email = email
-        self.password = password
-        self.confirmPassword = confirmPassword
     }
     
     func toDictionary()-> [String: String]{
         ["fullName": fullName,
          "email": email]
+    }
+    
+    func toString() -> String{
+        "id: \(self.id), fullName: \(self.fullName), email: \(self.email)"
+    }
+    
+    static func create(id: String, dictionary: NSDictionary) -> User{
+        User(
+            id: id,
+            fullName: dictionary["fullName"] as? String ?? "",
+            email: dictionary["email"] as? String ?? ""
+        )
     }
     
 }

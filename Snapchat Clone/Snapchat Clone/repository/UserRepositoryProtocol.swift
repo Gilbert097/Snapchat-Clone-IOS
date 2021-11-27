@@ -9,4 +9,5 @@ import Foundation
 
 protocol UserRepositoryProtocol {
     func insert(user: User, completion: @escaping (Bool) -> Void)
+    func registerObserveUser(completion: @escaping (User) -> Void)
 }

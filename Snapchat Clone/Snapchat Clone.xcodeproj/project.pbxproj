@@ -18,6 +18,10 @@
 		D4313932275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4313931275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift */; };
 		D43139342750771B00DDAC81 /* MediaOptionsEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43139332750771B00DDAC81 /* MediaOptionsEventType.swift */; };
 		D43139362750781E00DDAC81 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43139352750781E00DDAC81 /* MediaType.swift */; };
+		D45594132751AC1300B83179 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594122751AC1300B83179 /* UserListTableViewController.swift */; };
+		D45594152751B48700B83179 /* UserListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594142751B48700B83179 /* UserListTableViewModel.swift */; };
+		D45594172751B51A00B83179 /* UserListTableViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594162751B51A00B83179 /* UserListTableViewModelProtocol.swift */; };
+		D45594192751B77900B83179 /* UserListEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594182751B77900B83179 /* UserListEventType.swift */; };
 		D4645BB5263A205D002239C1 /* SnapListTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */; };
 		D4645BB9263A35AE002239C1 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */; };
 		D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1DB2636521D000A2318 /* DynamicData.swift */; };
@@ -69,6 +73,10 @@
 		D4313931275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsViewModelProtocol.swift; sourceTree = "<group>"; };
 		D43139332750771B00DDAC81 /* MediaOptionsEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsEventType.swift; sourceTree = "<group>"; };
 		D43139352750781E00DDAC81 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
+		D45594122751AC1300B83179 /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
+		D45594142751B48700B83179 /* UserListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewModel.swift; sourceTree = "<group>"; };
+		D45594162751B51A00B83179 /* UserListTableViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewModelProtocol.swift; sourceTree = "<group>"; };
+		D45594182751B77900B83179 /* UserListEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListEventType.swift; sourceTree = "<group>"; };
 		D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListTabViewController.swift; sourceTree = "<group>"; };
 		D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D480B1DB2636521D000A2318 /* DynamicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicData.swift; sourceTree = "<group>"; };
@@ -162,6 +170,17 @@
 			path = "media-options";
 			sourceTree = "<group>";
 		};
+		D45594112751AB6100B83179 /* user-list */ = {
+			isa = PBXGroup;
+			children = (
+				D45594122751AC1300B83179 /* UserListTableViewController.swift */,
+				D45594142751B48700B83179 /* UserListTableViewModel.swift */,
+				D45594162751B51A00B83179 /* UserListTableViewModelProtocol.swift */,
+				D45594182751B77900B83179 /* UserListEventType.swift */,
+			);
+			path = "user-list";
+			sourceTree = "<group>";
+		};
 		D4645BB3263A2036002239C1 /* snap-list-tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +238,7 @@
 		D4B9A9152637555400E83DD4 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				D45594112751AB6100B83179 /* user-list */,
 				D431392C275008C900DDAC81 /* media-options */,
 				D4F4ACC52716195100FF200F /* snap-detail */,
 				D4645BB3263A2036002239C1 /* snap-list-tab */,
@@ -427,6 +447,7 @@
 				D4E20132274B2F150020B9B5 /* UserRepositoryProtocol.swift in Sources */,
 				D4E20130274B2EFF0020B9B5 /* UserRepository.swift in Sources */,
 				D4035DC426351210002CC47C /* UIColorExtension.swift in Sources */,
+				D45594172751B51A00B83179 /* UserListTableViewModelProtocol.swift in Sources */,
 				D4171EFA2635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift in Sources */,
 				D43139362750781E00DDAC81 /* MediaType.swift in Sources */,
 				D480B1F0263742CC000A2318 /* HomeViewModelProtocol.swift in Sources */,
@@ -444,6 +465,8 @@
 				D4B5CD4D2635C30800521FC8 /* UserAuthenticationService.swift in Sources */,
 				D4171EFD2635EBC1009B5EB1 /* CreateAccountEventType.swift in Sources */,
 				D4A96057274194180095E636 /* SnapDetailEvent.swift in Sources */,
+				D45594192751B77900B83179 /* UserListEventType.swift in Sources */,
+				D45594132751AC1300B83179 /* UserListTableViewController.swift in Sources */,
 				D4D095862633AB35008ECAC0 /* CreateAccountViewController.swift in Sources */,
 				D480B1E926365ADE000A2318 /* AlertHelper.swift in Sources */,
 				D4B5CD562635C49900521FC8 /* LoginViewModelProtocol.swift in Sources */,
@@ -451,6 +474,7 @@
 				D480B1EC263715D2000A2318 /* LoginEventType.swift in Sources */,
 				D4F4ACC72716197800FF200F /* SnapDetailViewController.swift in Sources */,
 				D4F4ACCD2716485200FF200F /* SnapListViewModelProtocol.swift in Sources */,
+				D45594152751B48700B83179 /* UserListTableViewModel.swift in Sources */,
 				D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
 				D4A96055274193210095E636 /* SnapDetailViewModelProtocol.swift in Sources */,

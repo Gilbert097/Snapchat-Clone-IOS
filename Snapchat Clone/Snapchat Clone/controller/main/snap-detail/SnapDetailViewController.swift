@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FittedSheets
 
 class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -72,22 +72,32 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func onCameraButtonClick(_ sender: UIBarButtonItem) {
-        imagePickerViewController.sourceType = .camera
+        imagePickerViewController.sourceType = .savedPhotosAlbum
         
         present(imagePickerViewController, animated: true, completion: nil)
     }
     
     @IBAction func onNextButtonClick(_ sender: RoundButton) {
-        updateNextButton(isEnabled: false, title:"Carregando...")
         
-        if let imageSelected = imageView.image,
-           let imageData = imageSelected.jpegData(compressionQuality: 0.5) {
-            
-            self.imageData.value = imageData
-            viewModel.uploadImage()
-        }else{
-            updateNextButton(title: "Próximo")
-        }
+        
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = mainstoryboard.instantiateViewController(withIdentifier: "UserListTableViewController") as! UserListTableViewController
+       
+        controller.viewModel = UserListTableViewModel(repository: UserRepository())
+        let sheetController = SheetViewController(controller: controller, sizes: [ .fixed(300)])
+        
+        self.present(sheetController, animated: true, completion: nil)
+        
+//        updateNextButton(isEnabled: false, title:"Carregando...")
+//
+//        if let imageSelected = imageView.image,
+//           let imageData = imageSelected.jpegData(compressionQuality: 0.5) {
+//
+//            self.imageData.value = imageData
+//            viewModel.uploadImage()
+//        }else{
+//            updateNextButton(title: "Próximo")
+//        }
     }
     
     private func updateNextButton(isEnabled: Bool = true, title: String){
