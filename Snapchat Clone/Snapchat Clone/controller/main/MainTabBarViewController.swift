@@ -54,7 +54,7 @@ class MainTabBarViewController: UITabBarController {
     private func bindMediaOptionsViewModel(_ mediaOptionsViewModel: MediaOptionsViewModel) {
         let output = mediaOptionsViewModel.bind()
         output.bind { event in
-            switch(event.type){
+            switch(event){
             case .createStory:
                 break
             case .createPublish:

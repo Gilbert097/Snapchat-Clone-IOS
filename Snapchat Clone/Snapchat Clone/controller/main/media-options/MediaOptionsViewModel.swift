@@ -9,16 +9,16 @@ import Foundation
 
 class MediaOptionsViewModel: MediaOptionsViewModelProtocol{
    
-    private let output = Dynamic<DynamicData<MediaOptionsEventType>>(.init(type: .none))
+    private let output = Dynamic<MediaOptionsEventType>(.none)
     
     func bind() -> Output { output }
     
     func createMedia(type: MediaType) {
         switch(type){
         case .story:
-            output.value = .init(type: .createStory)
+            output.value = .createStory
         case .publish:
-            output.value = .init(type: .createPublish)
+            output.value = .createPublish
         }
     }
 }

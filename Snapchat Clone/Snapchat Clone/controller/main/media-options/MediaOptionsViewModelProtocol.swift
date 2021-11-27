@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MediaOptionsViewModelProtocol {
-    typealias Output = Dynamic<DynamicData<MediaOptionsEventType>>
+    typealias Output = Dynamic<MediaOptionsEventType>
     
     func bind() -> Output
     

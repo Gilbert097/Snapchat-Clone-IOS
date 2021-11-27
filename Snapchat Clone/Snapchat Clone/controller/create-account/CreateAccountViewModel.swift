@@ -39,9 +39,7 @@ public class CreateAccountViewModel: CreateAccountViewModelProtocol {
                 let userModel = User(
                     id: user.uid,
                     fullName: self.fullName,
-                    email: self.email,
-                    password: self.password,
-                    confirmPassword: self.password
+                    email: self.email
                 )
                 self.userRepository.insert(user: userModel) { isSuccess in
                     if isSuccess {
