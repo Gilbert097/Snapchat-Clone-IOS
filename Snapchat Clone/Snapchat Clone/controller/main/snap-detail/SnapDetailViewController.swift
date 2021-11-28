@@ -16,7 +16,7 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
     
     var viewModel: SnapDetailViewModelProtocol!
     private var imagePickerViewController = UIImagePickerController()
-    private var imageData = Dynamic<Data?>(nil)
+    private let input: SnapDetailViewModelProtocol.Input = (userSelected: .init(nil), imageData: .init(nil))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     private func configureBind(){
-        let output = viewModel.bind(imageData: imageData)
+        let output = viewModel.bind(input: input)
         output.bind { (dynamicData) in
             switch dynamicData.type {
             case .showMessageUploadImage:
@@ -78,26 +78,28 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func onNextButtonClick(_ sender: RoundButton) {
-        
-        
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = mainstoryboard.instantiateViewController(withIdentifier: "UserListTableViewController") as! UserListTableViewController
-       
-        controller.viewModel = UserListTableViewModel(repository: UserRepository())
+        let userListViewModel = UserListTableViewModel(repository: UserRepository())
+        controller.viewModel = userListViewModel
         let sheetController = SheetViewController(controller: controller, sizes: [ .fixed(300)])
         
-        self.present(sheetController, animated: true, completion: nil)
+        let output = userListViewModel.bind()
+        output.userSelected.bind { user in
+            print("SnapDetailViewController -> User Selected: \(String(describing: user?.fullName))")
+            self.updateNextButton(isEnabled: false, title:"Carregando...")
+
+            if let imageSelected = self.imageView.image,
+               let imageData = imageSelected.jpegData(compressionQuality: 0.5) {
+                self.input.userSelected.value = user
+                self.input.imageData.value = imageData
+                self.viewModel.uploadImage()
+            }else{
+                self.updateNextButton(title: "Próximo")
+            }
+        }
         
-//        updateNextButton(isEnabled: false, title:"Carregando...")
-//
-//        if let imageSelected = imageView.image,
-//           let imageData = imageSelected.jpegData(compressionQuality: 0.5) {
-//
-//            self.imageData.value = imageData
-//            viewModel.uploadImage()
-//        }else{
-//            updateNextButton(title: "Próximo")
-//        }
+        self.present(sheetController, animated: true, completion: nil)
     }
     
     private func updateNextButton(isEnabled: Bool = true, title: String){

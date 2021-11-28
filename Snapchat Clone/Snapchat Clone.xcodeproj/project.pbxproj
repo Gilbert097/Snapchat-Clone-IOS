@@ -181,6 +181,16 @@
 			path = "user-list";
 			sourceTree = "<group>";
 		};
+		D455941A2753F92600B83179 /* authentication */ = {
+			isa = PBXGroup;
+			children = (
+				D4B5CD4A2635C30800521FC8 /* UserAuthentication.swift */,
+				D4B5CD4B2635C30800521FC8 /* UserAuthenticationService.swift */,
+				D480B1F92637454F000A2318 /* UserAuthenticationServiceProtocol.swift */,
+			);
+			path = authentication;
+			sourceTree = "<group>";
+		};
 		D4645BB3263A2036002239C1 /* snap-list-tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,9 +238,7 @@
 		D4B5CD492635C2E400521FC8 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				D4B5CD4A2635C30800521FC8 /* UserAuthentication.swift */,
-				D4B5CD4B2635C30800521FC8 /* UserAuthenticationService.swift */,
-				D480B1F92637454F000A2318 /* UserAuthenticationServiceProtocol.swift */,
+				D455941A2753F92600B83179 /* authentication */,
 			);
 			path = service;
 			sourceTree = "<group>";

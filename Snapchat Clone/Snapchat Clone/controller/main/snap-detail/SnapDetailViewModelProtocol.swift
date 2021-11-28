@@ -8,10 +8,10 @@
 import Foundation
 
 protocol SnapDetailViewModelProtocol {
-    //typealias Input = ()
     typealias Output = Dynamic<DynamicData<SnapDetailEventType>>
+    typealias Input = (userSelected: Dynamic<User?>, imageData: Dynamic<Data?>)
     
-    func bind(imageData: Dynamic<Data?>) -> Output
+    func bind(input: Input) -> Output
     
     func uploadImage()
 }

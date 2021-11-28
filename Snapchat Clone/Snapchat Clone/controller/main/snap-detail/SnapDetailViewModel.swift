@@ -10,15 +10,19 @@ import FirebaseStorage
 
 class SnapDetailViewModel: SnapDetailViewModelProtocol {
     private var imageData: Data? = nil
+    private var userSelected: User? = nil
     private let output = Dynamic<DynamicData<SnapDetailEventType>>(.init(type: .none))
     
-    func bind(imageData: Dynamic<Data?>) -> Output {
-        imageData.bind { self.imageData = $0 }
+    func bind(input: Input) -> Output {
+        input.imageData.bind { self.imageData = $0 }
+        input.userSelected.bind { self.userSelected = $0 }
         return output
     }
     
     func uploadImage() {
-        if let imageData = imageData {
+        if let imageData = imageData,
+           let userSelected = userSelected{
+            
             let storage = Storage.storage().reference()
             let imagePath = storage.child("imagens")
             

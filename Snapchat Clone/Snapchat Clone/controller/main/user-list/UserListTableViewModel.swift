@@ -16,8 +16,9 @@ class UserListTableViewModel: UserListTableViewModelProtocol{
         self.repository = repository
     }
     
-    func bind() -> Output {
-        output
+    func bind(_ userSelected: Dynamic<User?>? = nil) -> Output {
+        userSelected?.bind { self.output.userSelected.value = $0 }
+        return output
     }
     
     func loadList(){
@@ -26,6 +27,4 @@ class UserListTableViewModel: UserListTableViewModelProtocol{
             self.output.userListEvent.value = .reloadList
         }
     }
-    
-    
 }
