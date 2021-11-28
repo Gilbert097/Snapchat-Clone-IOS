@@ -24,6 +24,7 @@
 		D45594192751B77900B83179 /* UserListEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594182751B77900B83179 /* UserListEventType.swift */; };
 		D455941D2753FB4C00B83179 /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D455941C2753FB4C00B83179 /* MediaService.swift */; };
 		D455941F2753FE6600B83179 /* MediaServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D455941E2753FE6600B83179 /* MediaServiceProtocol.swift */; };
+		D45594212754093D00B83179 /* MediaMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594202754093D00B83179 /* MediaMetadata.swift */; };
 		D4645BB5263A205D002239C1 /* SnapListTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */; };
 		D4645BB9263A35AE002239C1 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */; };
 		D480B1DC2636521D000A2318 /* DynamicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1DB2636521D000A2318 /* DynamicData.swift */; };
@@ -81,6 +82,7 @@
 		D45594182751B77900B83179 /* UserListEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListEventType.swift; sourceTree = "<group>"; };
 		D455941C2753FB4C00B83179 /* MediaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaService.swift; sourceTree = "<group>"; };
 		D455941E2753FE6600B83179 /* MediaServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaServiceProtocol.swift; sourceTree = "<group>"; };
+		D45594202754093D00B83179 /* MediaMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaMetadata.swift; sourceTree = "<group>"; };
 		D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListTabViewController.swift; sourceTree = "<group>"; };
 		D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D480B1DB2636521D000A2318 /* DynamicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicData.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				D4E2012D274B2CAA0020B9B5 /* User.swift */,
+				D45594202754093D00B83179 /* MediaMetadata.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				D4F4ACC9271646CD00FF200F /* SnapListEventType.swift in Sources */,
 				D4D0958D263484EA008ECAC0 /* RoundButton.swift in Sources */,
 				D4E20132274B2F150020B9B5 /* UserRepositoryProtocol.swift in Sources */,
+				D45594212754093D00B83179 /* MediaMetadata.swift in Sources */,
 				D4E20130274B2EFF0020B9B5 /* UserRepository.swift in Sources */,
 				D4035DC426351210002CC47C /* UIColorExtension.swift in Sources */,
 				D45594172751B51A00B83179 /* UserListTableViewModelProtocol.swift in Sources */,

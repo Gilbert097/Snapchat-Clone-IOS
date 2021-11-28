@@ -16,7 +16,11 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
     
     var viewModel: SnapDetailViewModelProtocol!
     private var imagePickerViewController = UIImagePickerController()
-    private let input: SnapDetailViewModelProtocol.Input = (userSelected: .init(nil), imageData: .init(nil))
+    private let input: SnapDetailViewModelProtocol.Input = (
+        userSelected: .init(nil),
+        imageData: .init(nil),
+        descriptionSnap: .init(nil)
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +77,6 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func onCameraButtonClick(_ sender: UIBarButtonItem) {
         imagePickerViewController.sourceType = .savedPhotosAlbum
-        
         present(imagePickerViewController, animated: true, completion: nil)
     }
     
@@ -91,6 +94,7 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
 
             if let imageSelected = self.imageView.image,
                let imageData = imageSelected.jpegData(compressionQuality: 0.5) {
+                self.input.descriptionSnap.value = self.descriptionTextField.text
                 self.input.userSelected.value = user
                 self.input.imageData.value = imageData
                 self.viewModel.uploadImage()
