@@ -9,5 +9,5 @@ import Foundation
 
 enum MediaType{
     case story
-    case publish
+    case snap
 }

@@ -17,8 +17,8 @@ class MediaOptionsViewModel: MediaOptionsViewModelProtocol{
         switch(type){
         case .story:
             output.value = .createStory
-        case .publish:
-            output.value = .createPublish
+        case .snap:
+            output.value = .createSnap
         }
     }
 }

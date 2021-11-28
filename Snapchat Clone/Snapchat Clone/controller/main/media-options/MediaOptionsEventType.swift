@@ -10,5 +10,5 @@ import Foundation
 public enum MediaOptionsEventType {
     case none
     case createStory
-    case createPublish
+    case createSnap
 }

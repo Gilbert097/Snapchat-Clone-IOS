@@ -57,7 +57,7 @@ class MainTabBarViewController: UITabBarController {
             switch(event){
             case .createStory:
                 break
-            case .createPublish:
+            case .createSnap:
                 self.navigateSnapDetailController()
                 break
             case .none:

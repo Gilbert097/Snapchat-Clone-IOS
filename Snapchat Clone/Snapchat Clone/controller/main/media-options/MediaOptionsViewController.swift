@@ -10,7 +10,7 @@ import UIKit
 class MediaOptionsViewController: UIViewController {
     
     @IBOutlet weak var storyLabel: UILabel!
-    @IBOutlet weak var publishLabel: UILabel!
+    @IBOutlet weak var snapLabel: UILabel!
     var viewModel: MediaOptionsViewModelProtocol!
     
     override func viewDidLoad() {
@@ -20,9 +20,9 @@ class MediaOptionsViewController: UIViewController {
         storyLabel.isUserInteractionEnabled = true
         storyLabel.addGestureRecognizer(storyTapGesture)
         
-        let publishTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.publishLabelTap))
-        publishLabel.isUserInteractionEnabled = true
-        publishLabel.addGestureRecognizer(publishTapGesture)
+        let publishTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.snapLabelTap))
+        snapLabel.isUserInteractionEnabled = true
+        snapLabel.addGestureRecognizer(publishTapGesture)
     }
     
     @objc
@@ -32,9 +32,9 @@ class MediaOptionsViewController: UIViewController {
     }
     
     @objc
-    func publishLabelTap(sender:UITapGestureRecognizer) {
+    func snapLabelTap(sender:UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: {
-            self.viewModel.createMedia(type: .publish)
+            self.viewModel.createMedia(type: .snap)
         })
     }
     

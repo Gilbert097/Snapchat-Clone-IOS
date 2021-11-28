@@ -679,7 +679,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Vph-HO-NkS"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Eu-mf-Upl" userLabel="Publish Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Eu-mf-Upl" userLabel="Snap Label">
                                 <rect key="frame" x="50" y="50" width="325" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="V97-Og-Lvz"/>
@@ -707,7 +707,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="publishLabel" destination="0Eu-mf-Upl" id="Y5n-GO-Yco"/>
+                        <outlet property="snapLabel" destination="0Eu-mf-Upl" id="Y5n-GO-Yco"/>
                         <outlet property="storyLabel" destination="HdW-aA-BY1" id="TVq-wm-qgB"/>
                     </connections>
                 </viewController>
