@@ -11,6 +11,6 @@ protocol MediaServiceProtocol{
     func uploadImage(
         path:String,
         imageData: Data,
-        completion: @escaping (Bool) -> Void
+        completion: @escaping (Bool, MediaMetadata?) -> Void 
     )
 }
