@@ -61,7 +61,6 @@ class MainTabBarViewController: UITabBarController {
                 self.navigateSnapDetailController()
                 break
             case .none:
-                print("teste")
                 break
             }
         }
@@ -71,7 +70,7 @@ class MainTabBarViewController: UITabBarController {
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let snapDetailNavigation = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
         let snapDetailViewController = snapDetailNavigation.viewControllers.first as! SnapDetailViewController
-        snapDetailViewController.viewModel = SnapDetailViewModel()
+        snapDetailViewController.viewModel = SnapDetailViewModel(mediaService: MediaService())
         self.present(snapDetailNavigation, animated: true, completion: nil)
     }
     

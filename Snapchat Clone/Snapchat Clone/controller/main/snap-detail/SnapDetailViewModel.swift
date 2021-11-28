@@ -9,9 +9,15 @@ import Foundation
 import FirebaseStorage
 
 class SnapDetailViewModel: SnapDetailViewModelProtocol {
+
     private var imageData: Data? = nil
     private var userSelected: User? = nil
     private let output = Dynamic<DynamicData<SnapDetailEventType>>(.init(type: .none))
+    private let mediaService: MediaServiceProtocol
+    
+    init(mediaService: MediaServiceProtocol) {
+        self.mediaService = mediaService
+    }
     
     func bind(input: Input) -> Output {
         input.imageData.bind { self.imageData = $0 }
@@ -23,26 +29,16 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
         if let imageData = imageData,
            let userSelected = userSelected{
             
-            let storage = Storage.storage().reference()
-            let imagePath = storage.child("imagens")
-            
-            let imageId = NSUUID().uuidString
-            imagePath.child("\(imageId).jpg").putData(imageData, metadata: nil) { metadata, error in
+            mediaService.uploadImage(path: userSelected.id, imageData: imageData) { isSuccess in
                 var alertViewModel: InfoAlertViewModel
-                if error == nil {
+                if isSuccess {
                     alertViewModel = InfoAlertViewModel(title: "Sucesso", message: "Upload Success!")
-                    print("Path: \(String(describing: metadata?.path))")
                 } else {
-                    alertViewModel = InfoAlertViewModel(title: "Error", message: error?.localizedDescription ?? "Upload Error!")
+                    alertViewModel = InfoAlertViewModel(title: "Error", message: "Upload Error!")
                 }
                 
                 self.output.value =  .init(type: .showMessageUploadImage, info: alertViewModel)
-                
             }
         }
-        
     }
-    
-    
-    
 }

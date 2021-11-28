@@ -43,8 +43,10 @@ class UserListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let user = self.viewModel.users[indexPath.row]
-        userSelected.value = user
+        self.dismiss(animated: true) {
+            self.userSelected.value = self.viewModel.users[indexPath.row]
+        }
     }
+    
     
 }
