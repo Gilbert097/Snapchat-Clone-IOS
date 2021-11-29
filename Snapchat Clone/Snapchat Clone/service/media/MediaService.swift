@@ -23,13 +23,14 @@ class MediaService: MediaServiceProtocol{
         
         imageReference.putData(imageData, metadata: nil) { metadata, error in
             
-            if let metadata = metadata {
+            if let metadata = metadata,
+               let path = metadata.path{
                 
                 imageReference.downloadURL { url, urlError in
                     if let url = url {
                         let mediaMetadata = MediaMetadata(
                             url: url.absoluteString,
-                            path: metadata.path ?? "",
+                            path: path,
                             name: imageName
                         )
                         
