@@ -8,9 +8,9 @@
 import Foundation
 
 protocol UserListTableViewModelProtocol {
-    typealias Output = (userSelected: Dynamic<User?>, userListEvent: Dynamic<UserListEventType>)
+    typealias Output = (userSelected: Event<User?>, userListEvent: Event<UserListEventType>)
     
-    func bind(_ userSelected: Dynamic<User?>?) -> Output
+    func bind(_ userSelected: Event<User?>?) -> Output
     
     func loadList()
     

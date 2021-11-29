@@ -10,13 +10,13 @@ import Foundation
 protocol CreateAccountViewModelProtocol{
     
     typealias Input = (
-        fullName: Dynamic<String>,
-        email: Dynamic<String>,
-        password: Dynamic<String>,
-        confirmPassword: Dynamic<String>
+        fullName: Event<String>,
+        email: Event<String>,
+        password: Event<String>,
+        confirmPassword: Event<String>
     )
     
-    typealias Output = Dynamic<DynamicData<CreateAccountEventType>>
+    typealias Output = Event<EventData<CreateAccountEventType>>
     
     func bind(input: Input) -> Output
     

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeViewModelProtocol {
-    typealias Output = Dynamic<DynamicData<HomeEventType>>
+    typealias Output = Event<EventData<HomeEventType>>
     
     func bind() -> Output
     

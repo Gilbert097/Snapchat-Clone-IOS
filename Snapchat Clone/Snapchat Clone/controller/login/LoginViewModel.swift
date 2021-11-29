@@ -11,7 +11,7 @@ public class LoginViewModel: LoginViewModelProtocol {
     
     private var email: String = ""
     private var password: String = ""
-    private let output = Dynamic<DynamicData<LoginEventType>>(.init(type: .none))
+    private let output = Event<EventData<LoginEventType>>(.init(type: .none))
     private let authenticationService: UserAuthenticationServiceProtocol
     
     init(authenticationService: UserAuthenticationServiceProtocol) {

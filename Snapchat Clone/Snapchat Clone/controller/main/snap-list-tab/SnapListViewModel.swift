@@ -9,7 +9,7 @@ import Foundation
 
 public class SnapListViewModel: SnapListViewModelProtocol {
    
-    private let output = Dynamic<DynamicData<SnapListEventType>>(.init(type: .none))
+    private let output = Event<EventData<SnapListEventType>>(.init(type: .none))
     private let authenticationService: UserAuthenticationServiceProtocol
     
     init(authenticationService: UserAuthenticationServiceProtocol) {

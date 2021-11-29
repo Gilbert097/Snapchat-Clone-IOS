@@ -13,7 +13,7 @@ public class CreateAccountViewModel: CreateAccountViewModelProtocol {
     private var email: String = ""
     private var password: String = ""
     private var confirmPassword: String = ""
-    private let output = Dynamic<DynamicData<CreateAccountEventType>>(.init(type: .none))
+    private let output = Event<EventData<CreateAccountEventType>>(.init(type: .none))
     private let authenticationService: UserAuthenticationServiceProtocol
     private let userRepository: UserRepositoryProtocol
     

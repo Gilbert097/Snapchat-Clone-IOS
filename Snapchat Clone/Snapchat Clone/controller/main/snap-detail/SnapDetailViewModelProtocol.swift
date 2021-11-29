@@ -8,11 +8,11 @@
 import Foundation
 
 protocol SnapDetailViewModelProtocol {
-    typealias Output = Dynamic<DynamicData<SnapDetailEventType>>
+    typealias Output = Event<EventData<SnapDetailEventType>>
     typealias Input = (
-        userSelected: Dynamic<User?>,
-        imageData: Dynamic<Data?>,
-        descriptionSnap:  Dynamic<String?>
+        userSelected: Event<User?>,
+        imageData: Event<Data?>,
+        descriptionSnap:  Event<String?>
     )
     
     func bind(input: Input) -> Output

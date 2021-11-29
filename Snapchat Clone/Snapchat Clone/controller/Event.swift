@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Dynamic<T> {
+class Event<T> {
     typealias Listener = (T) -> ()
     var listener: Listener?
     

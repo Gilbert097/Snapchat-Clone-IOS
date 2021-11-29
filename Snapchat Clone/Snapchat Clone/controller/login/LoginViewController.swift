@@ -13,8 +13,8 @@ public class LoginViewController: HomeNavigationBaseViewController {
     @IBOutlet weak var emailTextField: MDCFilledTextField!
     @IBOutlet weak var passwordTextField: MDCFilledTextField!
     private let input: LoginViewModelProtocol.Input = (
-        email: Dynamic<String>(""),
-        password: Dynamic<String>("")
+        email: Event<String>(""),
+        password: Event<String>("")
     )
     
     var viewModel: LoginViewModelProtocol!

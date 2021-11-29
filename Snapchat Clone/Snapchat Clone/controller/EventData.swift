@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct DynamicData<EnumDataType> {
+public struct EventData<EnumDataType> {
     public typealias EnumDataType = Hashable & Equatable
     
     public let type: EnumDataType

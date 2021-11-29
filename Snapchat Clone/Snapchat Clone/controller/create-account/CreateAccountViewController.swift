@@ -17,10 +17,10 @@ class CreateAccountViewController: HomeNavigationBaseViewController {
     
     var viewModel: CreateAccountViewModelProtocol!
     private let input: CreateAccountViewModelProtocol.Input = (
-        fullName: Dynamic<String>(""),
-        email: Dynamic<String>(""),
-        password: Dynamic<String>(""),
-        confirmPassword: Dynamic<String>("")
+        fullName: Event<String>(""),
+        email: Event<String>(""),
+        password: Event<String>(""),
+        confirmPassword: Event<String>("")
     )
     
     override func viewDidLoad() {

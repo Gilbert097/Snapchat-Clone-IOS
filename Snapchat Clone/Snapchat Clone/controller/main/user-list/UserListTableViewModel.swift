@@ -16,7 +16,7 @@ class UserListTableViewModel: UserListTableViewModelProtocol{
         self.repository = repository
     }
     
-    func bind(_ userSelected: Dynamic<User?>? = nil) -> Output {
+    func bind(_ userSelected: Event<User?>? = nil) -> Output {
         userSelected?.bind { self.output.userSelected.value = $0 }
         return output
     }

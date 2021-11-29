@@ -13,7 +13,7 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
     private var imageData: Data? = nil
     private var userSelected: User? = nil
     private var description: String? = nil
-    private let output = Dynamic<DynamicData<SnapDetailEventType>>(.init(type: .none))
+    private let output = Event<EventData<SnapDetailEventType>>(.init(type: .none))
     private let mediaService: MediaServiceProtocol
     
     init(mediaService: MediaServiceProtocol) {

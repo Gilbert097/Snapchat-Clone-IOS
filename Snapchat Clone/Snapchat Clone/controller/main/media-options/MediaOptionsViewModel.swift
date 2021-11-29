@@ -9,7 +9,7 @@ import Foundation
 
 class MediaOptionsViewModel: MediaOptionsViewModelProtocol{
    
-    private let output = Dynamic<MediaOptionsEventType>(.none)
+    private let output = Event<MediaOptionsEventType>(.none)
     
     func bind() -> Output { output }
     

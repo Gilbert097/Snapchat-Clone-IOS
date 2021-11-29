@@ -10,7 +10,7 @@ import UIKit
 class UserListTableViewController: UITableViewController {
     
     var viewModel: UserListTableViewModelProtocol!
-    let userSelected: Dynamic<User?> = .init(nil)
+    let userSelected: Event<User?> = .init(nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
