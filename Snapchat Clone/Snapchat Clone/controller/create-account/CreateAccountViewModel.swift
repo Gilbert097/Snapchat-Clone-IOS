@@ -19,38 +19,49 @@ public class CreateAccountViewModel: CreateAccountViewModelProtocol {
     
     init(
         authenticationService: UserAuthenticationServiceProtocol,
-         userRepository: UserRepositoryProtocol
+        userRepository: UserRepositoryProtocol
     ) {
         self.authenticationService = authenticationService
         self.userRepository = userRepository
     }
     
     func bind(input: Input) -> Output {
-        input.fullName.bind { self.fullName = $0 }
-        input.email.bind { self.email = $0 }
-        input.password.bind { self.password = $0 }
-        input.confirmPassword.bind { self.confirmPassword = $0 }
-       return output
+        input.fullName.bind { [weak self] in self?.fullName = $0 }
+        input.email.bind { [weak self] in self?.email = $0 }
+        input.password.bind { [weak self] in self?.password = $0 }
+        input.confirmPassword.bind { [weak self] in self?.confirmPassword = $0 }
+        return output
     }
     
     func createAccount() {
-        self.authenticationService.createUserAuthentication(email: email, password: password) { (user, error) in
-            if let user = user {
+        self.authenticationService.create(email: email, password: password) { [weak self] (userId, error) in
+            guard let self = self else { return }
+            if let userId = userId {
                 let userModel = User(
-                    id: user.uid,
+                    id: userId,
                     fullName: self.fullName,
                     email: self.email
                 )
                 self.userRepository.insert(user: userModel) { isSuccess in
                     if isSuccess {
-                    self.output.value = .init(type: .navigation, info: InfoAlertViewModel(title: "Sucesso", message: "Usuário \(user.email) criado com sucesso!"))
-                    }else{
-                        self.output.value = .init(type: .showMessage, info: InfoAlertViewModel(title: "Error", message: "Error ao criar usuário!"))
+                        AppRepository.shared.setCurrentUser(currentUser: userModel)
+                        self.output.value = .init(
+                            type: .navigation,
+                            info: InfoAlertViewModel(title: "Sucesso", message: "Usuário \(userModel.email) criado com sucesso!")
+                        )
+                    } else {
+                        self.output.value = .init(
+                            type: .showMessage,
+                            info: InfoAlertViewModel(title: "Error", message: "Error ao criar usuário!")
+                        )
                     }
                     
                 }
             } else if let error = error {
-                self.output.value = .init(type: .showMessage, info: InfoAlertViewModel(title: "Error", message: error))
+                self.output.value = .init(
+                    type: .showMessage,
+                    info: InfoAlertViewModel(title: "Error", message: error)
+                )
             }
         }
     }

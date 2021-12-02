@@ -26,9 +26,10 @@ public class LoginViewModel: LoginViewModelProtocol {
     
     public func login() {
         if !email.isEmpty && !password.isEmpty {
-            self.authenticationService.signIn(email: email, password: password) { [weak self] (userAuth, error) in
+            self.authenticationService.signIn(email: email, password: password) { [weak self] (userId, error) in
                 guard let self = self else { return }
-                if userAuth != nil {
+                if userId != nil {
+                    //TODO[GIL] - Recuperar usuário do banco e setar no AppRepository
                     self.output.value = .init(type: .navigationToMain, info: nil)
                 } else if let error = error {
                     self.output.value = .init(type: .showMessage, info: InfoAlertViewModel(title: "Error", message: error))

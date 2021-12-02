@@ -37,7 +37,10 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
         output.bind { [weak self] (dynamicData) in
             switch dynamicData.type {
             case .showMessageUploadImage:
-                guard let self = self, let alertViewModel = dynamicData.info as? InfoAlertViewModel else { return }
+                guard
+                    let self = self,
+                    let alertViewModel = dynamicData.info as? InfoAlertViewModel
+                else { return }
                 self.updateNextButton(title: "Próximo")
                 AlertHelper.shared.showMessage(viewController: self, alertViewModel: alertViewModel)
                 return
@@ -92,7 +95,7 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
             guard let self = self else { return }
             print("SnapDetailViewController -> User Selected: \(String(describing: user?.fullName))")
             self.updateNextButton(isEnabled: false, title:"Carregando...")
-
+            
             if let imageSelected = self.imageView.image,
                let imageData = imageSelected.jpegData(compressionQuality: 0.5) {
                 self.input.descriptionSnap.value = self.descriptionTextField.text
