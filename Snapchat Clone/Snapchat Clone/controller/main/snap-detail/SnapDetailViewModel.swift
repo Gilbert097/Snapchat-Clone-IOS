@@ -21,24 +21,24 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
     }
     
     func bind(input: Input) -> Output {
-        input.imageData.bind { self.imageData = $0 }
-        input.userSelected.bind { self.userSelected = $0 }
-        input.descriptionSnap.bind { self.description = $0 }
+        input.imageData.bind { [weak self] in self?.imageData = $0 }
+        input.userSelected.bind { [weak self] in self?.userSelected = $0 }
+        input.descriptionSnap.bind { [weak self] in self?.description = $0 }
         return output
     }
     
     func uploadImage() {
         if let imageData = imageData,
-           let userSelected = userSelected{
+           let userSelected = userSelected {
             
-            mediaService.uploadImage(path: userSelected.id, imageData: imageData) { isSuccess, mediaMetadata in
+            mediaService.uploadImage(path: userSelected.id, imageData: imageData) { [weak self]  isSuccess, mediaMetadata in
                 var alertViewModel: InfoAlertViewModel
                 if isSuccess {
                     alertViewModel = InfoAlertViewModel(title: "Sucesso", message: "Upload Success!")
                 } else {
                     alertViewModel = InfoAlertViewModel(title: "Error", message: "Upload Error!")
                 }
-                self.output.value =  .init(type: .showMessageUploadImage, info: alertViewModel)
+                self?.output.value =  .init(type: .showMessageUploadImage, info: alertViewModel)
             }
         }
     }

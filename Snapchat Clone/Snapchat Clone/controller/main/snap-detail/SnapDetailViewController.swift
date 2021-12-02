@@ -34,10 +34,10 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
     
     private func configureBind(){
         let output = viewModel.bind(input: input)
-        output.bind { (dynamicData) in
+        output.bind { [weak self] (dynamicData) in
             switch dynamicData.type {
             case .showMessageUploadImage:
-                guard let alertViewModel = dynamicData.info as? InfoAlertViewModel else { return }
+                guard let self = self, let alertViewModel = dynamicData.info as? InfoAlertViewModel else { return }
                 self.updateNextButton(title: "Próximo")
                 AlertHelper.shared.showMessage(viewController: self, alertViewModel: alertViewModel)
                 return
@@ -88,7 +88,8 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
         let sheetController = SheetViewController(controller: controller, sizes: [ .fixed(300)])
         
         let output = userListViewModel.bind()
-        output.userSelected.bind { user in
+        output.userSelected.bind { [weak self] user in
+            guard let self = self else { return }
             print("SnapDetailViewController -> User Selected: \(String(describing: user?.fullName))")
             self.updateNextButton(isEnabled: false, title:"Carregando...")
 
