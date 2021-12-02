@@ -17,12 +17,13 @@ class UserListTableViewModel: UserListTableViewModelProtocol{
     }
     
     func bind(_ userSelected: Event<User?>? = nil) -> Output {
-        userSelected?.bind { self.output.userSelected.value = $0 }
+        userSelected?.bind { [weak self] in self?.output.userSelected.value = $0 }
         return output
     }
     
     func loadList(){
-        self.repository.registerObserveUser { user in
+        self.repository.registerObserveUser {[weak self] user in
+            guard let self = self else { return }
             self.users.append(user)
             self.output.userListEvent.value = .reloadList
         }
