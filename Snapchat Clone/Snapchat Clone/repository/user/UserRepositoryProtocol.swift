@@ -8,6 +8,9 @@
 import Foundation
 
 protocol UserRepositoryProtocol {
+    typealias Completion = (User?) -> Void
+    
     func insert(user: User, completion: @escaping (Bool) -> Void)
-    func registerObserveUser(completion: @escaping (User) -> Void)
+    func registerObserveUsers(completion: @escaping Completion)
+    func registerObserveUser(id: String, completion: @escaping Completion)
 }
