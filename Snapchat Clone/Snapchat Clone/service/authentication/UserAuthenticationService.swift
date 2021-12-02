@@ -19,38 +19,44 @@ private extension String {
 
 public class UserAuthenticationService: UserAuthenticationServiceProtocol {
     
-    typealias AuthDataError = (error: Error?, action: AuthenticationAction)
-    
-    enum AuthenticationAction{
+    private enum Action{
         case signIn
         case createUser
     }
     
-    private(set) var isUserLogged = false
-    
-    public func createUserAuthentication(
+    public func create(
         email: String,
         password: String,
-        completion: @escaping (UserAuthentication?, String?) -> Void
+        completion: @escaping (String?, String?) -> Void
     ){
         Auth.auth().createUser(withEmail: email, password: password) {
             [weak self] (authDataResult: AuthDataResult?, error: Error?) in
             guard let self = self else { return }
-            let authDataError: AuthDataError? = error != nil ? (error, .createUser) : nil
-            self.notifyUserAuthentication(authDataResult: authDataResult, authDataError: authDataError, completion: completion)
+            
+            self.notify(
+                action: .signIn,
+                authDataResult: authDataResult,
+                error: error,
+                completion: completion
+            )
         }
     }
     
     public func signIn(
         email: String,
         password: String,
-        completion: @escaping (UserAuthentication?, String?) -> Void
+        completion: @escaping (String?, String?) -> Void
     ){
         Auth.auth().signIn(withEmail: email, password: password) {
             [weak self] (authDataResult: AuthDataResult?, error: Error?) in
             guard let self = self else { return }
-            let authDataError: AuthDataError? = error != nil ? (error, .signIn) : nil
-            self.notifyUserAuthentication(authDataResult: authDataResult, authDataError: authDataError, completion: completion)
+            
+            self.notify(
+                action: .signIn,
+                authDataResult: authDataResult,
+                error: error,
+                completion: completion
+            )
         }
     }
     
@@ -62,35 +68,28 @@ public class UserAuthenticationService: UserAuthenticationServiceProtocol {
         }
     }
     
-    private func notifyUserAuthentication(
+    private func notify(
+        action: Action,
         authDataResult: AuthDataResult?,
-        authDataError: AuthDataError?,
-        completion: @escaping (UserAuthentication?, String?) -> Void
+        error: Error?,
+        completion: @escaping (String?, String?) -> Void
     ) {
         if let authDataResult = authDataResult {
-            notifyUserAuthenticationSuccess(authDataResult: authDataResult, completion: completion)
-        } else if  let authDataError = authDataError {
-            notifyUserAuthenticationError(authDataError: authDataError, completion: completion)
+            completion(authDataResult.user.uid, nil)
+        } else if let error = error {
+            notifyError(action: action, authDataError: error, completion: completion)
         }
     }
     
-    private func notifyUserAuthenticationSuccess(
-        authDataResult: AuthDataResult,
-        completion: @escaping (UserAuthentication?, String?) -> Void
-    ) {
-        let id = authDataResult.user.uid
-        let email = authDataResult.user.email ?? ""
-        completion(UserAuthentication(uid: id, email: email), nil)
-    }
-    
-    private func notifyUserAuthenticationError(
-        authDataError: AuthDataError,
-        completion: @escaping (UserAuthentication?, String?) -> Void
+    private func notifyError(
+        action: Action,
+        authDataError: Error?,
+        completion: @escaping (String?, String?) -> Void
     ){
         guard
-            let errorParse = authDataError.error as NSError?
+            let errorParse = authDataError as NSError?
         else {
-            let message = getDefaultMessageErrorByAction(action: authDataError.action)
+            let message = getDefaultMessageErrorByAction(action: action)
             completion(nil, message)
             return
         }
@@ -98,7 +97,7 @@ public class UserAuthenticationService: UserAuthenticationServiceProtocol {
         completion(nil, errorMessage)
     }
     
-    private func getDefaultMessageErrorByAction(action: AuthenticationAction) -> String {
+    private func getDefaultMessageErrorByAction(action: Action) -> String {
         switch action {
         case .signIn:
             return .loginUserError
@@ -123,17 +122,17 @@ public class UserAuthenticationService: UserAuthenticationServiceProtocol {
         }
     }
     
-    public func getUserAuthenticationState(completion: @escaping (Bool) -> Void) {
-        Auth.auth().addStateDidChangeListener { [weak self] (firAuth, user) in
-            guard let self = self else { return }
+    public func registerUserAuthenticationState(completion: @escaping (Bool) -> Void) {
+        Auth.auth().addStateDidChangeListener { (firAuth, user) in
+            var isUserLogged = false
             if let user = user, let email = user.email {
-                self.isUserLogged = true
+                isUserLogged = true
                 print("Usuário logado \(String(describing: email)).")
-            }else{
-                self.isUserLogged = false
+            } else {
+                isUserLogged = false
                 print("Nenhum usuário logado!")
             }
-            completion(self.isUserLogged)
+            completion(isUserLogged)
         }
     }
     

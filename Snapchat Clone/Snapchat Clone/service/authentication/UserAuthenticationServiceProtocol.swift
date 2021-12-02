@@ -9,20 +9,20 @@ import Foundation
 
 protocol UserAuthenticationServiceProtocol {
     
-    func createUserAuthentication(
+    func create(
         email: String,
         password: String,
-        completion: @escaping (UserAuthentication?, String?) -> Void
+        completion: @escaping (String?, String?) -> Void
     )
     
     func signIn(
         email: String,
         password: String,
-        completion: @escaping (UserAuthentication?, String?) -> Void
+        completion: @escaping (String?, String?) -> Void
     )
     
     func signOut()
     
-    func getUserAuthenticationState(completion: @escaping (Bool) -> Void)
+    func registerUserAuthenticationState(completion: @escaping (Bool) -> Void)
     
 }
