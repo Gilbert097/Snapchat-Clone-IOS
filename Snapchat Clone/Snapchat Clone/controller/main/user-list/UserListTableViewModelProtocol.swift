@@ -8,11 +8,11 @@
 import Foundation
 
 protocol UserListTableViewModelProtocol {
-    typealias Output = (userSelected: Event<User?>, userListEvent: Event<UserListEventType>)
+    typealias Output = (userSelected: Event<UserItemViewModel?>, userListEvent: Event<UserListEventType>)
     
-    func bind(_ userSelected: Event<User?>?) -> Output
+    func bind(_ userSelected: Event<UserItemViewModel?>?) -> Output
     
     func loadList()
     
-    var users: [User] { get }
+    var users: [UserItemViewModel] { get }
 }

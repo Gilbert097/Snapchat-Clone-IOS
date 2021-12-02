@@ -10,7 +10,7 @@ import Foundation
 protocol SnapDetailViewModelProtocol {
     typealias Output = Event<EventData<SnapDetailEventType>>
     typealias Input = (
-        userSelected: Event<User?>,
+        userSelected: Event<UserItemViewModel?>,
         imageData: Event<Data?>,
         descriptionSnap:  Event<String?>
     )

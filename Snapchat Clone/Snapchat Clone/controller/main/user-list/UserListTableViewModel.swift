@@ -10,13 +10,13 @@ class UserListTableViewModel: UserListTableViewModelProtocol{
     
     private let output: Output = (userSelected: .init(nil), userListEvent: .init(.none))
     private let repository: UserRepositoryProtocol
-    var users: [User] = []
+    var users: [UserItemViewModel] = []
     
     init(repository: UserRepositoryProtocol){
         self.repository = repository
     }
     
-    func bind(_ userSelected: Event<User?>? = nil) -> Output {
+    func bind(_ userSelected: Event<UserItemViewModel?>? = nil) -> Output {
         userSelected?.bind { [weak self] in self?.output.userSelected.value = $0 }
         return output
     }
@@ -24,7 +24,7 @@ class UserListTableViewModel: UserListTableViewModelProtocol{
     func loadList(){
         self.repository.registerObserveUser {[weak self] user in
             guard let self = self else { return }
-            self.users.append(user)
+            self.users.append(.init(user: user))
             self.output.userListEvent.value = .reloadList
         }
     }

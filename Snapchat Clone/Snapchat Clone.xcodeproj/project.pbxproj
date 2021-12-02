@@ -43,6 +43,7 @@
 		D4B5CD502635C35200521FC8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD4F2635C35200521FC8 /* LoginViewModel.swift */; };
 		D4B5CD532635C43400521FC8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD522635C43400521FC8 /* Event.swift */; };
 		D4B5CD562635C49900521FC8 /* LoginViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD552635C49900521FC8 /* LoginViewModelProtocol.swift */; };
+		D4B6574827584F4200EF0596 /* UserItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6574727584F4200EF0596 /* UserItemViewModel.swift */; };
 		D4B9A91C263755B600E83DD4 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */; };
 		D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955726339B0B008ECAC0 /* AppDelegate.swift */; };
 		D4D0955A26339B0B008ECAC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955926339B0B008ECAC0 /* SceneDelegate.swift */; };
@@ -101,6 +102,7 @@
 		D4B5CD4F2635C35200521FC8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D4B5CD522635C43400521FC8 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		D4B5CD552635C49900521FC8 /* LoginViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelProtocol.swift; sourceTree = "<group>"; };
+		D4B6574727584F4200EF0596 /* UserItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemViewModel.swift; sourceTree = "<group>"; };
 		D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		D4D0955426339B0B008ECAC0 /* Snapchat Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapchat Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D0955726339B0B008ECAC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				D45594142751B48700B83179 /* UserListTableViewModel.swift */,
 				D45594162751B51A00B83179 /* UserListTableViewModelProtocol.swift */,
 				D45594182751B77900B83179 /* UserListEventType.swift */,
+				D4B6574727584F4200EF0596 /* UserItemViewModel.swift */,
 			);
 			path = "user-list";
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
 				D4A96055274193210095E636 /* SnapDetailViewModelProtocol.swift in Sources */,
+				D4B6574827584F4200EF0596 /* UserItemViewModel.swift in Sources */,
 				D480B1DC2636521D000A2318 /* EventData.swift in Sources */,
 				D4B5CD4C2635C30800521FC8 /* UserAuthentication.swift in Sources */,
 				D431392E275008F900DDAC81 /* MediaOptionsViewController.swift in Sources */,
