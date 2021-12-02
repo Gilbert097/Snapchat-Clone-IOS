@@ -21,7 +21,7 @@ public class HomeViewModel:NSObject, HomeViewModelProtocol {
     }
     
     func checkUserLogged() {
-        self.authenticationService.getUserAuthenticationState { (isUserLogged) in
+        self.authenticationService.registerUserAuthenticationState { (isUserLogged) in
             if isUserLogged {
                 self.output.value = .init(type: .navigationToMain)
             }
