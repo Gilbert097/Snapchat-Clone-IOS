@@ -22,8 +22,8 @@ class UserListTableViewModel: UserListTableViewModelProtocol{
     }
     
     func loadList(){
-        self.repository.registerObserveUser {[weak self] user in
-            guard let self = self else { return }
+        self.repository.registerObserveUsers {[weak self] user in
+            guard let self = self, let user = user else { return }
             self.users.append(.init(user: user))
             self.output.userListEvent.value = .reloadList
         }

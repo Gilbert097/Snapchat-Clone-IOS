@@ -44,6 +44,7 @@
 		D4B5CD532635C43400521FC8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD522635C43400521FC8 /* Event.swift */; };
 		D4B5CD562635C49900521FC8 /* LoginViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD552635C49900521FC8 /* LoginViewModelProtocol.swift */; };
 		D4B6574827584F4200EF0596 /* UserItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6574727584F4200EF0596 /* UserItemViewModel.swift */; };
+		D4B6574C2758EE3E00EF0596 /* AppReporitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6574B2758EE3E00EF0596 /* AppReporitory.swift */; };
 		D4B9A91C263755B600E83DD4 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */; };
 		D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955726339B0B008ECAC0 /* AppDelegate.swift */; };
 		D4D0955A26339B0B008ECAC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955926339B0B008ECAC0 /* SceneDelegate.swift */; };
@@ -103,6 +104,7 @@
 		D4B5CD522635C43400521FC8 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		D4B5CD552635C49900521FC8 /* LoginViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelProtocol.swift; sourceTree = "<group>"; };
 		D4B6574727584F4200EF0596 /* UserItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemViewModel.swift; sourceTree = "<group>"; };
+		D4B6574B2758EE3E00EF0596 /* AppReporitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReporitory.swift; sourceTree = "<group>"; };
 		D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		D4D0955426339B0B008ECAC0 /* Snapchat Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapchat Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D0955726339B0B008ECAC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -262,6 +264,23 @@
 			path = service;
 			sourceTree = "<group>";
 		};
+		D4B657492758EE1C00EF0596 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				D4E2012F274B2EFF0020B9B5 /* UserRepository.swift */,
+				D4E20131274B2F150020B9B5 /* UserRepositoryProtocol.swift */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		D4B6574A2758EE2C00EF0596 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				D4B6574B2758EE3E00EF0596 /* AppReporitory.swift */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
 		D4B9A9152637555400E83DD4 /* main */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,8 +348,8 @@
 		D4E2012B274B2C8A0020B9B5 /* repository */ = {
 			isa = PBXGroup;
 			children = (
-				D4E2012F274B2EFF0020B9B5 /* UserRepository.swift */,
-				D4E20131274B2F150020B9B5 /* UserRepositoryProtocol.swift */,
+				D4B6574A2758EE2C00EF0596 /* app */,
+				D4B657492758EE1C00EF0596 /* user */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -485,6 +504,7 @@
 				D4B5CD502635C35200521FC8 /* LoginViewModel.swift in Sources */,
 				D4313930275075A600DDAC81 /* MediaOptionsViewModel.swift in Sources */,
 				D4B9A91C263755B600E83DD4 /* MainTabBarViewController.swift in Sources */,
+				D4B6574C2758EE3E00EF0596 /* AppReporitory.swift in Sources */,
 				D4645BB9263A35AE002239C1 /* StoryCollectionViewCell.swift in Sources */,
 				D480B1F72637434E000A2318 /* HomeViewModel.swift in Sources */,
 				D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */,
