@@ -19,19 +19,24 @@ public class LoginViewModel: LoginViewModelProtocol {
     }
     
     func bind(input: Input) -> Output {
-        input.email.bind { self.email = $0 }
-        input.password.bind { self.password = $0 }
+        input.email.bind { [weak self] in self?.email = $0 }
+        input.password.bind { [weak self] in self?.password = $0 }
         return output
     }
     
     public func login() {
-        self.authenticationService.signIn(email: email, password: password) { (user, error) in
-            if user != nil {
-                self.output.value = .init(type: .navigationToMain, info: nil)
-            } else if let error = error {
-                self.output.value = .init(type: .showMessage, info: InfoAlertViewModel(title: "Error", message: error))
+        if !email.isEmpty && !password.isEmpty {
+            self.authenticationService.signIn(email: email, password: password) { [weak self] (userAuth, error) in
+                guard let self = self else { return }
+                if userAuth != nil {
+                    self.output.value = .init(type: .navigationToMain, info: nil)
+                } else if let error = error {
+                    self.output.value = .init(type: .showMessage, info: InfoAlertViewModel(title: "Error", message: error))
+                }
             }
+        } else {
+            output.value = .init(type: .showMessage, info: InfoAlertViewModel(title: "Error", message: "Email and password required!"))
         }
     }
-
+    
 }
