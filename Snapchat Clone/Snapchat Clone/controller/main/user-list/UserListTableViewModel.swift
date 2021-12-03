@@ -7,6 +7,7 @@
 
 import Foundation
 class UserListTableViewModel: UserListTableViewModelProtocol{
+    private static let TAG = "UserListTableViewModel"
     
     private let output: Output = (userSelected: .init(nil), userListEvent: .init(.none))
     private let repository: UserRepositoryProtocol
@@ -24,8 +25,13 @@ class UserListTableViewModel: UserListTableViewModelProtocol{
     func loadList(){
         self.repository.registerObserveUsers {[weak self] user in
             guard let self = self, let user = user else { return }
-            self.users.append(.init(user: user))
-            self.output.userListEvent.value = .reloadList
+            if let currentUser = AppRepository.shared.currentUser,
+               currentUser.id != user.id {
+                self.users.append(.init(user: user))
+                self.output.userListEvent.value = .reloadList
+            } else {
+                LogUtils.printMessage(tag: UserListTableViewModel.TAG, message: "User \(user.fullName) not added to list.")
+            }
         }
     }
 }
