@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import UIKit
 
 private extension String {
     static let operationNotAllowed = "Administrador desabilitou o logon com o provedor de identidade especificado."
@@ -19,6 +20,8 @@ private extension String {
 
 public class UserAuthenticationService: UserAuthenticationServiceProtocol {
     
+    private static let TAG = "UserAuthenticationService"
+    
     private enum Action{
         case signIn
         case createUser
@@ -28,17 +31,20 @@ public class UserAuthenticationService: UserAuthenticationServiceProtocol {
         email: String,
         password: String,
         completion: @escaping (String?, String?) -> Void
-    ){
+    ) {
+        LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "----> Start Create User <----")
         Auth.auth().createUser(withEmail: email, password: password) {
             [weak self] (authDataResult: AuthDataResult?, error: Error?) in
             guard let self = self else { return }
             
-            self.notify(
-                action: .signIn,
-                authDataResult: authDataResult,
-                error: error,
-                completion: completion
-            )
+            if let authDataResult = authDataResult {
+                LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "Create User Success!")
+                completion(authDataResult.user.uid, nil)
+            } else if let error = error {
+                LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "Create User Error -> \(error.localizedDescription)")
+                self.notifyError(action: .createUser, authDataError: error, completion: completion)
+            }
+            LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "----> Finish Create User <----")
         }
     }
     
@@ -47,16 +53,20 @@ public class UserAuthenticationService: UserAuthenticationServiceProtocol {
         password: String,
         completion: @escaping (String?, String?) -> Void
     ){
+        LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "----> Start SignIn <----")
         Auth.auth().signIn(withEmail: email, password: password) {
             [weak self] (authDataResult: AuthDataResult?, error: Error?) in
-            guard let self = self else { return }
             
-            self.notify(
-                action: .signIn,
-                authDataResult: authDataResult,
-                error: error,
-                completion: completion
-            )
+            guard let self = self else { return }
+           
+            if let authDataResult = authDataResult {
+                LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "SignIn Success!")
+                completion(authDataResult.user.uid, nil)
+            } else if let error = error {
+                LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "SignIn Error -> \(error.localizedDescription)")
+                self.notifyError(action: .signIn, authDataError: error, completion: completion)
+            }
+            LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "----> Finish SignIn <----")
         }
     }
     
@@ -64,20 +74,7 @@ public class UserAuthenticationService: UserAuthenticationServiceProtocol {
         do {
             try Auth.auth().signOut()
         } catch {
-            print("SignOut Error: \(error.localizedDescription)")
-        }
-    }
-    
-    private func notify(
-        action: Action,
-        authDataResult: AuthDataResult?,
-        error: Error?,
-        completion: @escaping (String?, String?) -> Void
-    ) {
-        if let authDataResult = authDataResult {
-            completion(authDataResult.user.uid, nil)
-        } else if let error = error {
-            notifyError(action: action, authDataError: error, completion: completion)
+            LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "SignOut Error -> \(error.localizedDescription)")
         }
     }
     
@@ -106,8 +103,7 @@ public class UserAuthenticationService: UserAuthenticationServiceProtocol {
         }
     }
     
-    private func getAuthenticationErrorMessage(error: NSError) -> String
-    {
+    private func getAuthenticationErrorMessage(error: NSError) -> String {
         switch AuthErrorCode(rawValue: error.code) {
         case .operationNotAllowed:
             return .operationNotAllowed
@@ -127,10 +123,10 @@ public class UserAuthenticationService: UserAuthenticationServiceProtocol {
             var isUserLogged = false
             if let user = user, let email = user.email {
                 isUserLogged = true
-                print("Usuário logado \(String(describing: email)).")
+                LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "Usuário logado \(String(describing: email)).")
             } else {
                 isUserLogged = false
-                print("Nenhum usuário logado!")
+                LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "Nenhum usuário logado!")
             }
             completion(isUserLogged)
         }

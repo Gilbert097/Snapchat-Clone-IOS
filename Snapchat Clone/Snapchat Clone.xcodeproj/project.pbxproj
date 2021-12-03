@@ -45,6 +45,7 @@
 		D4B5CD562635C49900521FC8 /* LoginViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B5CD552635C49900521FC8 /* LoginViewModelProtocol.swift */; };
 		D4B6574827584F4200EF0596 /* UserItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6574727584F4200EF0596 /* UserItemViewModel.swift */; };
 		D4B6574C2758EE3E00EF0596 /* AppReporitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6574B2758EE3E00EF0596 /* AppReporitory.swift */; };
+		D4B6574F2759958000EF0596 /* LogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B6574E2759958000EF0596 /* LogUtils.swift */; };
 		D4B9A91C263755B600E83DD4 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */; };
 		D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955726339B0B008ECAC0 /* AppDelegate.swift */; };
 		D4D0955A26339B0B008ECAC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D0955926339B0B008ECAC0 /* SceneDelegate.swift */; };
@@ -105,6 +106,7 @@
 		D4B5CD552635C49900521FC8 /* LoginViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelProtocol.swift; sourceTree = "<group>"; };
 		D4B6574727584F4200EF0596 /* UserItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemViewModel.swift; sourceTree = "<group>"; };
 		D4B6574B2758EE3E00EF0596 /* AppReporitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReporitory.swift; sourceTree = "<group>"; };
+		D4B6574E2759958000EF0596 /* LogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUtils.swift; sourceTree = "<group>"; };
 		D4B9A91B263755B600E83DD4 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		D4D0955426339B0B008ECAC0 /* Snapchat Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snapchat Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D0955726339B0B008ECAC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -281,6 +283,14 @@
 			path = app;
 			sourceTree = "<group>";
 		};
+		D4B6574D2759956E00EF0596 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				D4B6574E2759958000EF0596 /* LogUtils.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		D4B9A9152637555400E83DD4 /* main */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +324,7 @@
 		D4D0955626339B0B008ECAC0 /* Snapchat Clone */ = {
 			isa = PBXGroup;
 			children = (
+				D4B6574D2759956E00EF0596 /* util */,
 				D4E2012C274B2C950020B9B5 /* model */,
 				D4E2012B274B2C8A0020B9B5 /* repository */,
 				D4B5CD492635C2E400521FC8 /* service */,
@@ -497,6 +508,7 @@
 				D4035DC426351210002CC47C /* UIColorExtension.swift in Sources */,
 				D45594172751B51A00B83179 /* UserListTableViewModelProtocol.swift in Sources */,
 				D4171EFA2635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift in Sources */,
+				D4B6574F2759958000EF0596 /* LogUtils.swift in Sources */,
 				D43139362750781E00DDAC81 /* MediaType.swift in Sources */,
 				D480B1F0263742CC000A2318 /* HomeViewModelProtocol.swift in Sources */,
 				D4A96053274192F20095E636 /* SnapDetailViewModel.swift in Sources */,

@@ -11,6 +11,7 @@ import FirebaseDatabase
 class UserRepository: UserRepositoryProtocol{
     
     let users: DatabaseReference
+    private static let TAG = "UserRepository"
     
     init() {
         let database = Database.database().reference()
@@ -18,41 +19,44 @@ class UserRepository: UserRepositoryProtocol{
     }
     
     func insert(user: User, completion: @escaping (Bool) -> Void){
+        LogUtils.printMessage(tag: UserRepository.TAG, message: "----> Start Insert User <----")
         users.child(user.id).setValue(user.toDictionary()) { error, _ in
             let isSuccess = error != nil
             if !isSuccess {
                 print("Error creating user \(user.fullName)")
                 print("Error: \(String(describing: error?.localizedDescription))")
             }
+            LogUtils.printMessage(tag: UserRepository.TAG, message: "----> Finish Insert User <----")
             completion(isSuccess)
         }
     }
     
     func registerObserveUsers(completion: @escaping Completion){
-        users.observe(.childAdded) { [weak self] snapshot in
-            guard let self = self else { return }
-            self.notifyCompletion(snapshot: snapshot, completion: completion)
+        LogUtils.printMessage(tag: UserRepository.TAG, message: "----> Start Get Users <----")
+        users.observe(.childAdded) { snapshot in
+            if let data = snapshot.value as? NSDictionary{
+                let user = User.create(id: snapshot.key, dictionary: data)
+                LogUtils.printMessage(tag: UserRepository.TAG, message: "User -> \(user.toString())")
+                completion(user)
+            } else {
+                LogUtils.printMessage(tag: UserRepository.TAG, message: "Get Users Error -> Error get value snapshot!")
+                completion(nil)
+            }
         }
     }
     
     func registerObserveUser(id: String, completion: @escaping Completion) {
-        users.child(id).observeSingleEvent(of: .value) { [weak self] snapshot in
-            guard let self = self else { return }
-            self.notifyCompletion(snapshot: snapshot, completion: completion)
-        }
-    }
-    
-    private func notifyCompletion(
-        snapshot: DataSnapshot,
-        completion: @escaping Completion
-    ) {
-        if let data = snapshot.value as? NSDictionary{
-            let user = User.create(id: snapshot.key, dictionary: data)
-            print(user.toString())
-            completion(user)
-        } else {
-            print("Error get value snapshot!")
-            completion(nil)
+        LogUtils.printMessage(tag: UserRepository.TAG, message: "----> Start Get User <----")
+        users.child(id).observeSingleEvent(of: .value) {  snapshot in
+            if let data = snapshot.value as? NSDictionary{
+                let user = User.create(id: snapshot.key, dictionary: data)
+                LogUtils.printMessage(tag: UserRepository.TAG, message: "Get User Success -> \(user.toString())")
+                completion(user)
+            } else {
+                LogUtils.printMessage(tag: UserRepository.TAG, message: "Get User Error -> Error get value snapshot!")
+                completion(nil)
+            }
+            LogUtils.printMessage(tag: UserRepository.TAG, message: "----> Finish Get User <----")
         }
     }
     
