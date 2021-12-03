@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class HomeViewModel:NSObject, HomeViewModelProtocol {
+public class HomeViewModel:HomeViewModelProtocol {
     
     private let output = Event<EventData<HomeEventType>>(.init(type: .none))
     private let authenticationService: UserAuthenticationServiceProtocol
@@ -21,10 +21,10 @@ public class HomeViewModel:NSObject, HomeViewModelProtocol {
     }
     
     func checkUserLogged() {
-        self.authenticationService.registerUserAuthenticationState { (isUserLogged) in
+        self.authenticationService.registerUserAuthenticationState { [weak self] (isUserLogged) in
             //TODO[GIL] - Recuperar o usuário logado.
             if isUserLogged {
-                self.output.value = .init(type: .navigationToMain)
+                self?.output.value = .init(type: .navigationToMain)
             }
         }
     }
