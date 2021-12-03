@@ -23,6 +23,8 @@ protocol UserAuthenticationServiceProtocol {
     
     func signOut()
     
-    func registerUserAuthenticationState(completion: @escaping (Bool) -> Void)
+    func registerUserAuthenticationState(completion: @escaping (String?) -> Void)
+    
+    func removeUserAuthenticationState()
     
 }

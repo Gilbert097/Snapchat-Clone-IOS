@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import UIKit
+import FirebaseAuth
 
 private extension String {
     static let operationNotAllowed = "Administrador desabilitou o logon com o provedor de identidade especificado."
@@ -21,6 +22,7 @@ private extension String {
 public class UserAuthenticationService: UserAuthenticationServiceProtocol {
     
     private static let TAG = "UserAuthenticationService"
+    private var handlers: [AuthStateDidChangeListenerHandle] = []
     
     private enum Action{
         case signIn
@@ -58,7 +60,7 @@ public class UserAuthenticationService: UserAuthenticationServiceProtocol {
             [weak self] (authDataResult: AuthDataResult?, error: Error?) in
             
             guard let self = self else { return }
-           
+            
             if let authDataResult = authDataResult {
                 LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "SignIn Success!")
                 completion(authDataResult.user.uid, nil)
@@ -118,17 +120,25 @@ public class UserAuthenticationService: UserAuthenticationServiceProtocol {
         }
     }
     
-    public func registerUserAuthenticationState(completion: @escaping (Bool) -> Void) {
-        Auth.auth().addStateDidChangeListener { (firAuth, user) in
-            var isUserLogged = false
-            if let user = user, let email = user.email {
-                isUserLogged = true
-                LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "Usuário logado \(String(describing: email)).")
+    public func registerUserAuthenticationState(completion: @escaping (String?) -> Void) {
+        LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "----> Add state did change listener <----")
+        let handle = Auth.auth().addStateDidChangeListener { (firAuth, user) in
+            LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "----> Received state did change <----")
+            if let user = user{
+                LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "User logged \(String(describing: user.email)).")
+                completion(user.uid)
             } else {
-                isUserLogged = false
-                LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "Nenhum usuário logado!")
+                LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "No users logged in!")
+                completion(nil)
             }
-            completion(isUserLogged)
+        }
+        handlers.append(handle)
+    }
+    
+    public func removeUserAuthenticationState(){
+        handlers.forEach { handler in
+            LogUtils.printMessage(tag: UserAuthenticationService.TAG, message: "----> Remove state did change listener <----")
+            Auth.auth().removeStateDidChangeListener(handler)
         }
     }
     

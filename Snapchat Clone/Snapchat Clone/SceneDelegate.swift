@@ -29,7 +29,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let homeViewController = mainstoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        homeViewController.viewModel = HomeViewModel(authenticationService: UserAuthenticationService())
+        homeViewController.viewModel = HomeViewModel(
+            authenticationService: UserAuthenticationService(),
+            userRepository: UserRepository()
+        )
         window.rootViewController = UINavigationController(rootViewController: homeViewController)
         window.makeKeyAndVisible()
     }
