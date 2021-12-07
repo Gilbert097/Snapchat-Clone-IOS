@@ -34,7 +34,7 @@ class User {
     }
     
     static func create(id: String, dictionary: NSDictionary) -> User{
-        User(
+        .init(
             id: id,
             fullName: dictionary["fullName"] as? String ?? "",
             email: dictionary["email"] as? String ?? ""

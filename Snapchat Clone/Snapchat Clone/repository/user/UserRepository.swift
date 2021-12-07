@@ -23,8 +23,10 @@ class UserRepository: UserRepositoryProtocol{
         users.child(user.id).setValue(user.toDictionary()) { error, _ in
             let isSuccess = error != nil
             if !isSuccess {
-                print("Error creating user \(user.fullName)")
-                print("Error: \(String(describing: error?.localizedDescription))")
+                LogUtils.printMessage(
+                    tag: UserRepository.TAG,
+                    message: "Insert user error -> \(String(describing: error?.localizedDescription))"
+                )
             }
             LogUtils.printMessage(tag: UserRepository.TAG, message: "----> Finish Insert User <----")
             completion(isSuccess)
