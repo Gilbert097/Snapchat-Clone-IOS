@@ -8,9 +8,11 @@
 import Foundation
 protocol SnapListViewModelProtocol {
     
-    //typealias Input = (email: Dynamic<String>, password: Dynamic<String>)
     typealias Output = Event<EventData<SnapListEventType>>
     
     func bind() -> Output
+    
     func signOut()
+    
+    func loadSnaps()
 }

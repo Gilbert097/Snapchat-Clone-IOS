@@ -23,7 +23,10 @@ class MainTabBarViewController: UITabBarController {
             
             if let nvFirst = nv.viewControllers.last, nvFirst is SnapListTabViewController {
                 let snapListViewController = nvFirst as! SnapListTabViewController
-                snapListViewController.viewModel = SnapListViewModel(authenticationService: UserAuthenticationService())
+                snapListViewController.viewModel = SnapListViewModel(
+                    authenticationService: UserAuthenticationService(),
+                    snapRepository: SnapRepository()
+                )
             }
         }
     }

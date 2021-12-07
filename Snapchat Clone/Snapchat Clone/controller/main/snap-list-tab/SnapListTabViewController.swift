@@ -16,13 +16,15 @@ class SnapListTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.loadSnaps()
         manager.colors = [UIColor.red, UIColor.blue, UIColor.yellow]
         storieCollectionView.dataSource = manager
         storieCollectionView.delegate = manager
+        
         let output = viewModel.bind()
-        output.bind { data in
+        output.bind { [weak self] data in
             if data.type == .navigationToBack{
-                self.dismiss(animated: true, completion: nil)
+                self?.dismiss(animated: true, completion: nil)
             }
         }
     }

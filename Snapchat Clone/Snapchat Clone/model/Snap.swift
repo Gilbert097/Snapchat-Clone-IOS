@@ -7,6 +7,15 @@
 
 import Foundation
 
+private extension String {
+    static let id = "id"
+    static let from = "from"
+    static let nameUser = "nameUser"
+    static let description = "description"
+    static let urlImage = "urlImage"
+    static let nameImage = "nameImage"
+}
+
 class Snap {
     
     let id: String
@@ -33,16 +42,30 @@ class Snap {
     }
     
     func toDictionary()-> [String: String]{
-        ["from": from,
-         "nameUser": nameUser,
-         "description": description,
-         "urlImage": urlImage,
-         "nameImage": nameImage]
+        [.from: from,
+         .nameUser: nameUser,
+         .description: description,
+         .urlImage: urlImage,
+         .nameImage: nameImage]
     }
     
     func toString() -> String{
-        "id: \(self.id), \nfrom: \(self.from), \nnameUser: \(self.nameUser), \ndescription: \(self.description) " +
-        "\nurlImage: \(self.urlImage), \nnameImage: \(self.nameImage)"
-        
+        "id: \(self.id), " +
+        "from: \(self.from), " +
+        "nameUser: \(self.nameUser), " +
+        "description: \(self.description), " +
+        "urlImage: \(self.urlImage), " +
+        "nameImage: \(self.nameImage)"
+    }
+    
+    static func create(id: String, dictionary: NSDictionary) -> Snap {
+        .init(
+            id: id,
+            from: dictionary[String.from] as? String ?? "",
+            nameUser: dictionary[String.nameUser] as? String ?? "",
+            description: dictionary[String.description] as? String ?? "",
+            urlImage: dictionary[String.urlImage] as? String ?? "",
+            nameImage: dictionary[String.nameImage] as? String ?? ""
+        )
     }
 }

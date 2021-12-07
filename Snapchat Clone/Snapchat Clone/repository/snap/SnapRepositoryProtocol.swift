@@ -8,9 +8,15 @@
 import Foundation
 
 protocol SnapRepositoryProtocol {
+    
     func insert(
         userIdTarget: String,
         snap: Snap,
         completion: @escaping (Bool) -> Void
+    )
+    
+    func registerObserveSnapsByUserId(
+        userId: String,
+        completion: @escaping (Snap?)-> Void
     )
 }
