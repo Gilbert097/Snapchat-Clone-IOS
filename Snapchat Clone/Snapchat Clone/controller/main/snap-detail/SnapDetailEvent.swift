@@ -8,5 +8,6 @@
 import Foundation
 public enum SnapDetailEventType {
     case none
-    case showMessageUploadImage
+    case showMessageError
+    case showMessageSuccess
 }

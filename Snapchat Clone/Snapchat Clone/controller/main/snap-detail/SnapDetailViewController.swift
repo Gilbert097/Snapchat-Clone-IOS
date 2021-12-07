@@ -10,6 +10,8 @@ import FittedSheets
 
 class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    private static let TAG = "SnapDetailViewController"
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionTextField: UITextView!
     @IBOutlet weak var nextButton: RoundButton!
@@ -35,16 +37,27 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
     private func configureBind(){
         let output = viewModel.bind(input: input)
         output.bind { [weak self] (dynamicData) in
+            
+            guard
+                let self = self,
+                let alertViewModel = dynamicData.info as? InfoAlertViewModel
+            else {
+                LogUtils.printMessage(tag: SnapDetailViewController.TAG, message: "Error -> Bind values ​​are null!")
+                return
+            }
+            
             switch dynamicData.type {
-            case .showMessageUploadImage:
-                guard
-                    let self = self,
-                    let alertViewModel = dynamicData.info as? InfoAlertViewModel
-                else { return }
+            case .showMessageError:
                 self.updateNextButton(title: "Próximo")
                 AlertHelper.shared.showMessage(viewController: self, alertViewModel: alertViewModel)
                 return
-            case .none:
+            case .showMessageSuccess:
+                AlertHelper.shared.showMessage(viewController: self, alertViewModel: alertViewModel) { _ in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                return
+            default:
+                LogUtils.printMessage(tag: SnapDetailViewController.TAG, message: "Error -> Event not implemented!")
                 return
             }
         }

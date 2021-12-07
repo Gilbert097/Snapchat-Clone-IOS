@@ -54,18 +54,21 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
                     )
                     LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Snap -> \(snap.toString())")
                     self.snapRepository.insert(userIdTarget: userSelected.id, snap: snap) { isSnapSuccess in
-                        let alertViewModel: InfoAlertViewModel
                         if isSnapSuccess {
-                            alertViewModel = InfoAlertViewModel(title: "Success", message: "Create snap success!")
+                            self.output.value = .init(
+                                type: .showMessageSuccess,
+                                info: InfoAlertViewModel(title: "Success", message: "Create snap success!")
+                            )
                         } else {
-                            alertViewModel = InfoAlertViewModel(title: "Error", message: "Create snap erro!")
+                            self.output.value = .init(
+                                type: .showMessageError,
+                                info: InfoAlertViewModel(title: "Error", message: "Create snap erro!")
+                            )
                         }
-                        self.output.value = .init(type: .showMessageUploadImage, info: alertViewModel)
                     }
-                    
                 } else {
                     self.output.value = .init(
-                        type: .showMessageUploadImage,
+                        type: .showMessageError,
                         info: InfoAlertViewModel(title: "Error", message: "Upload Media Error!")
                     )
                 }
