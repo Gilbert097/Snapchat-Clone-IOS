@@ -77,7 +77,6 @@ public class SnapTableManager: NSObject, UITableViewDelegate, UITableViewDataSou
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SnapTableViewCell", for: indexPath) as? SnapTableViewCell {
             let snap = self.snapListViewModel.snaps[indexPath.row]
             cell.nameLabel?.text = snap.nameUser
-            cell.emailLabel?.text = snap.from
             return cell
         }
         

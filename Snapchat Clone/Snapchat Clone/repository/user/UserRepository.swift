@@ -21,7 +21,7 @@ class UserRepository: UserRepositoryProtocol{
     func insert(user: User, completion: @escaping (Bool) -> Void){
         LogUtils.printMessage(tag: UserRepository.TAG, message: "----> Start Insert User <----")
         users.child(user.id).setValue(user.toDictionary()) { error, _ in
-            let isSuccess = error != nil
+            let isSuccess = error == nil
             if !isSuccess {
                 LogUtils.printMessage(
                     tag: UserRepository.TAG,
