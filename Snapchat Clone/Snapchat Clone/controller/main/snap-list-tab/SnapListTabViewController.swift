@@ -9,22 +9,36 @@ import UIKit
 
 class SnapListTabViewController: UIViewController {
     
+    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
     
     let manager = StoryCollectionManager()
+    var tableManager: SnapTableManager!
     var viewModel: SnapListViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableManager = SnapTableManager(snapListViewModel: viewModel)
+        tableView.delegate = tableManager
+        tableView.dataSource = tableManager
+        
         viewModel.loadSnaps()
         manager.colors = [UIColor.red, UIColor.blue, UIColor.yellow]
         storieCollectionView.dataSource = manager
         storieCollectionView.delegate = manager
         
+     
         let output = viewModel.bind()
         output.bind { [weak self] data in
-            if data.type == .navigationToBack{
-                self?.dismiss(animated: true, completion: nil)
+            guard let self = self else { return }
+            switch data.type {
+            case .none:
+                return
+            case .navigationToBack:
+                self.dismiss(animated: true, completion: nil)
+            case .reloadSnapList:
+                self.tableView.reloadData()
             }
         }
     }
@@ -42,6 +56,33 @@ class SnapListTabViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+}
+
+public class SnapTableManager: NSObject, UITableViewDelegate, UITableViewDataSource {
+    
+    private let snapListViewModel: SnapListViewModelProtocol
+    
+    init(
+        snapListViewModel: SnapListViewModelProtocol
+    ){
+        self.snapListViewModel = snapListViewModel
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.snapListViewModel.snaps.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "SnapTableViewCell", for: indexPath) as? SnapTableViewCell {
+            let snap = self.snapListViewModel.snaps[indexPath.row]
+            cell.nameLabel?.text = snap.nameUser
+            cell.emailLabel?.text = snap.from
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
     
 }
 

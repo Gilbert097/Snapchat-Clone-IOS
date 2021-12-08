@@ -10,4 +10,5 @@ import Foundation
 public enum SnapListEventType {
     case none
     case navigationToBack
+    case reloadSnapList
 }

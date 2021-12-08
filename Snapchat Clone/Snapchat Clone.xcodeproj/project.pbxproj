@@ -27,6 +27,7 @@
 		D45594212754093D00B83179 /* MediaMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594202754093D00B83179 /* MediaMetadata.swift */; };
 		D4645BB5263A205D002239C1 /* SnapListTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */; };
 		D4645BB9263A35AE002239C1 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */; };
+		D475EEF02760E8DE00C91681 /* SnapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475EEEF2760E8DE00C91681 /* SnapTableViewCell.swift */; };
 		D480B1DC2636521D000A2318 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1DB2636521D000A2318 /* EventData.swift */; };
 		D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */; };
 		D480B1E926365ADE000A2318 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E826365ADE000A2318 /* AlertHelper.swift */; };
@@ -91,6 +92,7 @@
 		D45594202754093D00B83179 /* MediaMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaMetadata.swift; sourceTree = "<group>"; };
 		D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListTabViewController.swift; sourceTree = "<group>"; };
 		D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		D475EEEF2760E8DE00C91681 /* SnapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapTableViewCell.swift; sourceTree = "<group>"; };
 		D480B1DB2636521D000A2318 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
 		D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertViewModel.swift; sourceTree = "<group>"; };
 		D480B1E826365ADE000A2318 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
@@ -222,13 +224,30 @@
 		D4645BB3263A2036002239C1 /* snap-list-tab */ = {
 			isa = PBXGroup;
 			children = (
+				D475EEEE2760E8AB00C91681 /* snap-list */,
+				D475EEED2760E89700C91681 /* story-list */,
 				D4F4ACCC2716485200FF200F /* SnapListViewModelProtocol.swift */,
 				D4F4ACCA2716481B00FF200F /* SnapListViewModel.swift */,
 				D4F4ACC8271646CD00FF200F /* SnapListEventType.swift */,
 				D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */,
-				D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */,
 			);
 			path = "snap-list-tab";
+			sourceTree = "<group>";
+		};
+		D475EEED2760E89700C91681 /* story-list */ = {
+			isa = PBXGroup;
+			children = (
+				D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */,
+			);
+			path = "story-list";
+			sourceTree = "<group>";
+		};
+		D475EEEE2760E8AB00C91681 /* snap-list */ = {
+			isa = PBXGroup;
+			children = (
+				D475EEEF2760E8DE00C91681 /* SnapTableViewCell.swift */,
+			);
+			path = "snap-list";
 			sourceTree = "<group>";
 		};
 		D480B1DE263653AB000A2318 /* alert */ = {
@@ -548,6 +567,7 @@
 				D45594192751B77900B83179 /* UserListEventType.swift in Sources */,
 				D45594132751AC1300B83179 /* UserListTableViewController.swift in Sources */,
 				D4D095862633AB35008ECAC0 /* CreateAccountViewController.swift in Sources */,
+				D475EEF02760E8DE00C91681 /* SnapTableViewCell.swift in Sources */,
 				D455941D2753FB4C00B83179 /* MediaService.swift in Sources */,
 				D480B1E926365ADE000A2318 /* AlertHelper.swift in Sources */,
 				D4B657562759AB3200EF0596 /* SnapRepositoryProtocol.swift in Sources */,
