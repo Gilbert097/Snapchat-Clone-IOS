@@ -16,5 +16,5 @@ protocol SnapListViewModelProtocol {
     
     func loadSnaps()
     
-    var snaps: [Snap] { get }
+    var snaps: [SnapItemViewModel] { get }
 }

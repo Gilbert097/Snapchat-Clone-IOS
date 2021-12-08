@@ -28,6 +28,7 @@
 		D4645BB5263A205D002239C1 /* SnapListTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */; };
 		D4645BB9263A35AE002239C1 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */; };
 		D475EEF02760E8DE00C91681 /* SnapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475EEEF2760E8DE00C91681 /* SnapTableViewCell.swift */; };
+		D475EEF227616C0900C91681 /* SnapItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475EEF127616C0900C91681 /* SnapItemViewModel.swift */; };
 		D480B1DC2636521D000A2318 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1DB2636521D000A2318 /* EventData.swift */; };
 		D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */; };
 		D480B1E926365ADE000A2318 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E826365ADE000A2318 /* AlertHelper.swift */; };
@@ -93,6 +94,7 @@
 		D4645BB4263A205D002239C1 /* SnapListTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListTabViewController.swift; sourceTree = "<group>"; };
 		D4645BB8263A35AE002239C1 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D475EEEF2760E8DE00C91681 /* SnapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapTableViewCell.swift; sourceTree = "<group>"; };
+		D475EEF127616C0900C91681 /* SnapItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapItemViewModel.swift; sourceTree = "<group>"; };
 		D480B1DB2636521D000A2318 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
 		D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertViewModel.swift; sourceTree = "<group>"; };
 		D480B1E826365ADE000A2318 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				D475EEEF2760E8DE00C91681 /* SnapTableViewCell.swift */,
+				D475EEF127616C0900C91681 /* SnapItemViewModel.swift */,
 			);
 			path = "snap-list";
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				D4E20132274B2F150020B9B5 /* UserRepositoryProtocol.swift in Sources */,
 				D45594212754093D00B83179 /* MediaMetadata.swift in Sources */,
 				D4E20130274B2EFF0020B9B5 /* UserRepository.swift in Sources */,
+				D475EEF227616C0900C91681 /* SnapItemViewModel.swift in Sources */,
 				D4035DC426351210002CC47C /* UIColorExtension.swift in Sources */,
 				D45594172751B51A00B83179 /* UserListTableViewModelProtocol.swift in Sources */,
 				D4171EFA2635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift in Sources */,

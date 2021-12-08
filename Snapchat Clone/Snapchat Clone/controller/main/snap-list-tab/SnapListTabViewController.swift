@@ -75,14 +75,19 @@ public class SnapTableManager: NSObject, UITableViewDelegate, UITableViewDataSou
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SnapTableViewCell", for: indexPath) as? SnapTableViewCell {
-            let snap = self.snapListViewModel.snaps[indexPath.row]
-            cell.nameLabel?.text = snap.nameUser
+            let snapViewMode = self.snapListViewModel.snaps[indexPath.row]
+            cell.nameLabel?.text = snapViewMode.userName
+            cell.countLabel?.isHidden = snapViewMode.isVisible
+            cell.countLabel?.text = String(snapViewMode.count)
             return cell
         }
         
         return UITableViewCell()
     }
     
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 

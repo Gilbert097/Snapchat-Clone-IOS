@@ -13,7 +13,12 @@ public class SnapListViewModel: SnapListViewModelProtocol {
     private let output = Event<EventData<SnapListEventType>>(.init(type: .none))
     private let authenticationService: UserAuthenticationServiceProtocol
     private let snapRepository: SnapRepositoryProtocol
-    var snaps: [Snap] = []
+    var snaps: [SnapItemViewModel] {
+        get {
+            snapMap.map { $0.value }
+        }
+    }
+    private var snapMap: [String: SnapItemViewModel] = [:]
     
     init(
         authenticationService: UserAuthenticationServiceProtocol,
@@ -38,7 +43,13 @@ public class SnapListViewModel: SnapListViewModelProtocol {
                 if let self = self,
                     let snap = snap {
                     LogUtils.printMessage(tag: SnapListViewModel.TAG, message: "Snap received -> \(String(describing: snap.id))")
-                    self.snaps.append(snap)
+                    
+                    if let snapItemViewModel = self.snapMap[snap.nameUser] {
+                        snapItemViewModel.addSnap(snap: snap)
+                    } else {
+                        self.snapMap[snap.nameUser] = .init(userName: snap.nameUser, snap: snap)
+                    }
+                    
                     self.output.value = .init(type: .reloadSnapList)
                 }
             }
