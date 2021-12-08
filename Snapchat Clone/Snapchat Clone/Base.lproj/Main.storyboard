@@ -527,8 +527,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="snapTableView" destination="fba-S6-yGD" id="pq0-km-ROD"/>
                         <outlet property="storieCollectionView" destination="0Mq-wO-Dwn" id="ecX-qN-s6e"/>
-                        <outlet property="tableView" destination="fba-S6-yGD" id="pq0-km-ROD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xph-cs-a10" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

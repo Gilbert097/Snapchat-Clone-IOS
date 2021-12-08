@@ -10,18 +10,17 @@ import UIKit
 class SnapListTabViewController: UIViewController {
     
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var snapTableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
-    
-    let manager = StoryCollectionManager()
-    var tableManager: SnapTableManager!
     var viewModel: SnapListViewModelProtocol!
+    private let manager = StoryCollectionManager()
+    private var tableManager: SnapTableManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableManager = SnapTableManager(snapListViewModel: viewModel)
-        tableView.delegate = tableManager
-        tableView.dataSource = tableManager
+        snapTableView.delegate = tableManager
+        snapTableView.dataSource = tableManager
         
         viewModel.loadSnaps()
         manager.colors = [UIColor.red, UIColor.blue, UIColor.yellow]
@@ -38,7 +37,7 @@ class SnapListTabViewController: UIViewController {
             case .navigationToBack:
                 self.dismiss(animated: true, completion: nil)
             case .reloadSnapList:
-                self.tableView.reloadData()
+                self.snapTableView.reloadData()
             }
         }
     }
