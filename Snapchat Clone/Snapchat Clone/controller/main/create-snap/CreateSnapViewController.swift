@@ -8,17 +8,17 @@
 import UIKit
 import FittedSheets
 
-class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreateSnapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    private static let TAG = "SnapDetailViewController"
+    private static let TAG = "CreateSnapViewController"
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionTextField: UITextView!
     @IBOutlet weak var nextButton: RoundButton!
     
-    var viewModel: SnapDetailViewModelProtocol!
+    var viewModel: CreateSnapViewModelProtocol!
     private var imagePickerViewController = UIImagePickerController()
-    private let input: SnapDetailViewModelProtocol.Input = (
+    private let input: CreateSnapViewModelProtocol.Input = (
         userSelected: .init(nil),
         imageData: .init(nil),
         descriptionSnap: .init(nil)
@@ -42,7 +42,7 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
                 let self = self,
                 let alertViewModel = dynamicData.info as? InfoAlertViewModel
             else {
-                LogUtils.printMessage(tag: SnapDetailViewController.TAG, message: "Error -> Bind values ​​are null!")
+                LogUtils.printMessage(tag: CreateSnapViewController.TAG, message: "Error -> Bind values ​​are null!")
                 return
             }
             
@@ -57,7 +57,7 @@ class SnapDetailViewController: UIViewController, UIImagePickerControllerDelegat
                 }
                 return
             default:
-                LogUtils.printMessage(tag: SnapDetailViewController.TAG, message: "Error -> Event not implemented!")
+                LogUtils.printMessage(tag: CreateSnapViewController.TAG, message: "Error -> Event not implemented!")
                 return
             }
         }

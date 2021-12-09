@@ -8,13 +8,13 @@
 import Foundation
 import FirebaseStorage
 
-class SnapDetailViewModel: SnapDetailViewModelProtocol {
-    private static let TAG = "SnapDetailViewModel"
+class CreateSnapViewModel: CreateSnapViewModelProtocol {
+    private static let TAG = "CreateSnapViewModel"
     
     private var imageData: Data? = nil
     private var userSelected: UserItemViewModel? = nil
     private var description: String? = nil
-    private let output = Event<EventData<SnapDetailEventType>>(.init(type: .none))
+    private let output = Event<EventData<CreateSnapEventType>>(.init(type: .none))
     private let mediaService: MediaServiceProtocol
     private let snapRepository: SnapRepositoryProtocol
     
@@ -52,7 +52,7 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
                         urlImage: mediaMetadata.url,
                         nameImage: mediaMetadata.name
                     )
-                    LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Snap -> \(snap.toString())")
+                    LogUtils.printMessage(tag: CreateSnapViewModel.TAG, message: "Snap -> \(snap.toString())")
                     self.snapRepository.insert(userIdTarget: userSelected.id, snap: snap) { isSnapSuccess in
                         if isSnapSuccess {
                             self.output.value = .init(

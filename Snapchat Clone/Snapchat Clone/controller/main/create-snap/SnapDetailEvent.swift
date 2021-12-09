@@ -6,7 +6,7 @@
 //
 
 import Foundation
-public enum SnapDetailEventType {
+public enum CreateSnapEventType {
     case none
     case showMessageError
     case showMessageSuccess

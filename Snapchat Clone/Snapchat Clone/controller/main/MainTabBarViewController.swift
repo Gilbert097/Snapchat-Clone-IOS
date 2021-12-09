@@ -72,8 +72,8 @@ class MainTabBarViewController: UITabBarController {
     private func navigateSnapDetailController() {
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let snapDetailNavigation = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
-        let snapDetailViewController = snapDetailNavigation.viewControllers.first as! SnapDetailViewController
-        snapDetailViewController.viewModel = SnapDetailViewModel(
+        let snapDetailViewController = snapDetailNavigation.viewControllers.first as! CreateSnapViewController
+        snapDetailViewController.viewModel = CreateSnapViewModel(
             mediaService: MediaService(),
             snapRepository: SnapRepository()
         )

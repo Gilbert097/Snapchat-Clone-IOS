@@ -611,7 +611,7 @@
         <!--Snap-->
         <scene sceneID="usd-qK-lDI">
             <objects>
-                <viewController storyboardIdentifier="SnapDetailViewController" id="asC-NN-de0" customClass="SnapDetailViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SnapDetailViewController" id="asC-NN-de0" customClass="CreateSnapViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bnp-4o-dQZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
