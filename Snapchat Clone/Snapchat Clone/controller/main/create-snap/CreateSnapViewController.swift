@@ -14,7 +14,7 @@ class CreateSnapViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionTextField: UITextView!
-    @IBOutlet weak var nextButton: RoundButton!
+    @IBOutlet weak var nextButton: CustomRoundButton!
     
     var viewModel: CreateSnapViewModelProtocol!
     private var imagePickerViewController = UIImagePickerController()
@@ -96,7 +96,7 @@ class CreateSnapViewController: UIViewController, UIImagePickerControllerDelegat
         present(imagePickerViewController, animated: true, completion: nil)
     }
     
-    @IBAction func onNextButtonClick(_ sender: RoundButton) {
+    @IBAction func onNextButtonClick(_ sender: CustomRoundButton) {
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = mainstoryboard.instantiateViewController(withIdentifier: "UserListTableViewController") as! UserListTableViewController
         let userListViewModel = UserListTableViewModel(repository: UserRepository())

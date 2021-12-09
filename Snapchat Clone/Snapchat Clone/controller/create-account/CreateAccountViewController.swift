@@ -53,7 +53,7 @@ class CreateAccountViewController: HomeNavigationBaseViewController {
         }
     }
     
-    @IBAction func onCreateCountButtonClick(_ sender: RoundButton) {
+    @IBAction func onCreateCountButtonClick(_ sender: CustomRoundButton) {
         input.fullName.value = fullNameTextField.text!
         input.email.value = emailTextField.text!
         input.password.value = passwordTextField.text!

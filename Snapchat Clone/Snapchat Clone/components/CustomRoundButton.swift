@@ -1,14 +1,14 @@
 //
-//  RoundButton.swift
+//  CustomRoundButton.swift
 //  Snapchat Clone
 //
-//  Created by Gilberto Silva on 24/04/21.
+//  Created by Gilberto Silva on 09/12/21.
 //
 
 import UIKit
 
 @IBDesignable
-class RoundButton: UIButton {
+class CustomRoundButton: UIButton {
 
     @IBInspectable var cornerRadius: CGFloat = 0{
         didSet{

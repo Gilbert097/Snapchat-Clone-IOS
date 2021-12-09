@@ -21,8 +21,8 @@ public class LoginViewController: HomeNavigationBaseViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.text = "gilmar.ferreira@gmail.com"
-        passwordTextField.text = "Teologia123"
+        emailTextField.text = "gilberto.silva@gmail.com"
+        passwordTextField.text = "Android123"
         configureFilledTextField(textField: emailTextField)
         configureFilledTextField(textField: passwordTextField)
         configureBind()
@@ -43,7 +43,7 @@ public class LoginViewController: HomeNavigationBaseViewController {
         }
     }
     
-    @IBAction func loginButtonClick(_ sender: RoundButton) {
+    @IBAction func loginButtonClick(_ sender: CustomRoundButton) {
         input.email.value = emailTextField.text!
         input.password.value = passwordTextField.text!
         viewModel.login()
