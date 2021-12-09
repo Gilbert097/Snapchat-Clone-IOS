@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -134,7 +135,7 @@
                                         <color key="textColor" systemColor="linkColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh4-aZ-iBR" customClass="RoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh4-aZ-iBR" customClass="CustomRoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
                                         <rect key="frame" x="55" y="311" width="197" height="44"/>
                                         <color key="backgroundColor" red="0.72549019609999998" green="0.75294117650000003" blue="0.78039215689999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -276,7 +277,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lz-6X-mGl" customClass="RoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lz-6X-mGl" customClass="CustomRoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
                                         <rect key="frame" x="55" y="423" width="197" height="44"/>
                                         <color key="backgroundColor" red="0.64702248569999998" green="0.5118762255" blue="0.81384414429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -495,6 +496,7 @@
                                         <connections>
                                             <outlet property="countLabel" destination="tX6-U4-XDf" id="dQH-Pt-Ckl"/>
                                             <outlet property="nameLabel" destination="5Us-9d-lDa" id="Lp2-an-yIc"/>
+                                            <segue destination="MG0-S2-dTE" kind="presentation" modalPresentationStyle="automatic" id="fTl-NE-Ill"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -534,6 +536,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xph-cs-a10" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4885.6000000000004" y="379.16041979010498"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ObY-pZ-tvu">
+            <objects>
+                <viewController id="MG0-S2-dTE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bpy-rL-8mb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kD-MP-aQk" customClass="CustomRoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
+                                <rect key="frame" x="310" y="582" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.55294117649999996" green="0.36862745099999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Z3U-b3-xbt"/>
+                                    <constraint firstAttribute="height" constant="50" id="m8Z-8K-9eA"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <imageReference key="image" image="arrow.forward" catalog="system" symbolScale="large"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWu-t3-uTx" customClass="CustomRoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
+                                <rect key="frame" x="15" y="582" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.55294117649999996" green="0.36862745099999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="ILR-Hj-8zw"/>
+                                    <constraint firstAttribute="height" constant="50" id="cKm-cR-9AY"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <imageReference key="image" image="arrow.backward" catalog="system" symbolScale="large"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AlX-go-MAE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AlX-go-MAE" firstAttribute="bottom" secondItem="8kD-MP-aQk" secondAttribute="bottom" constant="15" id="1mn-M2-VS3"/>
+                            <constraint firstItem="bWu-t3-uTx" firstAttribute="leading" secondItem="AlX-go-MAE" secondAttribute="leading" constant="15" id="7er-hw-Coa"/>
+                            <constraint firstItem="AlX-go-MAE" firstAttribute="trailing" secondItem="8kD-MP-aQk" secondAttribute="trailing" constant="15" id="mud-3g-fpm"/>
+                            <constraint firstItem="AlX-go-MAE" firstAttribute="bottom" secondItem="bWu-t3-uTx" secondAttribute="bottom" constant="15" id="zcU-tj-xxy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gbr-DU-xle"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OAW-ND-WjW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5857" y="340"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="XAX-q7-CGT">
@@ -611,7 +685,7 @@
         <!--Snap-->
         <scene sceneID="usd-qK-lDI">
             <objects>
-                <viewController storyboardIdentifier="SnapDetailViewController" id="asC-NN-de0" customClass="CreateSnapViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateSnapViewController" id="asC-NN-de0" customClass="CreateSnapViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bnp-4o-dQZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -622,11 +696,11 @@
                                     <constraint firstAttribute="height" constant="370" id="w4q-Sx-yqG"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ys9-8U-dPg" customClass="RoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ys9-8U-dPg" customClass="CustomRoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
                                 <rect key="frame" x="89" y="603" width="197" height="44"/>
                                 <color key="backgroundColor" red="0.55294117649999996" green="0.36862745099999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="197" id="VzI-aE-Otl"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="197" id="VzI-aE-Otl"/>
                                     <constraint firstAttribute="height" constant="44" id="qPv-ED-gwF"/>
                                 </constraints>
                                 <state key="normal" title="Próximo">
@@ -679,6 +753,7 @@
                             <constraint firstItem="tGI-Iv-EkW" firstAttribute="top" secondItem="uJH-pF-17G" secondAttribute="top" constant="20" id="gl0-aa-Vvd"/>
                             <constraint firstItem="tGI-Iv-EkW" firstAttribute="trailing" secondItem="BpE-4j-9VA" secondAttribute="trailing" id="gma-VW-qt1"/>
                             <constraint firstItem="FKD-ZK-agb" firstAttribute="top" secondItem="tGI-Iv-EkW" secondAttribute="bottom" constant="20" id="jkY-fW-tA3"/>
+                            <constraint firstItem="uJH-pF-17G" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FKD-ZK-agb" secondAttribute="trailing" symbolic="YES" id="qCv-x2-flX"/>
                             <constraint firstItem="FKD-ZK-agb" firstAttribute="top" secondItem="tGI-Iv-EkW" secondAttribute="bottom" constant="20" id="wuk-lR-d28"/>
                             <constraint firstItem="Ys9-8U-dPg" firstAttribute="top" secondItem="BpE-4j-9VA" secondAttribute="bottom" constant="20" id="yOp-dn-WPl"/>
                             <constraint firstItem="tGI-Iv-EkW" firstAttribute="leading" secondItem="FKD-ZK-agb" secondAttribute="leading" id="zeV-Wl-TGB"/>
@@ -842,8 +917,14 @@
         <designable name="6lz-6X-mGl">
             <size key="intrinsicContentSize" width="33" height="30"/>
         </designable>
+        <designable name="8kD-MP-aQk">
+            <size key="intrinsicContentSize" width="24" height="22"/>
+        </designable>
         <designable name="Ys9-8U-dPg">
             <size key="intrinsicContentSize" width="56" height="30"/>
+        </designable>
+        <designable name="bWu-t3-uTx">
+            <size key="intrinsicContentSize" width="24" height="22"/>
         </designable>
         <designable name="gh4-aZ-iBR">
             <size key="intrinsicContentSize" width="38" height="30"/>
@@ -853,6 +934,8 @@
         <segue reference="ugY-DS-TFD"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="chat-menu-20x20" width="20" height="20"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
