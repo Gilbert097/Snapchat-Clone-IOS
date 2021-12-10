@@ -8,14 +8,28 @@
 import UIKit
 
 class SnapDetailViewController: UIViewController {
+    
+    @IBOutlet weak var nextButton: CustomRoundButton!
+    @IBOutlet weak var previousButton: CustomRoundButton!
+    @IBOutlet weak var snapImageView: UIImageView!
+    @IBOutlet weak var snapCountLabel: UILabel!
+    @IBOutlet weak var descriptionValueLabel: UILabel!
+    var viewModel: SnapDetailViewModelProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onNextButtonClick(_ sender: CustomRoundButton) {
+        
+    }
+    
+    @IBAction func onPreviousButtonClick(_ sender: CustomRoundButton) {
+    }
+    
+    @IBAction func onBackButtonClick(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
     /*
     // MARK: - Navigation
 
