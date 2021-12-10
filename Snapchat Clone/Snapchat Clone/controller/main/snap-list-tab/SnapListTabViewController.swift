@@ -18,7 +18,7 @@ class SnapListTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableManager = SnapTableManager(snapListViewModel: viewModel)
+        tableManager = SnapTableManager(snapListViewModel: viewModel, onItemSelected: self.onItemSelected)
         snapTableView.delegate = tableManager
         snapTableView.dataSource = tableManager
         
@@ -27,7 +27,7 @@ class SnapListTabViewController: UIViewController {
         storieCollectionView.dataSource = manager
         storieCollectionView.delegate = manager
         
-     
+        
         let output = viewModel.bind()
         output.bind { [weak self] data in
             guard let self = self else { return }
@@ -46,26 +46,34 @@ class SnapListTabViewController: UIViewController {
         viewModel.signOut()
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    private func onItemSelected(item: SnapItemViewModel){
+        self.performSegue(withIdentifier: "snapListToDetail", sender: item)
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        if identifier == "snapListToDetail",
+           let snapDetailViewController = segue.destination as? SnapDetailViewController,
+           let itemSelected = sender as? SnapItemViewModel
+        {
+            snapDetailViewController.viewModel = SnapDetailViewModel(snapItemViewModel: itemSelected)
+        }
+    }
     
 }
 
 public class SnapTableManager: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     private let snapListViewModel: SnapListViewModelProtocol
-    
+    private let onItemSelected: (SnapItemViewModel) -> Void
     init(
-        snapListViewModel: SnapListViewModelProtocol
+        snapListViewModel: SnapListViewModelProtocol,
+        onItemSelected: @escaping (SnapItemViewModel) -> Void
     ){
         self.snapListViewModel = snapListViewModel
+        self.onItemSelected = onItemSelected
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,10 +82,10 @@ public class SnapTableManager: NSObject, UITableViewDelegate, UITableViewDataSou
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SnapTableViewCell", for: indexPath) as? SnapTableViewCell {
-            let snapViewMode = self.snapListViewModel.snaps[indexPath.row]
-            cell.nameLabel?.text = snapViewMode.userName
-            cell.countLabel?.isHidden = snapViewMode.isVisible
-            cell.countLabel?.text = String(snapViewMode.count)
+            let snapViewModel = self.snapListViewModel.snaps[indexPath.row]
+            cell.nameLabel?.text = snapViewModel.userName
+            cell.countLabel?.isHidden = snapViewModel.isVisible
+            cell.countLabel?.text = String(snapViewModel.count)
             return cell
         }
         
@@ -86,6 +94,8 @@ public class SnapTableManager: NSObject, UITableViewDelegate, UITableViewDataSou
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let snapViewModel = self.snapListViewModel.snaps[indexPath.row]
+        self.onItemSelected(snapViewModel)
     }
 }
 

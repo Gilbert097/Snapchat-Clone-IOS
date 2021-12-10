@@ -7,6 +7,11 @@
 
 import Foundation
 
-class SnapDetailViewModel {
+class SnapDetailViewModel: SnapDetailViewModelProtocol {
     
+    let snapItemViewModel: SnapItemViewModel
+    
+    init(snapItemViewModel: SnapItemViewModel){
+        self.snapItemViewModel = snapItemViewModel
+    }
 }
