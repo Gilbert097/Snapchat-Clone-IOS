@@ -8,9 +8,13 @@
 import Foundation
 
 class SnapDetailViewModel: SnapDetailViewModelProtocol {
+    
+    private static let TAG = "SnapDetailViewModel"
+    
     private let output: Output =  (
         description: Event<String>(""),
         counterText: Event<String>(""),
+        urlImage: Event<String>(""),
         isNextButtonVisible: Event<Bool>(true),
         isPreviousButtonVisible: Event<Bool>(false),
         isCounterTextVisible: Event<Bool>(true)
@@ -23,8 +27,15 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
         self.snapItemViewModel = snapItemViewModel
     }
     
-    func bind() -> Output {
-        output
+    func bind(input: Input) -> Output {
+        input.bind { isDownloadImageSuccess in
+            if isDownloadImageSuccess {
+                LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Download image success!")
+            } else {
+                LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Download image error!")
+            }
+        }
+        return output
     }
     
     func loadSnapDetail(){
@@ -61,6 +72,7 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
     
     private func showSnap(){
         let snap = snapItemViewModel.snaps[index]
+        output.urlImage.value = snap.urlImage
         output.description.value = snap.description
         output.counterText.value = "\(index + 1) / \(snapItemViewModel.count)"
     }

@@ -12,14 +12,15 @@ protocol SnapDetailViewModelProtocol {
     typealias Output = (
         description: Event<String>,
         counterText: Event<String>,
+        urlImage: Event<String>,
         isNextButtonVisible: Event<Bool>,
         isPreviousButtonVisible: Event<Bool>,
         isCounterTextVisible: Event<Bool>
     )
     
-    //typealias Output = Event<EventData<CreateAccountEventType>>
+    typealias Input = Event<Bool>
     
-    func bind() -> Output
+    func bind(input: Input) -> Output
     
     func loadSnapDetail()
     

@@ -13,5 +13,6 @@ target 'Snapchat Clone' do
   pod 'MaterialComponents/TextControls+FilledTextAreas'
   pod 'MaterialComponents/TextControls+FilledTextFields'
   pod 'FittedSheets'
+  pod 'SDWebImage'
   # pod "FINNBottomSheet", git: "https://github.com/finn-no/BottomSheet.git"
 end

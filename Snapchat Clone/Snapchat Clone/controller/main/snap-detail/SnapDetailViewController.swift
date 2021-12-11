@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SnapDetailViewController: UIViewController {
+    private static let TAG = "SnapDetailViewController"
     
     @IBOutlet weak var nextButton: CustomRoundButton!
     @IBOutlet weak var previousButton: CustomRoundButton!
@@ -15,11 +17,12 @@ class SnapDetailViewController: UIViewController {
     @IBOutlet weak var snapCountLabel: UILabel!
     @IBOutlet weak var descriptionValueLabel: UILabel!
     var viewModel: SnapDetailViewModelProtocol!
-
+    private let input: SnapDetailViewModelProtocol.Input = Event<Bool>(false)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let output = viewModel.bind()
+        let output = viewModel.bind(input: input)
         output.description.bind { [weak self] description in
             self?.descriptionValueLabel.text = description
         }
@@ -40,6 +43,21 @@ class SnapDetailViewController: UIViewController {
             self?.snapCountLabel.isHidden = !isCounterTextVisible
         }
         
+        output.urlImage.bind { [weak self] urlImage in
+            LogUtils.printMessage(tag: SnapDetailViewController.TAG, message: "Url image received -> \(urlImage)")
+            LogUtils.printMessage(tag: SnapDetailViewController.TAG, message: "------> Start Download Image <------")
+            self?.snapImageView.sd_setImage(with: URL(string: urlImage)) { image, error, cacheType, url in
+                if let error = error {
+                    LogUtils.printMessage(tag: SnapDetailViewController.TAG, message: "Download image error -> \(error.localizedDescription)")
+                    self?.input.value = false
+                } else {
+                    LogUtils.printMessage(tag: SnapDetailViewController.TAG, message: "Download image success!")
+                    self?.input.value = true
+                }
+                LogUtils.printMessage(tag: SnapDetailViewController.TAG, message: "------> Finish Download Image <------")
+            }
+        }
+
         viewModel.loadSnapDetail()
     }
     

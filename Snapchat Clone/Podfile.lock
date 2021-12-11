@@ -131,6 +131,9 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (1.2.12)
+  - SDWebImage (5.12.1):
+    - SDWebImage/Core (= 5.12.1)
+  - SDWebImage/Core (5.12.1)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -140,6 +143,7 @@ DEPENDENCIES:
   - FittedSheets
   - "MaterialComponents/TextControls+FilledTextAreas"
   - "MaterialComponents/TextControls+FilledTextFields"
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -161,6 +165,7 @@ SPEC REPOS:
     - MDFInternationalization
     - nanopb
     - PromisesObjC
+    - SDWebImage
 
 SPEC CHECKSUMS:
   Firebase: fffddd0bab8677d07376538365faa93ff3889b39
@@ -181,7 +186,8 @@ SPEC CHECKSUMS:
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
 
-PODFILE CHECKSUM: f3f02c0ac9d946794a6c11580098df1816fbce59
+PODFILE CHECKSUM: 1dda64fac54e95e66479585b9e42f73687eb794f
 
 COCOAPODS: 1.11.2

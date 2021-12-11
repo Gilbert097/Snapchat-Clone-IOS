@@ -21,8 +21,6 @@ public class LoginViewController: HomeNavigationBaseViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.text = "gilberto.silva@gmail.com"
-        passwordTextField.text = "Android123"
         configureFilledTextField(textField: emailTextField)
         configureFilledTextField(textField: passwordTextField)
         configureBind()
