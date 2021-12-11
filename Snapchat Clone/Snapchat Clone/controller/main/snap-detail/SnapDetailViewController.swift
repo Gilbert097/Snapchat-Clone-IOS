@@ -18,13 +18,24 @@ class SnapDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let output = viewModel.bind()
+        output.description.bind { [weak self] description in
+            self?.descriptionValueLabel.text = description
+        }
+        
+        output.counterText.bind { [weak self] counterText in
+            self?.snapCountLabel.text = counterText
+        }
+        viewModel.loadSnapDetail()
     }
     
     @IBAction func onNextButtonClick(_ sender: CustomRoundButton) {
-        
+        viewModel.nextSnap()
     }
     
     @IBAction func onPreviousButtonClick(_ sender: CustomRoundButton) {
+        viewModel.previousSnap()
     }
     
     @IBAction func onBackButtonClick(_ sender: UIBarButtonItem) {

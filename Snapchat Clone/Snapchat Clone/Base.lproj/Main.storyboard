@@ -618,7 +618,7 @@
                                     <constraint firstAttribute="height" constant="44" id="uqj-rY-aQb"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="5Oq-OI-Bkx">
+                                    <navigationItem title="Snap Detail" id="5Oq-OI-Bkx">
                                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="Kco-Uv-F30">
                                             <connections>
                                                 <action selector="onBackButtonClick:" destination="MG0-S2-dTE" id="LW4-ep-b6a"/>
@@ -680,7 +680,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OAW-ND-WjW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5856.8000000000002" y="339.58020989505252"/>
+            <point key="canvasLocation" x="5873" y="378"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="XAX-q7-CGT">
