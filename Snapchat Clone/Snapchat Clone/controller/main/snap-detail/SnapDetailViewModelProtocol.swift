@@ -11,7 +11,10 @@ protocol SnapDetailViewModelProtocol {
     
     typealias Output = (
         description: Event<String>,
-        counterText: Event<String>
+        counterText: Event<String>,
+        isNextButtonVisible: Event<Bool>,
+        isPreviousButtonVisible: Event<Bool>,
+        isCounterTextVisible: Event<Bool>
     )
     
     //typealias Output = Event<EventData<CreateAccountEventType>>

@@ -27,6 +27,19 @@ class SnapDetailViewController: UIViewController {
         output.counterText.bind { [weak self] counterText in
             self?.snapCountLabel.text = counterText
         }
+        
+        output.isNextButtonVisible.bind { [weak self] isNextButtonVisible in
+            self?.nextButton.isHidden = !isNextButtonVisible
+        }
+        
+        output.isPreviousButtonVisible.bindAndFire { [weak self] isPreviousButtonVisible in
+            self?.previousButton.isHidden = !isPreviousButtonVisible
+        }
+        
+        output.isCounterTextVisible.bind { [weak self] isCounterTextVisible in
+            self?.snapCountLabel.isHidden = !isCounterTextVisible
+        }
+        
         viewModel.loadSnapDetail()
     }
     
