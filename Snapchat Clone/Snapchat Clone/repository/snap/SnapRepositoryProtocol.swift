@@ -15,7 +15,18 @@ protocol SnapRepositoryProtocol {
         completion: @escaping (Bool) -> Void
     )
     
-    func registerObserveSnapsByUserId(
+    func registerObserveSnapsAdded(
+        userId: String,
+        completion: @escaping (Snap?)-> Void
+    )
+    
+    func remove(
+        userId: String,
+        snap: Snap,
+        completion: @escaping (Bool) -> Void
+    )
+    
+    func registerObserveSnapsRemoved(
         userId: String,
         completion: @escaping (Snap?)-> Void
     )

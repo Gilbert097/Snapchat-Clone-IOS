@@ -28,9 +28,10 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
     }
     
     func bind(input: Input) -> Output {
-        input.bind { isDownloadImageSuccess in
+        input.bind {[weak self] isDownloadImageSuccess in
             if isDownloadImageSuccess {
                 LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Download image success!")
+                self?.deleteCurrentSnap()
             } else {
                 LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Download image error!")
             }
@@ -75,6 +76,10 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
         output.urlImage.value = snap.urlImage
         output.description.value = snap.description
         output.counterText.value = "\(index + 1) / \(snapItemViewModel.count)"
+    }
+    
+    private func deleteCurrentSnap() {
+        
     }
     
 }

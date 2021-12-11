@@ -13,13 +13,13 @@ class MediaService: MediaServiceProtocol{
     private static let TAG = "MediaService"
     
     func uploadImage(
-        path:String,
+        userId:String,
         imageData: Data,
         completion: @escaping (Bool, MediaMetadata?) -> Void
     ) {
         
         let storage = Storage.storage().reference()
-        let imagePath = storage.child("imagens").child(path)
+        let imagePath = storage.child("imagens").child(userId)
         let imageName = generateImageName()
         let imageReference = imagePath.child(imageName)
         
@@ -43,8 +43,8 @@ class MediaService: MediaServiceProtocol{
                         LogUtils.printMessage(tag: MediaService.TAG, message: "Media Metadata -> \(String(describing: mediaMetadata.toString()))")
                         completion(true, mediaMetadata)
                     } else {
-                        completion(false, nil)
                         LogUtils.printMessage(tag: MediaService.TAG, message: "Download URL Error -> \(urlError.debugDescription)")
+                        completion(false, nil)
                     }
                     LogUtils.printMessage(tag: MediaService.TAG, message: "------> Finish Download URL <------")
                 }
@@ -61,6 +61,28 @@ class MediaService: MediaServiceProtocol{
                 LogUtils.printMessage(tag: MediaService.TAG, message: "----------> completedUnitCount: \(String(describing: progress.completedUnitCount))")
             }
         }
+    }
+    
+    func deleteImage(
+        userId: String,
+        name: String,
+        completion: @escaping (Bool) -> Void
+    ){
+        let storage = Storage.storage().reference()
+        LogUtils.printMessage(tag: MediaService.TAG, message: "------> Start delete image <------")
+        storage.child("imagens")
+            .child(userId)
+            .child(name)
+            .delete { error in
+                if error == nil {
+                    LogUtils.printMessage(tag: MediaService.TAG, message: "Delete image success!")
+                    completion(true)
+                } else if let error = error {
+                    LogUtils.printMessage(tag: MediaService.TAG, message: "Delete image error -> \(error.localizedDescription)")
+                    completion(false)
+                }
+                LogUtils.printMessage(tag: MediaService.TAG, message: "------> Finish delete image <------")
+            }
     }
     
     private func generateImageName()-> String{

@@ -39,7 +39,7 @@ public class SnapListViewModel: SnapListViewModelProtocol {
     
     func loadSnaps(){
         if let currentUser = AppRepository.shared.currentUser {
-            self.snapRepository.registerObserveSnapsByUserId(userId: currentUser.id) { [weak self] snap in
+            self.snapRepository.registerObserveSnapsAdded(userId: currentUser.id) { [weak self] snap in
                 if let self = self,
                     let snap = snap {
                     LogUtils.printMessage(tag: SnapListViewModel.TAG, message: "Snap received -> \(String(describing: snap.id))")

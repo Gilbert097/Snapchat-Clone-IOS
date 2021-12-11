@@ -9,8 +9,14 @@ import Foundation
 
 protocol MediaServiceProtocol{
     func uploadImage(
-        path:String,
+        userId:String,
         imageData: Data,
         completion: @escaping (Bool, MediaMetadata?) -> Void 
+    )
+    
+    func deleteImage(
+        userId: String,
+        name: String,
+        completion: @escaping (Bool) -> Void
     )
 }
