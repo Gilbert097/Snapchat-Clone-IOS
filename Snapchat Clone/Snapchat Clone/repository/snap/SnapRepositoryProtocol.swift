@@ -20,7 +20,7 @@ protocol SnapRepositoryProtocol {
         completion: @escaping (Snap?)-> Void
     )
     
-    func remove(
+    func delete(
         userId: String,
         snap: Snap,
         completion: @escaping (Bool) -> Void

@@ -37,7 +37,7 @@ class CreateSnapViewModel: CreateSnapViewModelProtocol {
         if let imageData = imageData,
            let userSelected = userSelected {
             
-            mediaService.uploadImage(path: userSelected.id, imageData: imageData) { [weak self]  isSuccess, mediaMetadata in
+            mediaService.uploadImage(userId: userSelected.id, imageData: imageData) { [weak self]  isSuccess, mediaMetadata in
                 guard let self = self else { return }
                 
                 if isSuccess,

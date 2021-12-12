@@ -58,7 +58,11 @@ class SnapListTabViewController: UIViewController {
            let snapDetailViewController = segue.destination as? SnapDetailViewController,
            let itemSelected = sender as? SnapItemViewModel
         {
-            snapDetailViewController.viewModel = SnapDetailViewModel(snapItemViewModel: itemSelected)
+            snapDetailViewController.viewModel = SnapDetailViewModel(
+                snapItemViewModel: itemSelected,
+                snapRepository: SnapRepository(),
+                mediaService: MediaService()
+            )
         }
     }
     

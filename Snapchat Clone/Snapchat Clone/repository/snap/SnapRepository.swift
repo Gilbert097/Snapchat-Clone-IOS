@@ -42,7 +42,7 @@ class SnapRepository: SnapRepositoryProtocol {
             }
     }
     
-    func remove(
+    func delete(
         userId: String,
         snap: Snap,
         completion: @escaping (Bool) -> Void
