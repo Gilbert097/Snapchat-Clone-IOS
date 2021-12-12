@@ -22,7 +22,7 @@ class SnapListTabViewController: UIViewController {
         snapTableView.delegate = tableManager
         snapTableView.dataSource = tableManager
         
-        viewModel.loadSnaps()
+        viewModel.start()
         manager.colors = [UIColor.red, UIColor.blue, UIColor.yellow]
         storieCollectionView.dataSource = manager
         storieCollectionView.delegate = manager
@@ -49,8 +49,6 @@ class SnapListTabViewController: UIViewController {
     private func onItemSelected(item: SnapItemViewModel){
         self.performSegue(withIdentifier: "snapListToDetail", sender: item)
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }

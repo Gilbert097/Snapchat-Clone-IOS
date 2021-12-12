@@ -84,7 +84,7 @@ class SnapRepository: SnapRepositoryProtocol {
                     return
                 }
                 
-                let snap = Snap.create(id: snapshot.key, dictionary: value)
+                let snap = Snap.create(id: snapshot.key, dictionary: value, status: .created)
                 LogUtils.printMessage(tag: SnapRepository.TAG, message: "Snap Added -> \(snap.toString())")
                 completion(snap)
             }
@@ -106,7 +106,7 @@ class SnapRepository: SnapRepositoryProtocol {
                     return
                 }
                 
-                let snap = Snap.create(id: snapshot.key, dictionary: value)
+                let snap = Snap.create(id: snapshot.key, dictionary: value, status: .deleted)
                 LogUtils.printMessage(tag: SnapRepository.TAG, message: "Snap Removed -> \(snap.toString())")
                 completion(snap)
             }

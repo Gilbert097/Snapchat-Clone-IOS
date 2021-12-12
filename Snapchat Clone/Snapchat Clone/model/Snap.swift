@@ -68,7 +68,7 @@ class Snap {
         "nameImage: \(self.nameImage)"
     }
     
-    static func create(id: String, dictionary: NSDictionary) -> Snap {
+    static func create(id: String, dictionary: NSDictionary, status: SyncStatus) -> Snap {
         .init(
             id: id,
             from: dictionary[String.from] as? String ?? "",
@@ -76,7 +76,7 @@ class Snap {
             description: dictionary[String.description] as? String ?? "",
             urlImage: dictionary[String.urlImage] as? String ?? "",
             nameImage: dictionary[String.nameImage] as? String ?? "",
-            status: .created
+            status: status
         )
     }
 }

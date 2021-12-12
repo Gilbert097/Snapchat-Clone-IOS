@@ -14,7 +14,7 @@ protocol SnapListViewModelProtocol {
     
     func signOut()
     
-    func loadSnaps()
+    func start()
     
     var snaps: [SnapItemViewModel] { get }
 }
