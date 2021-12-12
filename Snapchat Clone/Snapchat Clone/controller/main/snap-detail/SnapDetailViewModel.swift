@@ -89,26 +89,35 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
     private func deleteCurrentSnap() {
         if let user = AppRepository.shared.currentUser {
             let snap = snapItemViewModel.snaps[index]
-            LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "----> Start delete snap <----")
-            LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Current snap -> Id: \(snap.id), Description: \(snap.description)")
-            snapRepository.delete(userId: user.id, snap: snap) { [weak self] isSnapDeleted in
-                if isSnapDeleted {
-                    LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Delete snap success!")
-                    guard let self = self else { return }
-                    LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "----> Start delete image <----")
-                    LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Current Image -> \(snap.nameImage)")
-                    self.mediaService.deleteImage(userId: user.id, name: snap.nameImage) { isImageDeleted in
-                        if isImageDeleted {
-                            LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Image successfully deleted!")
-                        } else {
-                            LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Error deleting image!")
+            let isDelete = snap.status != .pending && snap.status != .deleted
+            if isDelete {
+                LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "----> Start delete snap <----")
+                LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Current snap -> Id: \(snap.id), Description: \(snap.description)")
+                snap.status = .pending
+                snapRepository.delete(userId: user.id, snap: snap) { [weak self] isSnapDeleted in
+                    if isSnapDeleted {
+                        snap.status = .deleted
+                        LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Delete snap success!")
+                        guard let self = self else { return }
+                        LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "----> Start delete image <----")
+                        LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Current Image -> \(snap.nameImage)")
+                        self.mediaService.deleteImage(userId: user.id, name: snap.nameImage) { isImageDeleted in
+                            if isImageDeleted {
+                                LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Image successfully deleted!")
+                            } else {
+                                LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Error deleting image!")
+                            }
+                            LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "----> Finish delete image <----")
                         }
-                        LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "----> Finish delete image <----")
+                    } else {
+                        snap.status = .error
+                        LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Delete snap error!")
                     }
-                } else {
-                    LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Delete snap error!")
+                    LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "----> Finish delete snap <----")
                 }
-                LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "----> Finish delete snap <----")
+            } else {
+                LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Snap has already been deleted!")
+                LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Current snap -> Id: \(snap.id), Description: \(snap.description)")
             }
         }
     }

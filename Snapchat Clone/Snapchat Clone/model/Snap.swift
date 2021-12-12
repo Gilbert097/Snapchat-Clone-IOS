@@ -16,6 +16,13 @@ private extension String {
     static let nameImage = "nameImage"
 }
 
+enum SyncStatus {
+    case pending
+    case created
+    case deleted
+    case error
+}
+
 class Snap {
     
     let id: String
@@ -24,6 +31,7 @@ class Snap {
     let description: String
     let urlImage: String
     let nameImage: String
+    var status: SyncStatus
     
     init(
         id: String,
@@ -31,7 +39,8 @@ class Snap {
         nameUser: String,
         description: String,
         urlImage: String,
-        nameImage: String
+        nameImage: String,
+        status: SyncStatus
     ) {
         self.id = id
         self.from = from
@@ -39,6 +48,7 @@ class Snap {
         self.description = description
         self.urlImage = urlImage
         self.nameImage = nameImage
+        self.status = status
     }
     
     func toDictionary()-> [String: String]{
@@ -65,7 +75,8 @@ class Snap {
             nameUser: dictionary[String.nameUser] as? String ?? "",
             description: dictionary[String.description] as? String ?? "",
             urlImage: dictionary[String.urlImage] as? String ?? "",
-            nameImage: dictionary[String.nameImage] as? String ?? ""
+            nameImage: dictionary[String.nameImage] as? String ?? "",
+            status: .created
         )
     }
 }

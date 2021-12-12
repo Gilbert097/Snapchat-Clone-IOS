@@ -50,16 +50,19 @@ class CreateSnapViewModel: CreateSnapViewModelProtocol {
                         nameUser: userSource.fullName,
                         description: self.description ?? "",
                         urlImage: mediaMetadata.url,
-                        nameImage: mediaMetadata.name
+                        nameImage: mediaMetadata.name,
+                        status: .pending
                     )
                     LogUtils.printMessage(tag: CreateSnapViewModel.TAG, message: "Snap -> \(snap.toString())")
                     self.snapRepository.insert(userIdTarget: userSelected.id, snap: snap) { isSnapSuccess in
                         if isSnapSuccess {
+                            snap.status = .created
                             self.output.value = .init(
                                 type: .showMessageSuccess,
                                 info: InfoAlertViewModel(title: "Success", message: "Create snap success!")
                             )
                         } else {
+                            snap.status = .error
                             self.output.value = .init(
                                 type: .showMessageError,
                                 info: InfoAlertViewModel(title: "Error", message: "Create snap erro!")
