@@ -16,5 +16,7 @@ protocol SnapListViewModelProtocol {
     
     func start()
     
+    func deleteItem(item: SnapItemViewModel)
+    
     var snaps: [SnapItemViewModel] { get }
 }

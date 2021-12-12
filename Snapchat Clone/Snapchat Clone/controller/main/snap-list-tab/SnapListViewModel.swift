@@ -42,6 +42,18 @@ public class SnapListViewModel: SnapListViewModelProtocol {
         output.value = .init(type: .navigationToBack)
     }
     
+    func deleteItem(item: SnapItemViewModel) {
+        if let currentUser = AppRepository.shared.currentUser {
+            snapRepository.deleteAll(userId: currentUser.id, snaps: item.snaps) { isSuccess in
+                if isSuccess {
+                    LogUtils.printMessage(tag: SnapListViewModel.TAG, message: "Remove all snap success!")
+                } else {
+                    LogUtils.printMessage(tag: SnapListViewModel.TAG, message: "Remove all snap error!")
+                }
+            }
+        }
+    }
+    
     private func registerObserveSnapsRemoved() {
         if let currentUser = AppRepository.shared.currentUser {
             snapRepository.registerObserveSnapsRemoved(userId: currentUser.id) { [weak self] snap in

@@ -68,6 +68,43 @@ class SnapRepository: SnapRepositoryProtocol {
             }
     }
     
+    func deleteAll(
+        userId: String,
+        snaps: [Snap],
+        completion: @escaping (Bool) -> Void
+    ) {
+        let queue = DispatchQueue.global(qos: .userInitiated)
+        let semaphore = DispatchSemaphore(value: 1)
+        
+        LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Start remove all snaps <----")
+        var countSuccess = 0
+        let count = snaps.count
+        var countProcess = 0
+        queue.async { [weak self] in
+            guard let self = self else { return }
+            for snap in snaps {
+                _ = semaphore.wait(timeout: .now() + 10)
+                
+                self.delete(userId: userId, snap: snap) { isSnapDeletedSuccess in
+                    countProcess+=1
+                    if isSnapDeletedSuccess {
+                        LogUtils.printMessage(tag: SnapRepository.TAG, message: "deleteAll -> \(snap.id) deleted!")
+                        countSuccess+=1
+                        LogUtils.printMessage(tag: SnapRepository.TAG, message: "deleteAll -> countSuccess: \(countSuccess), count: \(count)")
+                    } else {
+                        LogUtils.printMessage(tag: SnapRepository.TAG, message: "deleteAll -> \(snap.id) deleted error!")
+                    }
+                    
+                    semaphore.signal()
+                    if countProcess == count {
+                        LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Finish remove all snaps <----")
+                        completion(countSuccess == count)
+                    }
+                }
+            }
+        }
+    }
+    
     func registerObserveSnapsAdded(
         userId: String,
         completion: @escaping (Snap?)-> Void

@@ -8,7 +8,7 @@
 import UIKit
 
 class SnapListTabViewController: UIViewController {
-    
+    private static let TAG = "SnapListTabViewController"
     
     @IBOutlet weak var snapTableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
@@ -67,7 +67,7 @@ class SnapListTabViewController: UIViewController {
 }
 
 public class SnapTableManager: NSObject, UITableViewDelegate, UITableViewDataSource {
-    
+    private static let TAG = "SnapTableManager"
     private let snapListViewModel: SnapListViewModelProtocol
     private let onItemSelected: (SnapItemViewModel) -> Void
     init(
@@ -92,6 +92,14 @@ public class SnapTableManager: NSObject, UITableViewDelegate, UITableViewDataSou
         }
         
         return UITableViewCell()
+    }
+    
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            LogUtils.printMessage(tag: SnapTableManager.TAG, message: "Delete event executed.")
+            let snapViewModel = self.snapListViewModel.snaps[indexPath.row]
+            snapListViewModel.deleteItem(item: snapViewModel)
+        }
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
