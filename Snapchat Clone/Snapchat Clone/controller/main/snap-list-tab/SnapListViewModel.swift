@@ -33,7 +33,7 @@ public class SnapListViewModel: SnapListViewModelProtocol {
     }
     
     func start(){
-        loadSnaps()
+        registerObserveSnapsAdded()
         registerObserveSnapsRemoved()
     }
     
@@ -69,13 +69,13 @@ public class SnapListViewModel: SnapListViewModelProtocol {
                         }
                     }
                 } else {
-                    LogUtils.printMessage(tag: SnapListViewModel.TAG, message: "Error getting snap removed")   
+                    LogUtils.printMessage(tag: SnapListViewModel.TAG, message: "Error getting snap removed")
                 }
             }
         }
     }
     
-    private func loadSnaps(){
+    private func registerObserveSnapsAdded(){
         if let currentUser = AppRepository.shared.currentUser {
             self.snapRepository.registerObserveSnapsAdded(userId: currentUser.id) { [weak self] snap in
                 if let self = self,
