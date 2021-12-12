@@ -9,9 +9,10 @@ import Foundation
 
 protocol SnapRepositoryProtocol {
     
-    func insert(
-        userIdTarget: String,
-        snap: Snap,
+    func createSnap(
+        userTarget: String,
+        description: String,
+        imageData: Data,
         completion: @escaping (Bool) -> Void
     )
     

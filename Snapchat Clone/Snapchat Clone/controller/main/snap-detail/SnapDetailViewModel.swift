@@ -22,17 +22,14 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
     
     private let snapItemViewModel: SnapItemViewModel
     private let snapRepository: SnapRepositoryProtocol
-    private let mediaService: MediaServiceProtocol
     private var index = 0
     
     init(
         snapItemViewModel: SnapItemViewModel,
-        snapRepository: SnapRepositoryProtocol,
-        mediaService: MediaServiceProtocol
+        snapRepository: SnapRepositoryProtocol
     ){
         self.snapItemViewModel = snapItemViewModel
         self.snapRepository = snapRepository
-        self.mediaService = mediaService
     }
     
     func bind(input: Input) -> Output {
@@ -94,21 +91,11 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
                 LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "----> Start delete snap <----")
                 LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Current snap -> Id: \(snap.id), Description: \(snap.description)")
                 snap.status = .pending
-                snapRepository.delete(userId: user.id, snap: snap) { [weak self] isSnapDeleted in
+                snapRepository.delete(userId: user.id, snap: snap) { isSnapDeleted in
                     if isSnapDeleted {
                         snap.status = .deleted
                         LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Delete snap success!")
-                        guard let self = self else { return }
-                        LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "----> Start delete image <----")
-                        LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Current Image -> \(snap.nameImage)")
-                        self.mediaService.deleteImage(userId: user.id, name: snap.nameImage) { isImageDeleted in
-                            if isImageDeleted {
-                                LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Image successfully deleted!")
-                            } else {
-                                LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Error deleting image!")
-                            }
-                            LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "----> Finish delete image <----")
-                        }
+                        
                     } else {
                         snap.status = .error
                         LogUtils.printMessage(tag: SnapDetailViewModel.TAG, message: "Delete snap error!")

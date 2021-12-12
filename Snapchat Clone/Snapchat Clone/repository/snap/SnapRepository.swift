@@ -12,12 +12,49 @@ class SnapRepository: SnapRepositoryProtocol {
     
     let database: DatabaseReference
     private static let TAG = "SnapRepository"
+    private let mediaService: MediaServiceProtocol
     
-    init() {
+    init(mediaService: MediaServiceProtocol) {
+        self.mediaService = mediaService
         database = Database.database().reference()
     }
     
-    func insert(
+    func createSnap(
+        userTarget: String,
+        description: String,
+        imageData: Data,
+        completion: @escaping (Bool) -> Void
+    ){
+        mediaService.uploadImage(userId: userTarget, imageData: imageData) { [weak self]  isSuccess, mediaMetadata in
+            guard let self = self else { return }
+            
+            if isSuccess,
+                let mediaMetadata = mediaMetadata,
+                let userSource = AppRepository.shared.currentUser {
+                LogUtils.printMessage(tag: SnapRepository.TAG, message: "Upload image success!")
+                let snap = Snap(
+                    id: UUID().uuidString,
+                    from: userSource.email,
+                    nameUser: userSource.fullName,
+                    description: description,
+                    urlImage: mediaMetadata.url,
+                    nameImage: mediaMetadata.name,
+                    status: .pending
+                )
+                LogUtils.printMessage(tag: SnapRepository.TAG, message: "Snap -> \(snap.toString())")
+                self.insert(userIdTarget: userTarget, snap: snap) { isSnapSuccess in
+                    snap.status = isSnapSuccess ? .created : .error
+                    completion(isSnapSuccess)
+                }
+            } else {
+                LogUtils.printMessage(tag: SnapRepository.TAG, message: "Upload image error!")
+                completion(false)
+            }
+        }
+    }
+    
+    
+   private func insert(
         userIdTarget: String,
         snap: Snap,
         completion: @escaping (Bool) -> Void
@@ -52,18 +89,31 @@ class SnapRepository: SnapRepositoryProtocol {
             .child(userId)
             .child("snaps")
             .child(snap.id)
-            .removeValue { error, _ in
-                if let error = error {
+            .removeValue { [weak self] error, _ in
+                
+                if error == nil {
+                    LogUtils.printMessage(tag: SnapRepository.TAG, message: "Remove snap success!")
+                    completion(true)
+                    
+                    guard let self = self else { return }
+                    LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Start delete image <----")
+                    LogUtils.printMessage(tag: SnapRepository.TAG, message: "Snap Image -> \(snap.nameImage)")
+                    self.mediaService.deleteImage(userId: userId, name: snap.nameImage) { isImageDeleted in
+                        if isImageDeleted {
+                            LogUtils.printMessage(tag: SnapRepository.TAG, message: "Image successfully deleted!")
+                        } else {
+                            //TODO[GIL] - Armazenar imagens que deram erro na deleção no UserDefault para deletar posteriormente.
+                            LogUtils.printMessage(tag: SnapRepository.TAG, message: "Error deleting image!")
+                        }
+                        LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Finish delete image <----")
+                    }
+                } else if let error = error {
                     LogUtils.printMessage(
                         tag: SnapRepository.TAG,
                         message: "Remove snap error -> \(String(describing: error.localizedDescription))"
                     )
                     completion(false)
-                } else {
-                    LogUtils.printMessage(tag: SnapRepository.TAG, message: "Remove snap success!")
-                    completion(true)
                 }
-                
                 LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Finish remove snap <----")
             }
     }
@@ -92,7 +142,7 @@ class SnapRepository: SnapRepositoryProtocol {
                         countSuccess+=1
                         LogUtils.printMessage(tag: SnapRepository.TAG, message: "deleteAll -> countSuccess: \(countSuccess), count: \(count)")
                     } else {
-                        LogUtils.printMessage(tag: SnapRepository.TAG, message: "deleteAll -> \(snap.id) deleted error!")
+                        LogUtils.printMessage(tag: SnapRepository.TAG, message: "deleteAll -> \(snap.id) delete error!")
                     }
                     
                     semaphore.signal()

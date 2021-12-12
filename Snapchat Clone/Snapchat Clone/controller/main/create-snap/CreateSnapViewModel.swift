@@ -15,14 +15,9 @@ class CreateSnapViewModel: CreateSnapViewModelProtocol {
     private var userSelected: UserItemViewModel? = nil
     private var description: String? = nil
     private let output = Event<EventData<CreateSnapEventType>>(.init(type: .none))
-    private let mediaService: MediaServiceProtocol
     private let snapRepository: SnapRepositoryProtocol
     
-    init(
-        mediaService: MediaServiceProtocol,
-        snapRepository: SnapRepositoryProtocol
-    ) {
-        self.mediaService = mediaService
+    init( snapRepository: SnapRepositoryProtocol) {
         self.snapRepository = snapRepository
     }
     
@@ -36,47 +31,26 @@ class CreateSnapViewModel: CreateSnapViewModelProtocol {
     func uploadImage() {
         if let imageData = imageData,
            let userSelected = userSelected {
-            
-            mediaService.uploadImage(userId: userSelected.id, imageData: imageData) { [weak self]  isSuccess, mediaMetadata in
-                guard let self = self else { return }
-                
-                if isSuccess,
-                    let mediaMetadata = mediaMetadata,
-                    let userSource = AppRepository.shared.currentUser {
-                    
-                    let snap = Snap(
-                        id: UUID().uuidString,
-                        from: userSource.email,
-                        nameUser: userSource.fullName,
-                        description: self.description ?? "",
-                        urlImage: mediaMetadata.url,
-                        nameImage: mediaMetadata.name,
-                        status: .pending
-                    )
-                    LogUtils.printMessage(tag: CreateSnapViewModel.TAG, message: "Snap -> \(snap.toString())")
-                    self.snapRepository.insert(userIdTarget: userSelected.id, snap: snap) { isSnapSuccess in
-                        if isSnapSuccess {
-                            snap.status = .created
-                            self.output.value = .init(
-                                type: .showMessageSuccess,
-                                info: InfoAlertViewModel(title: "Success", message: "Create snap success!")
-                            )
-                        } else {
-                            snap.status = .error
-                            self.output.value = .init(
-                                type: .showMessageError,
-                                info: InfoAlertViewModel(title: "Error", message: "Create snap erro!")
-                            )
-                        }
+            snapRepository.createSnap(
+                userTarget: userSelected.id,
+                description: self.description ?? "",
+                imageData: imageData
+            ) { isCreateSnapSuccess in
+                    if isCreateSnapSuccess {
+                        LogUtils.printMessage(tag: CreateSnapViewModel.TAG, message: "Create snap success!")
+                        self.output.value = .init(
+                            type: .showMessageSuccess,
+                            info: InfoAlertViewModel(title: "Success", message: "Create snap success!")
+                        )
+                    } else {
+                        LogUtils.printMessage(tag: CreateSnapViewModel.TAG, message: "Create snap erro!")
+                        self.output.value = .init(
+                            type: .showMessageError,
+                            info: InfoAlertViewModel(title: "Error", message: "Create snap erro!")
+                        )
                     }
-                } else {
-                    self.output.value = .init(
-                        type: .showMessageError,
-                        info: InfoAlertViewModel(title: "Error", message: "Upload Media Error!")
-                    )
                 }
-               
-            }
+            
         }
     }
 }

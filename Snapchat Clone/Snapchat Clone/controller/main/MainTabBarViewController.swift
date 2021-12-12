@@ -25,7 +25,7 @@ class MainTabBarViewController: UITabBarController {
                 let snapListViewController = nvFirst as! SnapListTabViewController
                 snapListViewController.viewModel = SnapListViewModel(
                     authenticationService: UserAuthenticationService(),
-                    snapRepository: SnapRepository()
+                    snapRepository: SnapRepository(mediaService: MediaService())
                 )
             }
         }
@@ -74,8 +74,7 @@ class MainTabBarViewController: UITabBarController {
         let snapDetailNavigation = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
         let snapDetailViewController = snapDetailNavigation.viewControllers.first as! CreateSnapViewController
         snapDetailViewController.viewModel = CreateSnapViewModel(
-            mediaService: MediaService(),
-            snapRepository: SnapRepository()
+            snapRepository: SnapRepository(mediaService: MediaService())
         )
         self.present(snapDetailNavigation, animated: true, completion: nil)
     }

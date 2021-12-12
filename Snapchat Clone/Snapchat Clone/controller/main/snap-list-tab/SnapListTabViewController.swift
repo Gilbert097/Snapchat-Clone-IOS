@@ -58,8 +58,7 @@ class SnapListTabViewController: UIViewController {
         {
             snapDetailViewController.viewModel = SnapDetailViewModel(
                 snapItemViewModel: itemSelected,
-                snapRepository: SnapRepository(),
-                mediaService: MediaService()
+                snapRepository: SnapRepository(mediaService: MediaService())
             )
         }
     }
