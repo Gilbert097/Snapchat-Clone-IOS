@@ -29,8 +29,8 @@ class SnapRepository: SnapRepositoryProtocol {
             guard let self = self else { return }
             
             if isSuccess,
-                let mediaMetadata = mediaMetadata,
-                let userSource = AppRepository.shared.currentUser {
+               let mediaMetadata = mediaMetadata,
+               let userSource = AppRepository.shared.currentUser {
                 LogUtils.printMessage(tag: SnapRepository.TAG, message: "Upload image success!")
                 let snap = Snap(
                     id: UUID().uuidString,
@@ -54,7 +54,7 @@ class SnapRepository: SnapRepositoryProtocol {
     }
     
     
-   private func insert(
+    private func insert(
         userIdTarget: String,
         snap: Snap,
         completion: @escaping (Bool) -> Void
@@ -84,38 +84,36 @@ class SnapRepository: SnapRepositoryProtocol {
         snap: Snap,
         completion: @escaping (Bool) -> Void
     ){
-        LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Start remove snap <----")
-        database.child("users")
-            .child(userId)
-            .child("snaps")
-            .child(snap.id)
-            .removeValue { [weak self] error, _ in
-                
-                if error == nil {
-                    LogUtils.printMessage(tag: SnapRepository.TAG, message: "Remove snap success!")
-                    completion(true)
-                    
-                    guard let self = self else { return }
-                    LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Start delete image <----")
-                    LogUtils.printMessage(tag: SnapRepository.TAG, message: "Snap Image -> \(snap.nameImage)")
-                    self.mediaService.deleteImage(userId: userId, name: snap.nameImage) { isImageDeleted in
-                        if isImageDeleted {
-                            LogUtils.printMessage(tag: SnapRepository.TAG, message: "Image successfully deleted!")
-                        } else {
-                            //TODO[GIL] - Armazenar imagens que deram erro na deleção no UserDefault para deletar posteriormente.
-                            LogUtils.printMessage(tag: SnapRepository.TAG, message: "Error deleting image!")
+        LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Start delete image <----")
+        LogUtils.printMessage(tag: SnapRepository.TAG, message: "Snap Image -> \(snap.nameImage)")
+        self.mediaService.deleteImage(userId: userId, name: snap.nameImage) { [weak self] isImageDeleted in
+            if isImageDeleted {
+                LogUtils.printMessage(tag: SnapRepository.TAG, message: "Image successfully deleted!")
+                guard let self = self else { return }
+                LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Start remove snap <----")
+                self.database.child("users")
+                    .child(userId)
+                    .child("snaps")
+                    .child(snap.id)
+                    .removeValue { error, _ in
+                        
+                        if error == nil {
+                            LogUtils.printMessage(tag: SnapRepository.TAG, message: "Remove snap success!")
+                            completion(true)
+                        } else if let error = error {
+                            LogUtils.printMessage(
+                                tag: SnapRepository.TAG,
+                                message: "Remove snap error -> \(String(describing: error.localizedDescription))"
+                            )
+                            completion(false)
                         }
-                        LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Finish delete image <----")
+                        LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Finish remove snap <----")
                     }
-                } else if let error = error {
-                    LogUtils.printMessage(
-                        tag: SnapRepository.TAG,
-                        message: "Remove snap error -> \(String(describing: error.localizedDescription))"
-                    )
-                    completion(false)
-                }
-                LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Finish remove snap <----")
+            } else {
+                LogUtils.printMessage(tag: SnapRepository.TAG, message: "Error deleting image!")
             }
+            LogUtils.printMessage(tag: SnapRepository.TAG, message: "----> Finish delete image <----")
+        }
     }
     
     func deleteAll(
