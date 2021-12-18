@@ -27,7 +27,23 @@ class SnapItemViewModel{
         addSnap(snap: snap)
     }
     
+    init(userName: String, snaps: [Snap]){
+        self.userName = userName
+        self.snaps = snaps
+    }
+    
     func addSnap(snap: Snap){
         snaps.append(snap)
     }
+    
+    func copy(
+        userName: String? = nil,
+        snaps: [Snap]? = nil
+    )-> SnapItemViewModel {
+        .init(
+            userName: userName ?? self.userName,
+            snaps: snaps ?? self.snaps.map({ $0.copy()})
+        )
+    }
+    
 }

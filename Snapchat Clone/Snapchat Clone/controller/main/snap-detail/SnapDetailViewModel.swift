@@ -28,7 +28,7 @@ class SnapDetailViewModel: SnapDetailViewModelProtocol {
         snapItemViewModel: SnapItemViewModel,
         snapRepository: SnapRepositoryProtocol
     ){
-        self.snapItemViewModel = snapItemViewModel
+        self.snapItemViewModel = snapItemViewModel.copy()
         self.snapRepository = snapRepository
     }
     

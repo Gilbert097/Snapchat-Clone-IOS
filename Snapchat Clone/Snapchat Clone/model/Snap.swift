@@ -79,4 +79,24 @@ class Snap {
             status: status
         )
     }
+    
+    func copy(
+        id: String? = nil,
+        from: String? = nil,
+        nameUser: String? = nil,
+        description: String? = nil,
+        urlImage: String? = nil,
+        nameImage: String? = nil,
+        status: SyncStatus? = nil
+    )-> Snap {
+        .init(
+            id: id ?? self.id,
+            from: from ?? self.from,
+            nameUser: nameUser ?? self.nameUser,
+            description: description ?? self.description,
+            urlImage: urlImage ?? self.urlImage,
+            nameImage: nameImage ?? self.nameImage,
+            status: status ?? self.status
+        )
+    }
 }
