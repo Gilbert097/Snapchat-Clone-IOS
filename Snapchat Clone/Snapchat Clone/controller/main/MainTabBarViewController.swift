@@ -59,9 +59,10 @@ class MainTabBarViewController: UITabBarController {
         output.bind { event in
             switch(event){
             case .createStory:
+                self.navigateCreateStoryController()
                 break
             case .createSnap:
-                self.navigateSnapDetailController()
+                self.navigateCreateSnapController()
                 break
             case .none:
                 break
@@ -69,7 +70,14 @@ class MainTabBarViewController: UITabBarController {
         }
     }
     
-    private func navigateSnapDetailController() {
+    private func navigateCreateStoryController() {
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let createStoryViewController = mainstoryboard.instantiateViewController(withIdentifier: "CreateStoryViewController") as! CreateStoryViewController
+        createStoryViewController.viewModel = CreateStoryViewModel()
+        self.present(createStoryViewController, animated: true, completion: nil)
+    }
+    
+    private func navigateCreateSnapController() {
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let snapDetailNavigation = mainstoryboard.instantiateViewController(withIdentifier: "SnapDetailNavigation") as! UINavigationController
         let snapDetailViewController = snapDetailNavigation.viewControllers.first as! CreateSnapViewController

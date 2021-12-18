@@ -27,14 +27,15 @@ class MediaOptionsViewController: UIViewController {
     
     @objc
     func storyLabelTap(sender:UITapGestureRecognizer) {
-        viewModel.createMedia(type: .story)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: { [weak self] in
+            self?.viewModel.createMedia(type: .story)
+        })
     }
     
     @objc
     func snapLabelTap(sender:UITapGestureRecognizer) {
-        self.dismiss(animated: true, completion: {
-            self.viewModel.createMedia(type: .snap)
+        self.dismiss(animated: true, completion: { [weak self] in
+            self?.viewModel.createMedia(type: .snap)
         })
     }
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5LQ-6o-JrO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5LQ-6o-JrO">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -734,7 +734,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dta-OY-FtV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4089" y="-340"/>
+            <point key="canvasLocation" x="3974" y="-347"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mRf-0s-TRa">
@@ -832,15 +832,15 @@
                             <constraint firstItem="tGI-Iv-EkW" firstAttribute="leading" secondItem="FKD-ZK-agb" secondAttribute="leading" id="zeV-Wl-TGB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Snap" id="ntZ-6T-vx5">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="WIB-lO-DTu">
+                    <navigationItem key="navigationItem" title="Snap" id="EgS-Oa-ySc">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="3Rg-Wc-RJ5">
                             <connections>
-                                <action selector="onBackButtonClick:" destination="asC-NN-de0" id="fpy-DH-B5J"/>
+                                <action selector="onBackButtonClick:" destination="asC-NN-de0" id="43c-An-krY"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera.fill" catalog="system" id="ScA-cT-8Ri">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera.fill" catalog="system" id="2CA-e8-tYH">
                             <connections>
-                                <action selector="onCameraButtonClick:" destination="asC-NN-de0" id="Bye-Le-GOI"/>
+                                <action selector="onCameraButtonClick:" destination="asC-NN-de0" id="NOI-Cm-KLa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -853,6 +853,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSS-iQ-zAC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4879.7101449275369" y="1062.2282608695652"/>
+        </scene>
+        <!--Create Story View Controller-->
+        <scene sceneID="ln4-rX-WQw">
+            <objects>
+                <viewController storyboardIdentifier="CreateStoryViewController" id="7IA-dB-i1z" customClass="CreateStoryViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Q9-82-5vi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="padrao" translatesAutoresizingMaskIntoConstraints="NO" id="ZXl-cK-Oeo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NRx-Gg-oCB">
+                                <rect key="frame" x="337.5" y="22" width="17.5" height="15.5"/>
+                                <color key="tintColor" red="0.55294117649999996" green="0.36862745099999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIz-CC-Cio" customClass="CustomRoundButton" customModule="Snapchat_Clone" customModuleProvider="target">
+                                <rect key="frame" x="305" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.55294117649999996" green="0.36862745099999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="00y-Sg-eg2"/>
+                                    <constraint firstAttribute="height" constant="50" id="YeN-20-gAI"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <imageReference key="image" image="paperplane.fill" catalog="system" symbolScale="large"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onNextButtonClick:" destination="MG0-S2-dTE" eventType="touchUpInside" id="YND-t4-qjF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b1c-LQ-hMC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZXl-cK-Oeo" firstAttribute="bottom" secondItem="b1c-LQ-hMC" secondAttribute="bottom" id="8Xb-jt-G6A"/>
+                            <constraint firstItem="b1c-LQ-hMC" firstAttribute="trailing" secondItem="ZXl-cK-Oeo" secondAttribute="trailing" id="Ij0-6w-0HK"/>
+                            <constraint firstItem="NRx-Gg-oCB" firstAttribute="top" secondItem="b1c-LQ-hMC" secondAttribute="top" constant="20" id="IuA-VE-B8X"/>
+                            <constraint firstItem="b1c-LQ-hMC" firstAttribute="bottom" secondItem="cIz-CC-Cio" secondAttribute="bottom" constant="20" id="PUQ-bB-lrm"/>
+                            <constraint firstItem="ZXl-cK-Oeo" firstAttribute="top" secondItem="b1c-LQ-hMC" secondAttribute="top" id="gy4-hA-dgr"/>
+                            <constraint firstItem="b1c-LQ-hMC" firstAttribute="trailing" secondItem="cIz-CC-Cio" secondAttribute="trailing" constant="20" id="n0C-ES-whc"/>
+                            <constraint firstItem="ZXl-cK-Oeo" firstAttribute="leading" secondItem="b1c-LQ-hMC" secondAttribute="leading" id="rIO-J0-OuW"/>
+                            <constraint firstItem="b1c-LQ-hMC" firstAttribute="trailing" secondItem="NRx-Gg-oCB" secondAttribute="trailing" constant="20" id="yAe-QB-1Tv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Un-ei-s9P">
+                        <barButtonItem key="leftBarButtonItem" id="MkV-mX-XI7"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqP-bf-CLg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3973.5999999999999" y="1739.2803598200901"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="slH-xH-tRR">
@@ -939,7 +1003,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BEL-oz-kbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3973.5999999999999" y="1771.6641679160421"/>
+            <point key="canvasLocation" x="3974" y="2447"/>
         </scene>
         <!--User List Table View Controller-->
         <scene sceneID="1Jn-aW-gNv">
@@ -983,7 +1047,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20b-th-dDv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3986" y="2525"/>
+            <point key="canvasLocation" x="4886" y="2447"/>
         </scene>
     </scenes>
     <designables>
@@ -991,13 +1055,16 @@
             <size key="intrinsicContentSize" width="33" height="30"/>
         </designable>
         <designable name="8kD-MP-aQk">
-            <size key="intrinsicContentSize" width="24" height="22"/>
+            <size key="intrinsicContentSize" width="25" height="22"/>
         </designable>
         <designable name="Ys9-8U-dPg">
             <size key="intrinsicContentSize" width="56" height="30"/>
         </designable>
         <designable name="bWu-t3-uTx">
-            <size key="intrinsicContentSize" width="24" height="22"/>
+            <size key="intrinsicContentSize" width="25" height="22"/>
+        </designable>
+        <designable name="cIz-CC-Cio">
+            <size key="intrinsicContentSize" width="26.5" height="26.5"/>
         </designable>
         <designable name="gh4-aZ-iBR">
             <size key="intrinsicContentSize" width="38" height="30"/>
@@ -1017,7 +1084,9 @@
         <image name="instagram-stories_24px" width="24" height="24"/>
         <image name="logo" width="200" height="200"/>
         <image name="padrao" width="500" height="446"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="storie-menu-20x20" width="20" height="20"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
