@@ -13,13 +13,12 @@ class MediaService: MediaServiceProtocol{
     private static let TAG = "MediaService"
     
     func uploadImage(
-        userId:String,
+        userId: String? = nil,
         imageData: Data,
         completion: @escaping (Bool, MediaMetadata?) -> Void
     ) {
         
-        let storage = Storage.storage().reference()
-        let imagePath = storage.child("imagens").child(userId)
+        let imagePath = getImagePathReference(userId: userId)
         let imageName = generateImageName()
         let imageReference = imagePath.child(imageName)
         
@@ -60,6 +59,15 @@ class MediaService: MediaServiceProtocol{
                 LogUtils.printMessage(tag: MediaService.TAG, message: "----------> totalUnitCount: \(String(describing: progress.totalUnitCount))")
                 LogUtils.printMessage(tag: MediaService.TAG, message: "----------> completedUnitCount: \(String(describing: progress.completedUnitCount))")
             }
+        }
+    }
+    
+    private func getImagePathReference(userId:String? = nil)-> StorageReference{
+        let storage = Storage.storage().reference()
+        if let userId = userId {
+            return storage.child("imagens").child(userId)
+        } else {
+            return storage.child("public")
         }
     }
     

@@ -9,7 +9,7 @@ import Foundation
 
 protocol MediaServiceProtocol{
     func uploadImage(
-        userId:String,
+        userId: String?,
         imageData: Data,
         completion: @escaping (Bool, MediaMetadata?) -> Void 
     )

@@ -13,4 +13,6 @@ protocol CreateStoryViewModelProtocol {
     typealias Input = Event<Data?>
     
     func bind(input: Input) -> Output
+    
+    func sendStory()
 }

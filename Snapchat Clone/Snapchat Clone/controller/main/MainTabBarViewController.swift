@@ -73,7 +73,9 @@ class MainTabBarViewController: UITabBarController {
     private func navigateCreateStoryController() {
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let createStoryViewController = mainstoryboard.instantiateViewController(withIdentifier: "CreateStoryViewController") as! CreateStoryViewController
-        createStoryViewController.viewModel = CreateStoryViewModel()
+        createStoryViewController.viewModel = CreateStoryViewModel(
+            storyRepository: StoryRepository(mediaService:  MediaService())
+        )
         self.present(createStoryViewController, animated: true, completion: nil)
     }
     

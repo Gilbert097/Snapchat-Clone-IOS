@@ -17,6 +17,10 @@
 		D42A9657276E698A006B53C8 /* CreateStoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A9656276E698A006B53C8 /* CreateStoryViewModel.swift */; };
 		D42A9659276E69A1006B53C8 /* CreateStoryViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A9658276E69A1006B53C8 /* CreateStoryViewModelProtocol.swift */; };
 		D42A965B276E6A1C006B53C8 /* CreateStoryEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A965A276E6A1C006B53C8 /* CreateStoryEventType.swift */; };
+		D42A965E276E8F91006B53C8 /* StoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A965D276E8F91006B53C8 /* StoryRepository.swift */; };
+		D42A9660276E9D47006B53C8 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A965F276E9D47006B53C8 /* Story.swift */; };
+		D42A9662276E9D5A006B53C8 /* SyncStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A9661276E9D5A006B53C8 /* SyncStatus.swift */; };
+		D42A9664276E9F65006B53C8 /* StoryRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A9663276E9F65006B53C8 /* StoryRepositoryProtocol.swift */; };
 		D431392E275008F900DDAC81 /* MediaOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D431392D275008F900DDAC81 /* MediaOptionsViewController.swift */; };
 		D4313930275075A600DDAC81 /* MediaOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D431392F275075A600DDAC81 /* MediaOptionsViewModel.swift */; };
 		D4313932275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4313931275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift */; };
@@ -91,6 +95,10 @@
 		D42A9656276E698A006B53C8 /* CreateStoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoryViewModel.swift; sourceTree = "<group>"; };
 		D42A9658276E69A1006B53C8 /* CreateStoryViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoryViewModelProtocol.swift; sourceTree = "<group>"; };
 		D42A965A276E6A1C006B53C8 /* CreateStoryEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoryEventType.swift; sourceTree = "<group>"; };
+		D42A965D276E8F91006B53C8 /* StoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRepository.swift; sourceTree = "<group>"; };
+		D42A965F276E9D47006B53C8 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		D42A9661276E9D5A006B53C8 /* SyncStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatus.swift; sourceTree = "<group>"; };
+		D42A9663276E9F65006B53C8 /* StoryRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRepositoryProtocol.swift; sourceTree = "<group>"; };
 		D431392D275008F900DDAC81 /* MediaOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsViewController.swift; sourceTree = "<group>"; };
 		D431392F275075A600DDAC81 /* MediaOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsViewModel.swift; sourceTree = "<group>"; };
 		D4313931275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -205,6 +213,15 @@
 				D42A965A276E6A1C006B53C8 /* CreateStoryEventType.swift */,
 			);
 			path = "create-story";
+			sourceTree = "<group>";
+		};
+		D42A965C276E8F75006B53C8 /* story */ = {
+			isa = PBXGroup;
+			children = (
+				D42A965D276E8F91006B53C8 /* StoryRepository.swift */,
+				D42A9663276E9F65006B53C8 /* StoryRepositoryProtocol.swift */,
+			);
+			path = story;
 			sourceTree = "<group>";
 		};
 		D431392C275008C900DDAC81 /* media-options */ = {
@@ -444,6 +461,7 @@
 		D4E2012B274B2C8A0020B9B5 /* repository */ = {
 			isa = PBXGroup;
 			children = (
+				D42A965C276E8F75006B53C8 /* story */,
 				D4B657522759AAFD00EF0596 /* snap */,
 				D4B6574A2758EE2C00EF0596 /* app */,
 				D4B657492758EE1C00EF0596 /* user */,
@@ -457,6 +475,8 @@
 				D4E2012D274B2CAA0020B9B5 /* User.swift */,
 				D45594202754093D00B83179 /* MediaMetadata.swift */,
 				D4B657502759AA1C00EF0596 /* Snap.swift */,
+				D42A965F276E9D47006B53C8 /* Story.swift */,
+				D42A9661276E9D5A006B53C8 /* SyncStatus.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -587,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42A9662276E9D5A006B53C8 /* SyncStatus.swift in Sources */,
 				D475EEF72762487E00C91681 /* SnapDetailViewModel.swift in Sources */,
 				D4F4ACC9271646CD00FF200F /* SnapListEventType.swift in Sources */,
 				D4E20132274B2F150020B9B5 /* UserRepositoryProtocol.swift in Sources */,
@@ -614,6 +635,7 @@
 				D4B6574C2758EE3E00EF0596 /* AppReporitory.swift in Sources */,
 				D42A9655276E689C006B53C8 /* CreateStoryViewController.swift in Sources */,
 				D475EEFB276248D700C91681 /* SnapDetailEvent.swift in Sources */,
+				D42A9660276E9D47006B53C8 /* Story.swift in Sources */,
 				D4645BB9263A35AE002239C1 /* StoryCollectionViewCell.swift in Sources */,
 				D480B1F72637434E000A2318 /* HomeViewModel.swift in Sources */,
 				D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */,
@@ -621,6 +643,7 @@
 				D4F4ACCB2716481B00FF200F /* SnapListViewModel.swift in Sources */,
 				D4E2012E274B2CAA0020B9B5 /* User.swift in Sources */,
 				D4B5CD4D2635C30800521FC8 /* UserAuthenticationService.swift in Sources */,
+				D42A9664276E9F65006B53C8 /* StoryRepositoryProtocol.swift in Sources */,
 				D4171EFD2635EBC1009B5EB1 /* CreateAccountEventType.swift in Sources */,
 				D4A96057274194180095E636 /* CreateSnapEventType.swift in Sources */,
 				D45594192751B77900B83179 /* UserListEventType.swift in Sources */,
@@ -640,6 +663,7 @@
 				D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
 				D4A96055274193210095E636 /* CreateSnapViewModelProtocol.swift in Sources */,
+				D42A965E276E8F91006B53C8 /* StoryRepository.swift in Sources */,
 				D4B6574827584F4200EF0596 /* UserItemViewModel.swift in Sources */,
 				D480B1DC2636521D000A2318 /* EventData.swift in Sources */,
 				D4B5CD4C2635C30800521FC8 /* UserAuthentication.swift in Sources */,
