@@ -12,4 +12,8 @@ protocol StoryRepositoryProtocol{
         imageData: Data,
         completion: @escaping (Bool) -> Void
     )
+    
+    func registerObserveStoryAdded(
+        completion: @escaping (Story?)-> Void
+    ) 
 }

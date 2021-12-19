@@ -73,4 +73,25 @@ class StoryRepository: StoryRepositoryProtocol {
                 completion(isSuccess)
             }
     }
+    
+    func registerObserveStoryAdded(
+        completion: @escaping (Story?)-> Void
+    ) {
+        LogUtils.printMessage(tag: StoryRepository.TAG, message: "----> Start Observe Storys Added <----")
+        database.child("storys")
+            .observe(.childAdded) { snapshot in
+                
+                guard
+                    let value = snapshot.value as? NSDictionary
+                else {
+                    LogUtils.printMessage(tag: StoryRepository.TAG, message: "Added storys error -> Snapshot value is null")
+                    completion(nil)
+                    return
+                }
+                
+                let story = Story.create(id: snapshot.key, dictionary: value, status: .created)
+                LogUtils.printMessage(tag: StoryRepository.TAG, message: "Story Added -> \(story.toString())")
+                completion(story)
+            }
+    }
 }

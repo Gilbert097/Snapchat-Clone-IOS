@@ -11,4 +11,5 @@ public enum SnapListEventType {
     case none
     case navigationToBack
     case reloadSnapList
+    case reloadStoyList
 }

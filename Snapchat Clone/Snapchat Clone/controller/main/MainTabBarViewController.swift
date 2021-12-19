@@ -23,9 +23,11 @@ class MainTabBarViewController: UITabBarController {
             
             if let nvFirst = nv.viewControllers.last, nvFirst is SnapListTabViewController {
                 let snapListViewController = nvFirst as! SnapListTabViewController
+                let mediaService = MediaService()
                 snapListViewController.viewModel = SnapListViewModel(
                     authenticationService: UserAuthenticationService(),
-                    snapRepository: SnapRepository(mediaService: MediaService())
+                    snapRepository: SnapRepository(mediaService: mediaService),
+                    storyRepository: StoryRepository(mediaService: mediaService)
                 )
             }
         }

@@ -13,19 +13,31 @@ public class SnapListViewModel: SnapListViewModelProtocol {
     private let output = Event<EventData<SnapListEventType>>(.init(type: .none))
     private let authenticationService: UserAuthenticationServiceProtocol
     private let snapRepository: SnapRepositoryProtocol
+    private let storyRepository: StoryRepositoryProtocol
+    
     var snaps: [SnapItemViewModel] {
         get {
             snapMap.map { $0.value }
         }
     }
+
+    var storys: [StoryItemViewModel] {
+        get {
+            storyMap.map { $0.value }
+        }
+    }
+    
+    private var storyMap: [String: StoryItemViewModel] = [:]
     private var snapMap: [String: SnapItemViewModel] = [:]
     
     init(
         authenticationService: UserAuthenticationServiceProtocol,
-        snapRepository: SnapRepositoryProtocol
+        snapRepository: SnapRepositoryProtocol,
+        storyRepository: StoryRepositoryProtocol
     ) {
         self.authenticationService = authenticationService
         self.snapRepository = snapRepository
+        self.storyRepository = storyRepository
     }
     
     func bind() -> Output {
@@ -34,6 +46,7 @@ public class SnapListViewModel: SnapListViewModelProtocol {
     
     func start(){
         registerObserveSnapsAdded()
+        registerObserveStorysAdded()
         registerObserveSnapsRemoved()
     }
     
@@ -104,6 +117,25 @@ public class SnapListViewModel: SnapListViewModelProtocol {
                 }
             }
         }
+    }
+    
+    private func registerObserveStorysAdded(){
+        //if let currentUser = AppRepository.shared.currentUser {
+            self.storyRepository.registerObserveStoryAdded() { [weak self] story in
+                if let self = self,
+                   let story = story {
+                    LogUtils.printMessage(tag: SnapListViewModel.TAG, message: "Story Added received -> \(String(describing: story.id))")
+                    
+                    if let storyItemViewModel = self.storyMap[story.nameUser] {
+                        storyItemViewModel.addStory(story: story)
+                    } else {
+                        self.storyMap[story.nameUser] = .init(userName: story.nameUser, story: story)
+                    }
+                    
+                    self.output.value = .init(type: .reloadStoyList)
+                }
+            }
+        //}
     }
     
 }

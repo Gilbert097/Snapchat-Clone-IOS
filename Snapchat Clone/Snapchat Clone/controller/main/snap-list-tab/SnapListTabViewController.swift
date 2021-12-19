@@ -13,7 +13,7 @@ class SnapListTabViewController: UIViewController {
     @IBOutlet weak var snapTableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
     var viewModel: SnapListViewModelProtocol!
-    private let manager = StoryCollectionManager()
+    private var storyManager: StoryCollectionManager!
     private var tableManager: SnapTableManager!
     
     override func viewDidLoad() {
@@ -22,12 +22,17 @@ class SnapListTabViewController: UIViewController {
         snapTableView.delegate = tableManager
         snapTableView.dataSource = tableManager
         
+        
+        storyManager = StoryCollectionManager(snapListViewModel: viewModel)
+        storieCollectionView.dataSource = storyManager
+        storieCollectionView.delegate = storyManager
+        
+        configureBind()
+        
         viewModel.start()
-        manager.colors = [UIColor.red, UIColor.blue, UIColor.yellow]
-        storieCollectionView.dataSource = manager
-        storieCollectionView.delegate = manager
-        
-        
+    }
+    
+    private func configureBind() {
         let output = viewModel.bind()
         output.bind { [weak self] data in
             guard let self = self else { return }
@@ -38,6 +43,8 @@ class SnapListTabViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             case .reloadSnapList:
                 self.snapTableView.reloadData()
+            case .reloadStoyList:
+                self.storieCollectionView.reloadData()
             }
         }
     }
@@ -111,22 +118,31 @@ public class SnapTableManager: NSObject, UITableViewDelegate, UITableViewDataSou
 
 public class StoryCollectionManager: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var colors:[UIColor] = []
+    private static let TAG = "StoryCollectionManager"
+    private let snapListViewModel: SnapListViewModelProtocol
+    
+    init(
+        snapListViewModel: SnapListViewModelProtocol
+    ){
+        self.snapListViewModel = snapListViewModel
+    }
     
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        self.snapListViewModel.storys.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryCollectionViewCell.reuseIdentifier,
                                                          for: indexPath) as? StoryCollectionViewCell {
-            let index = arc4random_uniform(UInt32(colors.count))
-            let color = colors[Int(index)]
-            cell.viewContainer.backgroundColor = color
+            let storyItem = self.snapListViewModel.storys[indexPath.row]
+            if let story = storyItem.storys.first{
+                cell.loadImage(url: story.urlImage)
+            }
+            cell.counterLabel.text = String(storyItem.count)
             return cell
         }
         
