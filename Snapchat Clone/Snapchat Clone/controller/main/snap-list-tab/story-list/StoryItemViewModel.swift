@@ -23,6 +23,10 @@ class StoryItemViewModel{
         }
     }
     
+    var lastPlayedSnapIndex = 0
+    var isCompletelyVisible = false
+    var isCancelledAbruptly = false
+    
     init(userName: String, story: Story){
         self.userName = userName
         addStory(story: story)

@@ -53,6 +53,8 @@
 		D480B1F72637434E000A2318 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1F62637434E000A2318 /* HomeViewModel.swift */; };
 		D480B1FA2637454F000A2318 /* UserAuthenticationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1F92637454F000A2318 /* UserAuthenticationServiceProtocol.swift */; };
 		D49FC96D27740DDF003D27ED /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC96C27740DDF003D27ED /* StoryDetailViewController.swift */; };
+		D49FC9712774FF25003D27ED /* ProgressorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC9702774FF25003D27ED /* ProgressorState.swift */; };
+		D49FC9732774FF3E003D27ED /* ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC9722774FF3E003D27ED /* ViewAnimator.swift */; };
 		D4A96053274192F20095E636 /* CreateSnapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96052274192F20095E636 /* CreateSnapViewModel.swift */; };
 		D4A96055274193210095E636 /* CreateSnapViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96054274193200095E636 /* CreateSnapViewModelProtocol.swift */; };
 		D4A96057274194180095E636 /* CreateSnapEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96056274194180095E636 /* CreateSnapEventType.swift */; };
@@ -134,6 +136,8 @@
 		D480B1F62637434E000A2318 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D480B1F92637454F000A2318 /* UserAuthenticationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationServiceProtocol.swift; sourceTree = "<group>"; };
 		D49FC96C27740DDF003D27ED /* StoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
+		D49FC9702774FF25003D27ED /* ProgressorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressorState.swift; sourceTree = "<group>"; };
+		D49FC9722774FF3E003D27ED /* ViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnimator.swift; sourceTree = "<group>"; };
 		D4A96052274192F20095E636 /* CreateSnapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapViewModel.swift; sourceTree = "<group>"; };
 		D4A96054274193200095E636 /* CreateSnapViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapViewModelProtocol.swift; sourceTree = "<group>"; };
 		D4A96056274194180095E636 /* CreateSnapEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapEventType.swift; sourceTree = "<group>"; };
@@ -349,6 +353,8 @@
 			isa = PBXGroup;
 			children = (
 				D49FC96C27740DDF003D27ED /* StoryDetailViewController.swift */,
+				D49FC9702774FF25003D27ED /* ProgressorState.swift */,
+				D49FC9722774FF3E003D27ED /* ViewAnimator.swift */,
 			);
 			path = "story-detail";
 			sourceTree = "<group>";
@@ -651,6 +657,7 @@
 				D4B5CD502635C35200521FC8 /* LoginViewModel.swift in Sources */,
 				D4313930275075A600DDAC81 /* MediaOptionsViewModel.swift in Sources */,
 				D4B9A91C263755B600E83DD4 /* MainTabBarViewController.swift in Sources */,
+				D49FC9732774FF3E003D27ED /* ViewAnimator.swift in Sources */,
 				D4B6574C2758EE3E00EF0596 /* AppReporitory.swift in Sources */,
 				D42A9655276E689C006B53C8 /* CreateStoryViewController.swift in Sources */,
 				D475EEFB276248D700C91681 /* SnapDetailEvent.swift in Sources */,
@@ -680,6 +687,7 @@
 				D4F4ACCD2716485200FF200F /* SnapListViewModelProtocol.swift in Sources */,
 				D45594152751B48700B83179 /* UserListTableViewModel.swift in Sources */,
 				D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */,
+				D49FC9712774FF25003D27ED /* ProgressorState.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
 				D4A96055274193210095E636 /* CreateSnapViewModelProtocol.swift in Sources */,
 				D42A965E276E8F91006B53C8 /* StoryRepository.swift in Sources */,

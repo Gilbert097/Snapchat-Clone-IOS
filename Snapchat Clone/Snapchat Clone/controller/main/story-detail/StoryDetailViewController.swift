@@ -34,17 +34,17 @@ class StoryDetailViewController: UIViewController {
         let padding: CGFloat = 8 //GUI-Padding
         let height: CGFloat = 3
         var storyBarViewArray: [StoryBarView] = []
-        //var pvArray: [IGSnapProgressView] = []
+        var storyBarProgressViewArray: [StoryBarProgressView] = []
         
         for index in 0..<storysCount{
             let storyBarView = createStoryBarView(tag: index+progressIndicatorViewTag)
             progressView.addSubview(storyBarView)
             storyBarViewArray.append(storyBarView)
             
-            //            let pv = IGSnapProgressView()
-            //            pv.translatesAutoresizingMaskIntoConstraints = false
-            //            pvIndicator.addSubview(applyProperties(pv))
-            //            pvArray.append(pv)
+            let storyProgressView = StoryBarProgressView()
+            storyProgressView.translatesAutoresizingMaskIntoConstraints = false
+            storyBarView.addSubview(storyProgressView)
+            storyBarProgressViewArray.append(storyProgressView)
         }
         
         // Setting Constraints for all storys bar
@@ -78,6 +78,19 @@ class StoryDetailViewController: UIViewController {
                 }
             }
         }
+        
+        // Setting Constraints for all storys bar progress
+        for index in 0..<storyBarProgressViewArray.count {
+            let storyProgress = storyBarProgressViewArray[index]
+            let storybar = storyBarViewArray[index]
+            storyProgress.widthConstraint = storyProgress.widthAnchor.constraint(equalToConstant: 0)
+            NSLayoutConstraint.activate([
+                storyProgress.leftAnchor.constraint(equalTo: storybar.leftAnchor),
+                storyProgress.heightAnchor.constraint(equalTo: storybar.heightAnchor),
+                storyProgress.topAnchor.constraint(equalTo: storybar.topAnchor),
+                storyProgress.widthConstraint!
+                ])
+        }
     }
     
     private func configLayoutConstraints() {
@@ -99,14 +112,23 @@ class StoryDetailViewController: UIViewController {
     private func createStoryBarView(tag: Int? = nil) -> StoryBarView {
         let storyBarView = StoryBarView()
         storyBarView.translatesAutoresizingMaskIntoConstraints = false
-        storyBarView.layer.cornerRadius = 1
-        storyBarView.layer.masksToBounds = true
-        //storyBarView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        storyBarView.backgroundColor = UIColor.red
+        return applyProperties(storyBarView,with: tag, alpha:0.2)
+    }
+    
+    private func createStoryBarProgressView() -> StoryBarProgressView {
+        let storyBarProgressView = StoryBarProgressView()
+        storyBarProgressView.translatesAutoresizingMaskIntoConstraints = false
+        return applyProperties(storyBarProgressView)
+    }
+    
+    private func applyProperties<T: UIView>(_ view: T, with tag: Int? = nil, alpha: CGFloat = 1.0) -> T {
+        view.layer.cornerRadius = 1
+        view.layer.masksToBounds = true
+        view.backgroundColor = UIColor.white.withAlphaComponent(alpha)
         if let tagValue = tag {
-            storyBarView.tag = tagValue
+            view.tag = tagValue
         }
-        return storyBarView
+        return view
     }
 }
 
@@ -114,4 +136,13 @@ final class StoryBarView: UIView {
     public var widthConstraint: NSLayoutConstraint?
     public var leftConstraiant: NSLayoutConstraint?
     public var rightConstraiant: NSLayoutConstraint?
+}
+
+
+final class StoryBarProgressView: UIView, ViewAnimator {
+    public var story_identifier: String?
+    public var snapIndex: Int?
+    public var story: StoryItemViewModel!
+    public var widthConstraint: NSLayoutConstraint?
+    public var state: ProgressorState = .notStarted
 }
