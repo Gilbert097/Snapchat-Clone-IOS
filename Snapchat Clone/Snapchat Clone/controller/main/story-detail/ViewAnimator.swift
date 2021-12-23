@@ -29,9 +29,9 @@ extension ViewAnimator where Self: StoryBarProgressView {
         self.widthConstraint?.isActive = false
         self.widthConstraint = self.widthAnchor.constraint(equalToConstant: 0)
         self.widthConstraint?.isActive = true
-        self.widthConstraint?.constant = holderView.frame.width
+        self.widthConstraint?.constant = holderView.safeAreaLayoutGuide.layoutFrame.width
         
-        UIView.animate(withDuration: duration, delay: 0.0, options: [.curveLinear], animations: {[weak self] in
+        UIView.animate(withDuration: duration, delay:  0.0, options: [.curveLinear], animations: {[weak self] in
             if let strongSelf = self {
                 strongSelf.superview?.layoutIfNeeded()
             }

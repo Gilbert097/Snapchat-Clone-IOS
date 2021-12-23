@@ -27,6 +27,11 @@ class StoryDetailViewController: UIViewController {
         self.progressView = createProgressBarView()
         configLayoutConstraints()
         loadStorysBarView()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        startStoryProgress(with: 0)
     }
     
     private func loadStorysBarView() {
@@ -42,6 +47,7 @@ class StoryDetailViewController: UIViewController {
             storyBarViewArray.append(storyBarView)
             
             let storyProgressView = StoryBarProgressView()
+            storyProgressView.backgroundColor = UIColor.blue
             storyProgressView.translatesAutoresizingMaskIntoConstraints = false
             storyBarView.addSubview(storyProgressView)
             storyBarProgressViewArray.append(storyProgressView)
@@ -89,6 +95,7 @@ class StoryDetailViewController: UIViewController {
                 storyProgress.heightAnchor.constraint(equalTo: storybar.heightAnchor),
                 storyProgress.topAnchor.constraint(equalTo: storybar.topAnchor),
                 storyProgress.widthConstraint!
+                //storyProgress.widthAnchor.constraint(equalTo: storybar.widthAnchor)
                 ])
         }
     }
@@ -130,6 +137,42 @@ class StoryDetailViewController: UIViewController {
         }
         return view
     }
+    
+    
+    private func startStoryProgress(with sIndex: Int) {
+        if let indicatorView = getStoryBarView(with: sIndex),
+            let pv = getStoryProgressView(with: sIndex) {
+            pv.start(with: 5.0, holderView: indicatorView, completion: { (identifier, snapIndex, isCancelledAbruptly) in
+                LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Finish")
+            })
+        }
+    }
+    
+    func getStoryBarView(with index: Int) -> StoryBarView? {
+        let storyBar =  progressView.subviews.filter({
+            v in v.tag == index+progressIndicatorViewTag
+        }).first as? StoryBarView ?? nil
+        
+        return storyBar
+    }
+    
+    func getStoryProgressView(with index: Int) -> StoryBarProgressView? {
+        if progressView.subviews.count > 0 {
+            let pv = getStoryBarView(with: index)?.subviews.first as? StoryBarProgressView
+            guard
+                let pv = pv,
+                let currentStory = self.story else {
+                fatalError("story not found")
+            }
+            pv.story = currentStory
+            pv.story_identifier = currentStory.storys[index].id
+            pv.snapIndex = index
+            return pv
+        }
+        return nil
+    }
+    
+    
 }
 
 final class StoryBarView: UIView {
