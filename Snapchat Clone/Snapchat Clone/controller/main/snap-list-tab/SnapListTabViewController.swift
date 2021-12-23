@@ -18,12 +18,11 @@ class SnapListTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableManager = SnapTableManager(snapListViewModel: viewModel, onItemSelected: self.onItemSelected)
+        tableManager = SnapTableManager(snapListViewModel: viewModel, onItemSelected: self.onSnapSelected)
         snapTableView.delegate = tableManager
         snapTableView.dataSource = tableManager
         
-        
-        storyManager = StoryCollectionManager(snapListViewModel: viewModel)
+        storyManager = StoryCollectionManager(snapListViewModel: viewModel, onItemSelected: self.onStorySelected)
         storieCollectionView.dataSource = storyManager
         storieCollectionView.delegate = storyManager
         
@@ -53,7 +52,12 @@ class SnapListTabViewController: UIViewController {
         viewModel.signOut()
     }
     
-    private func onItemSelected(item: SnapItemViewModel){
+    private func onStorySelected(item: StoryItemViewModel){
+        self.performSegue(withIdentifier: "storyListToDetail", sender: item)
+        
+    }
+    
+    private func onSnapSelected(item: SnapItemViewModel){
         self.performSegue(withIdentifier: "snapListToDetail", sender: item)
     }
     
@@ -67,6 +71,10 @@ class SnapListTabViewController: UIViewController {
                 snapItemViewModel: itemSelected,
                 snapRepository: SnapRepository(mediaService: MediaService())
             )
+        } else if identifier == "storyListToDetail",
+                  let storyDetailViewController = segue.destination as? StoryDetailViewController,
+                  let itemSelected = sender as? StoryItemViewModel {
+            storyDetailViewController.story = itemSelected
         }
     }
     
@@ -120,11 +128,13 @@ public class StoryCollectionManager: NSObject, UICollectionViewDelegate, UIColle
     
     private static let TAG = "StoryCollectionManager"
     private let snapListViewModel: SnapListViewModelProtocol
-    
+    private let onItemSelected: (StoryItemViewModel) -> Void
     init(
-        snapListViewModel: SnapListViewModelProtocol
+        snapListViewModel: SnapListViewModelProtocol,
+        onItemSelected: @escaping (StoryItemViewModel) -> Void
     ){
         self.snapListViewModel = snapListViewModel
+        self.onItemSelected = onItemSelected
     }
     
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -147,6 +157,11 @@ public class StoryCollectionManager: NSObject, UICollectionViewDelegate, UIColle
         }
         
         return UICollectionViewCell()
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyItem = self.snapListViewModel.storys[indexPath.row]
+        self.onItemSelected(storyItem)
     }
     
 }

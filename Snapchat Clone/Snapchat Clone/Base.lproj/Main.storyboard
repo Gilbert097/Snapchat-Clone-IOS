@@ -565,11 +565,12 @@
                         <outlet property="snapTableView" destination="fba-S6-yGD" id="pq0-km-ROD"/>
                         <outlet property="storieCollectionView" destination="0Mq-wO-Dwn" id="ecX-qN-s6e"/>
                         <segue destination="MG0-S2-dTE" kind="presentation" identifier="snapListToDetail" modalPresentationStyle="fullScreen" id="fy0-oU-aLX"/>
+                        <segue destination="YcK-H5-kUJ" kind="showDetail" identifier="storyListToDetail" id="FBI-Za-kwQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xph-cs-a10" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4885.6000000000004" y="379.16041979010498"/>
+            <point key="canvasLocation" x="4886" y="377"/>
         </scene>
         <!--Snap Detail View Controller-->
         <scene sceneID="ObY-pZ-tvu">
@@ -769,6 +770,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dta-OY-FtV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3974" y="-347"/>
+        </scene>
+        <!--Story Detail View Controller-->
+        <scene sceneID="fvS-N0-zbI">
+            <objects>
+                <viewController storyboardIdentifier="StoryDetailViewController" id="YcK-H5-kUJ" customClass="StoryDetailViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SzW-nj-izE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bVS-v7-291"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="luR-WH-Hbx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4886" y="-348"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mRf-0s-TRa">
