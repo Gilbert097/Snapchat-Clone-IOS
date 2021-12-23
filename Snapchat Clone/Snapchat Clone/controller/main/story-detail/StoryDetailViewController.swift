@@ -80,7 +80,6 @@ class StoryDetailViewController: UIViewController {
         }
     }
     
-    
     private func configLayoutConstraints() {
         NSLayoutConstraint.activate([
             progressView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
@@ -108,16 +107,6 @@ class StoryDetailViewController: UIViewController {
             storyBarView.tag = tagValue
         }
         return storyBarView
-    }
-    
-    private func applyProperties<T: UIView>(_ view: T, with tag: Int? = nil, alpha: CGFloat = 1.0) -> T {
-        view.layer.cornerRadius = 1
-        view.layer.masksToBounds = true
-        view.backgroundColor = UIColor.white.withAlphaComponent(alpha)
-        if let tagValue = tag {
-            view.tag = tagValue
-        }
-        return view
     }
 }
 
