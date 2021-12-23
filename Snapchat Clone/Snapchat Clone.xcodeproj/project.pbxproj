@@ -53,7 +53,6 @@
 		D480B1F72637434E000A2318 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1F62637434E000A2318 /* HomeViewModel.swift */; };
 		D480B1FA2637454F000A2318 /* UserAuthenticationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1F92637454F000A2318 /* UserAuthenticationServiceProtocol.swift */; };
 		D49FC96D27740DDF003D27ED /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC96C27740DDF003D27ED /* StoryDetailViewController.swift */; };
-		D49FC96F277410B2003D27ED /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC96E277410B2003D27ED /* UIView+Extension.swift */; };
 		D4A96053274192F20095E636 /* CreateSnapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96052274192F20095E636 /* CreateSnapViewModel.swift */; };
 		D4A96055274193210095E636 /* CreateSnapViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96054274193200095E636 /* CreateSnapViewModelProtocol.swift */; };
 		D4A96057274194180095E636 /* CreateSnapEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96056274194180095E636 /* CreateSnapEventType.swift */; };
@@ -135,7 +134,6 @@
 		D480B1F62637434E000A2318 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D480B1F92637454F000A2318 /* UserAuthenticationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationServiceProtocol.swift; sourceTree = "<group>"; };
 		D49FC96C27740DDF003D27ED /* StoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
-		D49FC96E277410B2003D27ED /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D4A96052274192F20095E636 /* CreateSnapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapViewModel.swift; sourceTree = "<group>"; };
 		D4A96054274193200095E636 /* CreateSnapViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapViewModelProtocol.swift; sourceTree = "<group>"; };
 		D4A96056274194180095E636 /* CreateSnapEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapEventType.swift; sourceTree = "<group>"; };
@@ -351,7 +349,6 @@
 			isa = PBXGroup;
 			children = (
 				D49FC96C27740DDF003D27ED /* StoryDetailViewController.swift */,
-				D49FC96E277410B2003D27ED /* UIView+Extension.swift */,
 			);
 			path = "story-detail";
 			sourceTree = "<group>";
@@ -694,7 +691,6 @@
 				D455941F2753FE6600B83179 /* MediaServiceProtocol.swift in Sources */,
 				D4B5CD532635C43400521FC8 /* Event.swift in Sources */,
 				D480B1FA2637454F000A2318 /* UserAuthenticationServiceProtocol.swift in Sources */,
-				D49FC96F277410B2003D27ED /* UIView+Extension.swift in Sources */,
 				D4645BB5263A205D002239C1 /* SnapListTabViewController.swift in Sources */,
 				D480B1F4263742F9000A2318 /* HomeEventType.swift in Sources */,
 				D4D0958A2633AB43008ECAC0 /* LoginViewController.swift in Sources */,
