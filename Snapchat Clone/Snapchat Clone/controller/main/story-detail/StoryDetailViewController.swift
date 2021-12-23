@@ -46,14 +46,13 @@ class StoryDetailViewController: UIViewController {
         print("Progressor count: \(getProgressView.subviews.count)")
         let padding: CGFloat = 8 //GUI-Padding
         let height: CGFloat = 3
-        var pvIndicatorArray: [StoryBarView] = []
+        var storyBarViewArray: [StoryBarView] = []
         //var pvArray: [IGSnapProgressView] = []
         
-        for i in 0..<storysCount{
-            let pvIndicator = StoryBarView()
-            pvIndicator.translatesAutoresizingMaskIntoConstraints = false
-            getProgressView.addSubview(applyProperties(pvIndicator, with: i+progressIndicatorViewTag, alpha:0.2))
-            pvIndicatorArray.append(pvIndicator)
+        for index in 0..<storysCount{
+            let storyBarView = createStoryBarView(tag: index+progressIndicatorViewTag)
+            getProgressView.addSubview(storyBarView)
+            storyBarViewArray.append(storyBarView)
             
 //            let pv = IGSnapProgressView()
 //            pv.translatesAutoresizingMaskIntoConstraints = false
@@ -62,8 +61,8 @@ class StoryDetailViewController: UIViewController {
         }
         
         // Setting Constraints for all progressView indicators
-        for index in 0..<pvIndicatorArray.count {
-            let pvIndicator = pvIndicatorArray[index]
+        for index in 0..<storyBarViewArray.count {
+            let pvIndicator = storyBarViewArray[index]
             if index == 0 {
                 pvIndicator.leftConstraiant = pvIndicator.leftAnchor.constraint(equalTo: self.getProgressView.leftAnchor, constant: padding)
                 NSLayoutConstraint.activate([
@@ -71,12 +70,12 @@ class StoryDetailViewController: UIViewController {
                     pvIndicator.centerYAnchor.constraint(equalTo: self.getProgressView.centerYAnchor),
                     pvIndicator.heightAnchor.constraint(equalToConstant: height)
                     ])
-                if pvIndicatorArray.count == 1 {
+                if storyBarViewArray.count == 1 {
                     pvIndicator.rightConstraiant = self.getProgressView.rightAnchor.constraint(equalTo: pvIndicator.rightAnchor, constant: padding)
                     pvIndicator.rightConstraiant!.isActive = true
                 }
             }else {
-                let prePVIndicator = pvIndicatorArray[index-1]
+                let prePVIndicator = storyBarViewArray[index-1]
                 pvIndicator.widthConstraint = pvIndicator.widthAnchor.constraint(equalTo: prePVIndicator.widthAnchor, multiplier: 1.0)
                 pvIndicator.leftConstraiant = pvIndicator.leftAnchor.constraint(equalTo: prePVIndicator.rightAnchor, constant: padding)
                 NSLayoutConstraint.activate([
@@ -85,13 +84,26 @@ class StoryDetailViewController: UIViewController {
                     pvIndicator.heightAnchor.constraint(equalToConstant: height),
                     pvIndicator.widthConstraint!
                     ])
-                if index == pvIndicatorArray.count-1 {
+                if index == storyBarViewArray.count-1 {
                     pvIndicator.rightConstraiant = self.view.rightAnchor.constraint(equalTo: pvIndicator.rightAnchor, constant: padding)
                     pvIndicator.rightConstraiant!.isActive = true
                 }
             }
         }
         
+    }
+    
+    private func createStoryBarView(tag: Int? = nil) -> StoryBarView {
+        let storyBarView = StoryBarView()
+        storyBarView.translatesAutoresizingMaskIntoConstraints = false
+        storyBarView.layer.cornerRadius = 1
+        storyBarView.layer.masksToBounds = true
+        //storyBarView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        storyBarView.backgroundColor = UIColor.red
+        if let tagValue = tag {
+            storyBarView.tag = tagValue
+        }
+        return storyBarView
     }
     
     private func applyProperties<T: UIView>(_ view: T, with tag: Int? = nil, alpha: CGFloat = 1.0) -> T {
@@ -103,22 +115,7 @@ class StoryDetailViewController: UIViewController {
         }
         return view
     }
-    
-    
-   
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
-
 
 final class StoryBarView: UIView {
     public var widthConstraint: NSLayoutConstraint?
