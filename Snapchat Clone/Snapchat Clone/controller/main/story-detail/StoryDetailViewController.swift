@@ -36,9 +36,9 @@ class StoryDetailViewController: UIViewController {
         
         let pv = getProgressView
         NSLayoutConstraint.activate([
-            pv.igLeftAnchor.constraint(equalTo: self.view.igLeftAnchor),
-            pv.igTopAnchor.constraint(equalTo: self.view.igTopAnchor, constant: 8),
-            self.view.igRightAnchor.constraint(equalTo: pv.igRightAnchor),
+            pv.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            pv.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 8),
+            self.view.rightAnchor.constraint(equalTo: pv.rightAnchor),
             pv.heightAnchor.constraint(equalToConstant: 10)
         ])
         
@@ -46,11 +46,11 @@ class StoryDetailViewController: UIViewController {
         print("Progressor count: \(getProgressView.subviews.count)")
         let padding: CGFloat = 8 //GUI-Padding
         let height: CGFloat = 3
-        var pvIndicatorArray: [IGSnapProgressIndicatorView] = []
+        var pvIndicatorArray: [StoryBarView] = []
         //var pvArray: [IGSnapProgressView] = []
         
         for i in 0..<storysCount{
-            let pvIndicator = IGSnapProgressIndicatorView()
+            let pvIndicator = StoryBarView()
             pvIndicator.translatesAutoresizingMaskIntoConstraints = false
             getProgressView.addSubview(applyProperties(pvIndicator, with: i+progressIndicatorViewTag, alpha:0.2))
             pvIndicatorArray.append(pvIndicator)
@@ -65,28 +65,28 @@ class StoryDetailViewController: UIViewController {
         for index in 0..<pvIndicatorArray.count {
             let pvIndicator = pvIndicatorArray[index]
             if index == 0 {
-                pvIndicator.leftConstraiant = pvIndicator.igLeftAnchor.constraint(equalTo: self.getProgressView.igLeftAnchor, constant: padding)
+                pvIndicator.leftConstraiant = pvIndicator.leftAnchor.constraint(equalTo: self.getProgressView.leftAnchor, constant: padding)
                 NSLayoutConstraint.activate([
                     pvIndicator.leftConstraiant!,
-                    pvIndicator.igCenterYAnchor.constraint(equalTo: self.getProgressView.igCenterYAnchor),
+                    pvIndicator.centerYAnchor.constraint(equalTo: self.getProgressView.centerYAnchor),
                     pvIndicator.heightAnchor.constraint(equalToConstant: height)
                     ])
                 if pvIndicatorArray.count == 1 {
-                    pvIndicator.rightConstraiant = self.getProgressView.igRightAnchor.constraint(equalTo: pvIndicator.igRightAnchor, constant: padding)
+                    pvIndicator.rightConstraiant = self.getProgressView.rightAnchor.constraint(equalTo: pvIndicator.rightAnchor, constant: padding)
                     pvIndicator.rightConstraiant!.isActive = true
                 }
             }else {
                 let prePVIndicator = pvIndicatorArray[index-1]
                 pvIndicator.widthConstraint = pvIndicator.widthAnchor.constraint(equalTo: prePVIndicator.widthAnchor, multiplier: 1.0)
-                pvIndicator.leftConstraiant = pvIndicator.igLeftAnchor.constraint(equalTo: prePVIndicator.igRightAnchor, constant: padding)
+                pvIndicator.leftConstraiant = pvIndicator.leftAnchor.constraint(equalTo: prePVIndicator.rightAnchor, constant: padding)
                 NSLayoutConstraint.activate([
                     pvIndicator.leftConstraiant!,
-                    pvIndicator.igCenterYAnchor.constraint(equalTo: prePVIndicator.igCenterYAnchor),
+                    pvIndicator.centerYAnchor.constraint(equalTo: prePVIndicator.centerYAnchor),
                     pvIndicator.heightAnchor.constraint(equalToConstant: height),
                     pvIndicator.widthConstraint!
                     ])
                 if index == pvIndicatorArray.count-1 {
-                    pvIndicator.rightConstraiant = self.view.igRightAnchor.constraint(equalTo: pvIndicator.igRightAnchor, constant: padding)
+                    pvIndicator.rightConstraiant = self.view.rightAnchor.constraint(equalTo: pvIndicator.rightAnchor, constant: padding)
                     pvIndicator.rightConstraiant!.isActive = true
                 }
             }
@@ -120,7 +120,7 @@ class StoryDetailViewController: UIViewController {
 }
 
 
-final class IGSnapProgressIndicatorView: UIView {
+final class StoryBarView: UIView {
     public var widthConstraint: NSLayoutConstraint?
     public var leftConstraiant: NSLayoutConstraint?
     public var rightConstraiant: NSLayoutConstraint?
