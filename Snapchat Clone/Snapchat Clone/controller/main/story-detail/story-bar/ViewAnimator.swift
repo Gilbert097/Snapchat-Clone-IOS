@@ -36,14 +36,14 @@ extension ViewAnimator where Self: StoryBarProgressView {
                 strongSelf.superview?.layoutIfNeeded()
             }
         }) { [weak self] (finished) in
-            self?.story.isCancelledAbruptly = !finished
+            self?.viewModel.isCancelledAbruptly = !finished
             self?.state = .finished
             if finished == true {
-                if let strongSelf = self {
-                    return completion(strongSelf.story_identifier!, strongSelf.snapIndex!, strongSelf.story.isCancelledAbruptly)
+                if let self = self {
+                    return completion(self.viewModel.story.id, self.viewModel.index, self.viewModel.isCancelledAbruptly)
                 }
             } else {
-                return completion(self?.story_identifier ?? "Unknown", self?.snapIndex ?? 0, self?.story.isCancelledAbruptly ?? true)
+                return completion(self?.viewModel.story.id ?? "Unknown", self?.viewModel.index ?? 0, self?.viewModel.isCancelledAbruptly ?? true)
             }
         }
     }
@@ -69,7 +69,7 @@ extension ViewAnimator where Self: StoryBarProgressView {
     }
     func reset() {
         state = .notStarted
-        self.story.isCancelledAbruptly = true
+        self.viewModel.isCancelledAbruptly = true
         self.widthConstraint?.isActive = false
         self.widthConstraint = self.widthAnchor.constraint(equalToConstant: 0)
         self.widthConstraint?.isActive = true

@@ -55,6 +55,12 @@
 		D49FC96D27740DDF003D27ED /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC96C27740DDF003D27ED /* StoryDetailViewController.swift */; };
 		D49FC9712774FF25003D27ED /* ProgressorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC9702774FF25003D27ED /* ProgressorState.swift */; };
 		D49FC9732774FF3E003D27ED /* ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC9722774FF3E003D27ED /* ViewAnimator.swift */; };
+		D49FC97527764AEC003D27ED /* StoryBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97427764AEC003D27ED /* StoryBarView.swift */; };
+		D49FC97727764B09003D27ED /* StoryBarProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97627764B09003D27ED /* StoryBarProgressView.swift */; };
+		D49FC97927764BDC003D27ED /* StoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97827764BDC003D27ED /* StoryDetailViewModel.swift */; };
+		D49FC97B27764BF0003D27ED /* StoryDetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97A27764BF0003D27ED /* StoryDetailViewModelProtocol.swift */; };
+		D49FC97D27765131003D27ED /* StoryDetailEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97C27765131003D27ED /* StoryDetailEventType.swift */; };
+		D49FC980277657DF003D27ED /* StoryBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97F277657DF003D27ED /* StoryBarViewModel.swift */; };
 		D4A96053274192F20095E636 /* CreateSnapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96052274192F20095E636 /* CreateSnapViewModel.swift */; };
 		D4A96055274193210095E636 /* CreateSnapViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96054274193200095E636 /* CreateSnapViewModelProtocol.swift */; };
 		D4A96057274194180095E636 /* CreateSnapEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96056274194180095E636 /* CreateSnapEventType.swift */; };
@@ -138,6 +144,12 @@
 		D49FC96C27740DDF003D27ED /* StoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
 		D49FC9702774FF25003D27ED /* ProgressorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressorState.swift; sourceTree = "<group>"; };
 		D49FC9722774FF3E003D27ED /* ViewAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnimator.swift; sourceTree = "<group>"; };
+		D49FC97427764AEC003D27ED /* StoryBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBarView.swift; sourceTree = "<group>"; };
+		D49FC97627764B09003D27ED /* StoryBarProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBarProgressView.swift; sourceTree = "<group>"; };
+		D49FC97827764BDC003D27ED /* StoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewModel.swift; sourceTree = "<group>"; };
+		D49FC97A27764BF0003D27ED /* StoryDetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewModelProtocol.swift; sourceTree = "<group>"; };
+		D49FC97C27765131003D27ED /* StoryDetailEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailEventType.swift; sourceTree = "<group>"; };
+		D49FC97F277657DF003D27ED /* StoryBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBarViewModel.swift; sourceTree = "<group>"; };
 		D4A96052274192F20095E636 /* CreateSnapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapViewModel.swift; sourceTree = "<group>"; };
 		D4A96054274193200095E636 /* CreateSnapViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapViewModelProtocol.swift; sourceTree = "<group>"; };
 		D4A96056274194180095E636 /* CreateSnapEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapEventType.swift; sourceTree = "<group>"; };
@@ -352,11 +364,25 @@
 		D49FC96B27740D0C003D27ED /* story-detail */ = {
 			isa = PBXGroup;
 			children = (
+				D49FC97E277657AF003D27ED /* story-bar */,
 				D49FC96C27740DDF003D27ED /* StoryDetailViewController.swift */,
-				D49FC9702774FF25003D27ED /* ProgressorState.swift */,
-				D49FC9722774FF3E003D27ED /* ViewAnimator.swift */,
+				D49FC97827764BDC003D27ED /* StoryDetailViewModel.swift */,
+				D49FC97A27764BF0003D27ED /* StoryDetailViewModelProtocol.swift */,
+				D49FC97C27765131003D27ED /* StoryDetailEventType.swift */,
 			);
 			path = "story-detail";
+			sourceTree = "<group>";
+		};
+		D49FC97E277657AF003D27ED /* story-bar */ = {
+			isa = PBXGroup;
+			children = (
+				D49FC9702774FF25003D27ED /* ProgressorState.swift */,
+				D49FC9722774FF3E003D27ED /* ViewAnimator.swift */,
+				D49FC97427764AEC003D27ED /* StoryBarView.swift */,
+				D49FC97627764B09003D27ED /* StoryBarProgressView.swift */,
+				D49FC97F277657DF003D27ED /* StoryBarViewModel.swift */,
+			);
+			path = "story-bar";
 			sourceTree = "<group>";
 		};
 		D4B5CD462635C2AB00521FC8 /* login */ = {
@@ -636,6 +662,7 @@
 				D4F4ACC9271646CD00FF200F /* SnapListEventType.swift in Sources */,
 				D4E20132274B2F150020B9B5 /* UserRepositoryProtocol.swift in Sources */,
 				D42A9657276E698A006B53C8 /* CreateStoryViewModel.swift in Sources */,
+				D49FC97927764BDC003D27ED /* StoryDetailViewModel.swift in Sources */,
 				D45594212754093D00B83179 /* MediaMetadata.swift in Sources */,
 				D4E20130274B2EFF0020B9B5 /* UserRepository.swift in Sources */,
 				D42A965B276E6A1C006B53C8 /* CreateStoryEventType.swift in Sources */,
@@ -650,7 +677,9 @@
 				D4B657512759AA1C00EF0596 /* Snap.swift in Sources */,
 				D475EEF5276244CF00C91681 /* SnapDetailViewController.swift in Sources */,
 				D480B1F0263742CC000A2318 /* HomeViewModelProtocol.swift in Sources */,
+				D49FC97B27764BF0003D27ED /* StoryDetailViewModelProtocol.swift in Sources */,
 				D49FC96D27740DDF003D27ED /* StoryDetailViewController.swift in Sources */,
+				D49FC97527764AEC003D27ED /* StoryBarView.swift in Sources */,
 				D42A9659276E69A1006B53C8 /* CreateStoryViewModelProtocol.swift in Sources */,
 				D4A96053274192F20095E636 /* CreateSnapViewModel.swift in Sources */,
 				D4313932275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift in Sources */,
@@ -671,6 +700,7 @@
 				D4B5CD4D2635C30800521FC8 /* UserAuthenticationService.swift in Sources */,
 				D42A9664276E9F65006B53C8 /* StoryRepositoryProtocol.swift in Sources */,
 				D4171EFD2635EBC1009B5EB1 /* CreateAccountEventType.swift in Sources */,
+				D49FC980277657DF003D27ED /* StoryBarViewModel.swift in Sources */,
 				D4A96057274194180095E636 /* CreateSnapEventType.swift in Sources */,
 				D45594192751B77900B83179 /* UserListEventType.swift in Sources */,
 				D45594132751AC1300B83179 /* UserListTableViewController.swift in Sources */,
@@ -687,9 +717,11 @@
 				D4F4ACCD2716485200FF200F /* SnapListViewModelProtocol.swift in Sources */,
 				D45594152751B48700B83179 /* UserListTableViewModel.swift in Sources */,
 				D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */,
+				D49FC97D27765131003D27ED /* StoryDetailEventType.swift in Sources */,
 				D49FC9712774FF25003D27ED /* ProgressorState.swift in Sources */,
 				D4D0955826339B0B008ECAC0 /* AppDelegate.swift in Sources */,
 				D4A96055274193210095E636 /* CreateSnapViewModelProtocol.swift in Sources */,
+				D49FC97727764B09003D27ED /* StoryBarProgressView.swift in Sources */,
 				D42A965E276E8F91006B53C8 /* StoryRepository.swift in Sources */,
 				D4B6574827584F4200EF0596 /* UserItemViewModel.swift in Sources */,
 				D480B1DC2636521D000A2318 /* EventData.swift in Sources */,

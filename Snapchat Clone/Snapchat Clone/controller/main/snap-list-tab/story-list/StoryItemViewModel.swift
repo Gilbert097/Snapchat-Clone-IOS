@@ -8,7 +8,7 @@
 import Foundation
 
 
-class StoryItemViewModel{
+class StoryItemViewModel {
     
     var userName: String
     var storys: [Story] = []
@@ -22,10 +22,6 @@ class StoryItemViewModel{
             !(count > 0)
         }
     }
-    
-    var lastPlayedSnapIndex = 0
-    var isCompletelyVisible = false
-    var isCancelledAbruptly = false
     
     init(userName: String, story: Story){
         self.userName = userName

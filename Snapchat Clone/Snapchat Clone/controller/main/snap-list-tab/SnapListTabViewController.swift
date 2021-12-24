@@ -74,10 +74,9 @@ class SnapListTabViewController: UIViewController {
         } else if identifier == "storyListToDetail",
                   let storyDetailViewController = segue.destination as? StoryDetailViewController,
                   let itemSelected = sender as? StoryItemViewModel {
-            storyDetailViewController.story = itemSelected
+            storyDetailViewController.viewModel = StoryDetailViewModel(storyItemViewModel: itemSelected)
         }
     }
-    
 }
 
 public class SnapTableManager: NSObject, UITableViewDelegate, UITableViewDataSource {
