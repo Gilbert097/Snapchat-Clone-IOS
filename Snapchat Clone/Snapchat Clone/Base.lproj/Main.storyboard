@@ -778,13 +778,98 @@
                     <view key="view" contentMode="scaleToFill" id="SzW-nj-izE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DzE-SJ-9hY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXp-Yr-cXk" userLabel="Progresss Bar View">
+                                <rect key="frame" x="0.0" y="8" width="375" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="gOw-yf-jiN"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="padrao" translatesAutoresizingMaskIntoConstraints="NO" id="v4C-MV-Us9" userLabel="User Image View">
+                                <rect key="frame" x="10" y="23" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MeF-wo-5oH"/>
+                                    <constraint firstAttribute="width" constant="40" id="Obo-g1-PMo"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPb-2X-EFI" userLabel="Detail View">
+                                <rect key="frame" x="60" y="23" width="143" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gilberto Silva" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3I-AG-PzO" userLabel="Name Label">
+                                        <rect key="frame" x="0.0" y="10" width="85.5" height="20"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLC-nZ-qLt" userLabel="Updated Label">
+                                        <rect key="frame" x="95.5" y="9.5" width="17" height="21"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="WLC-nZ-qLt" firstAttribute="centerY" secondItem="NPb-2X-EFI" secondAttribute="centerY" id="5ud-yH-O6O"/>
+                                    <constraint firstItem="O3I-AG-PzO" firstAttribute="centerY" secondItem="NPb-2X-EFI" secondAttribute="centerY" id="Dk6-vY-ByM"/>
+                                    <constraint firstItem="O3I-AG-PzO" firstAttribute="leading" secondItem="NPb-2X-EFI" secondAttribute="leading" id="Eeb-WQ-hEN"/>
+                                    <constraint firstAttribute="trailing" secondItem="WLC-nZ-qLt" secondAttribute="trailing" constant="30.5" id="HRx-Ts-ed7"/>
+                                    <constraint firstItem="WLC-nZ-qLt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O3I-AG-PzO" secondAttribute="trailing" constant="8" symbolic="YES" id="IGJ-Fg-B9o"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZfZ-Td-cAH"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="cG6-1H-IAz"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1BU-3G-CUJ">
+                                <rect key="frame" x="335" y="35" width="20" height="15.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="fe4-3D-FiD"/>
+                                    <constraint firstAttribute="height" constant="20" id="zbb-sx-MVT"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bVS-v7-291"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v4C-MV-Us9" firstAttribute="top" secondItem="wXp-Yr-cXk" secondAttribute="bottom" constant="5" id="4MN-xl-quk"/>
+                            <constraint firstItem="bVS-v7-291" firstAttribute="trailing" secondItem="DzE-SJ-9hY" secondAttribute="trailing" id="5b8-v9-AHb"/>
+                            <constraint firstItem="DzE-SJ-9hY" firstAttribute="top" secondItem="bVS-v7-291" secondAttribute="top" id="BFB-Zz-kkv"/>
+                            <constraint firstItem="DzE-SJ-9hY" firstAttribute="top" secondItem="bVS-v7-291" secondAttribute="top" id="FMb-Rn-pOm"/>
+                            <constraint firstItem="bVS-v7-291" firstAttribute="trailing" secondItem="1BU-3G-CUJ" secondAttribute="trailing" constant="20" id="LDg-nC-xcz"/>
+                            <constraint firstItem="DzE-SJ-9hY" firstAttribute="leading" secondItem="bVS-v7-291" secondAttribute="leading" id="O3f-ro-53v"/>
+                            <constraint firstItem="wXp-Yr-cXk" firstAttribute="top" secondItem="bVS-v7-291" secondAttribute="top" constant="8" id="Skd-iT-V9B"/>
+                            <constraint firstItem="NPb-2X-EFI" firstAttribute="top" secondItem="wXp-Yr-cXk" secondAttribute="bottom" constant="5" id="Sta-bg-VeB"/>
+                            <constraint firstItem="1BU-3G-CUJ" firstAttribute="top" secondItem="wXp-Yr-cXk" secondAttribute="bottom" constant="15" id="TSv-2C-RWa"/>
+                            <constraint firstItem="bVS-v7-291" firstAttribute="trailing" secondItem="DzE-SJ-9hY" secondAttribute="trailing" id="Ylg-eH-mOq"/>
+                            <constraint firstItem="NPb-2X-EFI" firstAttribute="leading" secondItem="v4C-MV-Us9" secondAttribute="trailing" constant="10" id="fSC-dU-zHD"/>
+                            <constraint firstItem="bVS-v7-291" firstAttribute="trailing" secondItem="NPb-2X-EFI" secondAttribute="trailing" constant="172" id="nWG-DJ-RXD"/>
+                            <constraint firstItem="wXp-Yr-cXk" firstAttribute="leading" secondItem="bVS-v7-291" secondAttribute="leading" id="omf-mY-tIO"/>
+                            <constraint firstItem="v4C-MV-Us9" firstAttribute="leading" secondItem="bVS-v7-291" secondAttribute="leading" constant="10" id="pgM-me-fTI"/>
+                            <constraint firstItem="bVS-v7-291" firstAttribute="bottom" secondItem="DzE-SJ-9hY" secondAttribute="bottom" id="rvE-0z-GyP"/>
+                            <constraint firstItem="bVS-v7-291" firstAttribute="trailing" secondItem="wXp-Yr-cXk" secondAttribute="trailing" id="sHf-fJ-Z7M"/>
+                            <constraint firstItem="DzE-SJ-9hY" firstAttribute="leading" secondItem="bVS-v7-291" secondAttribute="leading" id="slQ-BM-pEc"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="1BU-3G-CUJ" id="RTk-qq-OZW"/>
+                        <outlet property="progressBarView" destination="wXp-Yr-cXk" id="azw-js-jqi"/>
+                        <outlet property="storyImageView" destination="DzE-SJ-9hY" id="buv-YY-Oy7"/>
+                        <outlet property="updatedLabel" destination="WLC-nZ-qLt" id="sQy-I0-fxX"/>
+                        <outlet property="userImageView" destination="v4C-MV-Us9" id="gl4-eB-KAx"/>
+                        <outlet property="userNameLabel" destination="O3I-AG-PzO" id="Zgj-UA-WyS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="luR-WH-Hbx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4886" y="-348"/>
+            <point key="canvasLocation" x="4885.6000000000004" y="-348.57571214392806"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mRf-0s-TRa">
@@ -1187,7 +1272,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="ugY-DS-TFD"/>
+        <segue reference="ohY-Pc-haE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
