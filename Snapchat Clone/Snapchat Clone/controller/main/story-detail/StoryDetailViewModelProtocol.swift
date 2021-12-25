@@ -8,14 +8,14 @@
 import Foundation
 
 protocol StoryDetailViewModelProtocol{
-    
-    typealias Output = Event<StoryDetailEventType>
-   // typealias Input = Event<Data?>
+    typealias Output = Event<EventData<StoryDetailEventType>>
     
     func bind() -> Output
     
     var storysCount: Int { get }
     var storyBars: [StoryBarViewModel] { get }
-    var storyIndex: Int { get set }
+    
+    func nextStory()
+    func start()
     
 }

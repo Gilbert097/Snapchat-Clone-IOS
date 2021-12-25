@@ -13,7 +13,7 @@ class StoryDetailViewModel: StoryDetailViewModelProtocol {
     public var storysCount: Int = 0
     public var storyIndex = 0
     private let maxStorys = 30
-    private let output: Output = .init(.none)
+    private let output: Output = .init(.init(type: .none, info: nil))
     private var storyItemViewModel: StoryItemViewModel
     
     init(storyItemViewModel: StoryItemViewModel){
@@ -27,5 +27,21 @@ class StoryDetailViewModel: StoryDetailViewModelProtocol {
     
     func bind() -> Output {
         return output
+    }
+    
+    func start() {
+        showStory()
+    }
+    
+    func nextStory(){
+        if storyIndex < storysCount - 1 {
+            storyIndex+=1
+            showStory()
+        }
+    }
+    
+    private func showStory() {
+        let nextStory = self.storyBars[storyIndex]
+        self.output.value = .init(type: .nextStory, info: nextStory)
     }
 }

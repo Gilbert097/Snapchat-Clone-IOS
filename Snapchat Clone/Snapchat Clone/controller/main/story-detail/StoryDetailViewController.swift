@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class StoryDetailViewController: UIViewController {
     private static let TAG = "StoryDetailViewController"
@@ -18,8 +19,7 @@ class StoryDetailViewController: UIViewController {
     @IBOutlet weak var storyImageView: UIImageView!
     
     public var viewModel: StoryDetailViewModelProtocol!
-    public let progressIndicatorViewTag = 88
-    public let progressViewTag = 99
+    public let storyBarViewTag = 88
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,28 @@ class StoryDetailViewController: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onCloseButtonClick(tapGestureRecognizer:)))
         closeButton.isUserInteractionEnabled = true
         closeButton.addGestureRecognizer(tapGestureRecognizer)
+        
+        let output = viewModel.bind()
+        output.bind { [weak self] eventData in
+            guard let self = self else { return }
+            switch eventData.type {
+            case .none:
+                break
+            case .showMessageError:
+                break
+            case .showMessageSuccess:
+                break
+            case .nextStory:
+                if let storyBar = eventData.info as? StoryBarViewModel {
+                    self.startStoryProgress(storyBar: storyBar)
+                }
+                break
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        startStoryProgress()
+        viewModel.start()
     }
     
     @objc func onCloseButtonClick(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -38,14 +56,14 @@ class StoryDetailViewController: UIViewController {
     }
     
     private func createStoryBarsView() {
-        LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Progressor count: \(progressBarView.subviews.count)")
+        LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Story bar count: \(progressBarView.subviews.count)")
         let padding: CGFloat = 8 //GUI-Padding
         let height: CGFloat = 3
         var storyBarViewArray: [StoryBarView] = []
         var storyBarProgressViewArray: [StoryBarProgressView] = []
         
         for index in 0..<viewModel.storysCount{
-            let storyBarView = createStoryBarView(tag: index+progressIndicatorViewTag)
+            let storyBarView = createStoryBarView(tag: index+storyBarViewTag)
             progressBarView.addSubview(storyBarView)
             storyBarViewArray.append(storyBarView)
             
@@ -127,23 +145,32 @@ class StoryDetailViewController: UIViewController {
         return view
     }
     
-    private func startStoryProgress() {
-        if let storyBar = getStoryBarView(with: viewModel.storyIndex),
-           let storyProgress = getStoryProgressView(index: viewModel.storyIndex, storyBar: storyBar) {
-            storyProgress.start(with: 5.0, holderView: storyBar, completion: { [weak self] (identifier, snapIndex, isCancelledAbruptly) in
-                guard let self = self else { return }
-                if self.viewModel.storyIndex < self.viewModel.storysCount - 1 {
-                    self.viewModel.storyIndex+=1
-                    self.startStoryProgress()
+    private func startStoryProgress(storyBar: StoryBarViewModel) {
+        if let storyBarView = getStoryBarView(with: storyBar.index),
+           let storyProgress = getStoryProgressView(index: storyBar.index, storyBar: storyBarView) {
+            LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "-----> Start download image <-----")
+            LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Name image -> \(storyBar.story.nameImage)")
+            storyImageView.sd_setImage(with: URL(string: storyBar.story.urlImage)) { image, error, cacheType, url in
+                if error == nil {
+                    LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Download image success!")
+                    LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "-----> Start animate story <-----")
+                    LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Story index -> \(storyProgress.viewModel.index)")
+                    storyProgress.start(with: 5.0, holderView: storyBarView, completion: { [weak self] (identifier, snapIndex, isCancelledAbruptly) in
+                        LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "-----> Finish animate story <-----")
+                        guard let self = self else { return }
+                        self.viewModel.nextStory()
+                    })
+                } else if let error = error {
+                    LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Download image erro -> \(error.localizedDescription)")
                 }
-                LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Finish")
-            })
+                LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "-----> Finish download image <-----")
+            }
         }
     }
     
     func getStoryBarView(with index: Int) -> StoryBarView? {
         let storyBar =  progressBarView.subviews.filter({
-            v in v.tag == index+progressIndicatorViewTag
+            v in v.tag == index+storyBarViewTag
         }).first as? StoryBarView ?? nil
         
         return storyBar

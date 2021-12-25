@@ -565,7 +565,7 @@
                         <outlet property="snapTableView" destination="fba-S6-yGD" id="pq0-km-ROD"/>
                         <outlet property="storieCollectionView" destination="0Mq-wO-Dwn" id="ecX-qN-s6e"/>
                         <segue destination="MG0-S2-dTE" kind="presentation" identifier="snapListToDetail" modalPresentationStyle="fullScreen" id="fy0-oU-aLX"/>
-                        <segue destination="YcK-H5-kUJ" kind="showDetail" identifier="storyListToDetail" id="FBI-Za-kwQ"/>
+                        <segue destination="YcK-H5-kUJ" kind="presentation" identifier="storyListToDetail" modalPresentationStyle="fullScreen" id="FBI-Za-kwQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xph-cs-a10" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -776,11 +776,11 @@
             <objects>
                 <viewController storyboardIdentifier="StoryDetailViewController" id="YcK-H5-kUJ" customClass="StoryDetailViewController" customModule="Snapchat_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SzW-nj-izE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DzE-SJ-9hY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DzE-SJ-9hY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXp-Yr-cXk" userLabel="Progresss Bar View">
                                 <rect key="frame" x="0.0" y="8" width="375" height="10"/>
