@@ -33,8 +33,7 @@ class StoryDetailViewController: UIViewController {
         startStoryProgress()
     }
     
-    @objc func onCloseButtonClick(tapGestureRecognizer: UITapGestureRecognizer)
-    {
+    @objc func onCloseButtonClick(tapGestureRecognizer: UITapGestureRecognizer) {
         dismiss(animated: true)
     }
     
@@ -97,7 +96,6 @@ class StoryDetailViewController: UIViewController {
                 storyProgress.heightAnchor.constraint(equalTo: storybar.heightAnchor),
                 storyProgress.topAnchor.constraint(equalTo: storybar.topAnchor),
                 storyProgress.widthConstraint!
-                //storyProgress.widthAnchor.constraint(equalTo: storybar.widthAnchor)
             ])
         }
     }
@@ -131,7 +129,7 @@ class StoryDetailViewController: UIViewController {
     
     private func startStoryProgress() {
         if let storyBar = getStoryBarView(with: viewModel.storyIndex),
-           let storyProgress = getStoryProgressView(with: viewModel.storyIndex) {
+           let storyProgress = getStoryProgressView(index: viewModel.storyIndex, storyBar: storyBar) {
             storyProgress.start(with: 5.0, holderView: storyBar, completion: { [weak self] (identifier, snapIndex, isCancelledAbruptly) in
                 guard let self = self else { return }
                 if self.viewModel.storyIndex < self.viewModel.storysCount - 1 {
@@ -151,9 +149,9 @@ class StoryDetailViewController: UIViewController {
         return storyBar
     }
     
-    func getStoryProgressView(with index: Int) -> StoryBarProgressView? {
+    func getStoryProgressView(index: Int, storyBar: StoryBarView) -> StoryBarProgressView? {
         if progressBarView.subviews.count > 0 {
-            let storyProgress = getStoryBarView(with: index)?.subviews.first as? StoryBarProgressView
+            let storyProgress = storyBar.subviews.first as? StoryBarProgressView
             return storyProgress
         }
         return nil
