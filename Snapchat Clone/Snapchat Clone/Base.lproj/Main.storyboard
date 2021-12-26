@@ -805,13 +805,13 @@
                                 <rect key="frame" x="60" y="23" width="143" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gilberto Silva" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3I-AG-PzO" userLabel="Name Label">
-                                        <rect key="frame" x="0.0" y="10" width="85.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="10.5" width="85.5" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLC-nZ-qLt" userLabel="Updated Label">
-                                        <rect key="frame" x="95.5" y="9.5" width="17" height="21"/>
+                                        <rect key="frame" x="95.5" y="10" width="17" height="20.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -835,13 +835,26 @@
                                     <constraint firstAttribute="height" constant="20" id="zbb-sx-MVT"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dGx-y8-H3N" userLabel="Stack Tap View">
+                                <rect key="frame" x="0.0" y="63" width="375" height="604"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fdl-3V-gZg" userLabel="Left View">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="604"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzb-3T-IM9" userLabel="Right View">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="604"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bVS-v7-291"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="bVS-v7-291" firstAttribute="trailing" secondItem="dGx-y8-H3N" secondAttribute="trailing" id="06p-KW-lrB"/>
                             <constraint firstItem="v4C-MV-Us9" firstAttribute="top" secondItem="wXp-Yr-cXk" secondAttribute="bottom" constant="5" id="4MN-xl-quk"/>
                             <constraint firstItem="bVS-v7-291" firstAttribute="trailing" secondItem="DzE-SJ-9hY" secondAttribute="trailing" id="5b8-v9-AHb"/>
                             <constraint firstItem="DzE-SJ-9hY" firstAttribute="top" secondItem="bVS-v7-291" secondAttribute="top" id="BFB-Zz-kkv"/>
+                            <constraint firstItem="dGx-y8-H3N" firstAttribute="top" secondItem="v4C-MV-Us9" secondAttribute="bottom" id="BqV-kq-f74"/>
                             <constraint firstItem="DzE-SJ-9hY" firstAttribute="top" secondItem="bVS-v7-291" secondAttribute="top" id="FMb-Rn-pOm"/>
                             <constraint firstItem="bVS-v7-291" firstAttribute="trailing" secondItem="1BU-3G-CUJ" secondAttribute="trailing" constant="20" id="LDg-nC-xcz"/>
                             <constraint firstItem="DzE-SJ-9hY" firstAttribute="leading" secondItem="bVS-v7-291" secondAttribute="leading" id="O3f-ro-53v"/>
@@ -849,6 +862,8 @@
                             <constraint firstItem="NPb-2X-EFI" firstAttribute="top" secondItem="wXp-Yr-cXk" secondAttribute="bottom" constant="5" id="Sta-bg-VeB"/>
                             <constraint firstItem="1BU-3G-CUJ" firstAttribute="top" secondItem="wXp-Yr-cXk" secondAttribute="bottom" constant="15" id="TSv-2C-RWa"/>
                             <constraint firstItem="bVS-v7-291" firstAttribute="trailing" secondItem="DzE-SJ-9hY" secondAttribute="trailing" id="Ylg-eH-mOq"/>
+                            <constraint firstItem="dGx-y8-H3N" firstAttribute="leading" secondItem="bVS-v7-291" secondAttribute="leading" id="Ze6-RG-TW5"/>
+                            <constraint firstItem="bVS-v7-291" firstAttribute="bottom" secondItem="dGx-y8-H3N" secondAttribute="bottom" id="dhP-xF-qXi"/>
                             <constraint firstItem="NPb-2X-EFI" firstAttribute="leading" secondItem="v4C-MV-Us9" secondAttribute="trailing" constant="10" id="fSC-dU-zHD"/>
                             <constraint firstItem="bVS-v7-291" firstAttribute="trailing" secondItem="NPb-2X-EFI" secondAttribute="trailing" constant="172" id="nWG-DJ-RXD"/>
                             <constraint firstItem="wXp-Yr-cXk" firstAttribute="leading" secondItem="bVS-v7-291" secondAttribute="leading" id="omf-mY-tIO"/>
@@ -862,6 +877,8 @@
                         <outlet property="closeButton" destination="1BU-3G-CUJ" id="RTk-qq-OZW"/>
                         <outlet property="progressBarView" destination="wXp-Yr-cXk" id="azw-js-jqi"/>
                         <outlet property="storyImageView" destination="DzE-SJ-9hY" id="buv-YY-Oy7"/>
+                        <outlet property="tapLeftView" destination="Fdl-3V-gZg" id="sfx-Eh-WiF"/>
+                        <outlet property="tapRightView" destination="tzb-3T-IM9" id="fgn-zd-r7A"/>
                         <outlet property="updatedLabel" destination="WLC-nZ-qLt" id="sQy-I0-fxX"/>
                         <outlet property="userImageView" destination="v4C-MV-Us9" id="gl4-eB-KAx"/>
                         <outlet property="userNameLabel" destination="O3I-AG-PzO" id="Zgj-UA-WyS"/>

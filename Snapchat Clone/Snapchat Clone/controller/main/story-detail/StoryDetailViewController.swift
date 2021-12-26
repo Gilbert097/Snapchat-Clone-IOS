@@ -17,6 +17,8 @@ class StoryDetailViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var updatedLabel: UILabel!
     @IBOutlet weak var storyImageView: UIImageView!
+    @IBOutlet weak var tapLeftView: UIView!
+    @IBOutlet weak var tapRightView: UIView!
     
     public var viewModel: StoryDetailViewModelProtocol!
     public let storyBarViewTag = 88
@@ -24,10 +26,48 @@ class StoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createStoryBarsView()
+        configureTapCloseButton()
+        configureBind()
+        configureTapLeftView()
+        configureTapRightView()
+    }
+    
+    private func configureTapCloseButton() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onCloseButtonClick(tapGestureRecognizer:)))
         closeButton.isUserInteractionEnabled = true
         closeButton.addGestureRecognizer(tapGestureRecognizer)
-        
+    }
+    
+    private func configureTapLeftView() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapView(tapGestureRecognizer:)))
+        tapLeftView.isUserInteractionEnabled = true
+        tapLeftView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    private func configureTapRightView() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapView(tapGestureRecognizer:)))
+        tapRightView.isUserInteractionEnabled = true
+        tapRightView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func onTapView(tapGestureRecognizer: UITapGestureRecognizer) {
+        if let view = tapGestureRecognizer.view {
+            switch view {
+            case tapLeftView:
+                LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Left tap!")
+                break;
+            case tapRightView:
+                LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Right tap!")
+                break;
+            default:
+                LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "tap action not implemented!")
+            }
+        } else {
+            LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "View tap gesture is nil!")
+        }
+    }
+    
+    private func configureBind() {
         let output = viewModel.bind()
         output.bind { [weak self] eventData in
             guard let self = self else { return }
@@ -168,7 +208,7 @@ class StoryDetailViewController: UIViewController {
         }
     }
     
-    func getStoryBarView(with index: Int) -> StoryBarView? {
+    private func getStoryBarView(with index: Int) -> StoryBarView? {
         let storyBar =  progressBarView.subviews.filter({
             v in v.tag == index+storyBarViewTag
         }).first as? StoryBarView ?? nil
@@ -176,7 +216,7 @@ class StoryDetailViewController: UIViewController {
         return storyBar
     }
     
-    func getStoryProgressView(index: Int, storyBar: StoryBarView) -> StoryBarProgressView? {
+    private func getStoryProgressView(index: Int, storyBar: StoryBarView) -> StoryBarProgressView? {
         if progressBarView.subviews.count > 0 {
             let storyProgress = storyBar.subviews.first as? StoryBarProgressView
             return storyProgress
