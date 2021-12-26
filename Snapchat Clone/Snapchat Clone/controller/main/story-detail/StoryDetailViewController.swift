@@ -26,18 +26,12 @@ class StoryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createStoryBarsView()
-        configureTapCloseButton()
         configureBind()
+        configureTapView(view: closeButton)
         configureTapView(view: tapLeftView)
         configureTapView(view: tapRightView)
     }
-    
-    private func configureTapCloseButton() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onCloseButtonClick(tapGestureRecognizer:)))
-        closeButton.isUserInteractionEnabled = true
-        closeButton.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
+  
     private func configureTapView(view: UIView) {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapView(tapGestureRecognizer:)))
         view.isUserInteractionEnabled = true
@@ -54,6 +48,10 @@ class StoryDetailViewController: UIViewController {
                 LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Right tap!")
                 self.viewModel.nextStory()
                 break;
+            case closeButton:
+                LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Close image tap!")
+                dismiss(animated: true)
+                break
             default:
                 LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "tap action not implemented!")
             }
@@ -84,10 +82,6 @@ class StoryDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         viewModel.start()
-    }
-    
-    @objc func onCloseButtonClick(tapGestureRecognizer: UITapGestureRecognizer) {
-        dismiss(animated: true)
     }
     
     private func createStoryBarsView() {
