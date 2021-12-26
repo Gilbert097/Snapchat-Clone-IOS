@@ -28,8 +28,8 @@ class StoryDetailViewController: UIViewController {
         createStoryBarsView()
         configureTapCloseButton()
         configureBind()
-        configureTapLeftView()
-        configureTapRightView()
+        configureTapView(view: tapLeftView)
+        configureTapView(view: tapRightView)
     }
     
     private func configureTapCloseButton() {
@@ -38,16 +38,10 @@ class StoryDetailViewController: UIViewController {
         closeButton.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    private func configureTapLeftView() {
+    private func configureTapView(view: UIView) {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapView(tapGestureRecognizer:)))
-        tapLeftView.isUserInteractionEnabled = true
-        tapLeftView.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    private func configureTapRightView() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapView(tapGestureRecognizer:)))
-        tapRightView.isUserInteractionEnabled = true
-        tapRightView.addGestureRecognizer(tapGestureRecognizer)
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @objc func onTapView(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -58,6 +52,7 @@ class StoryDetailViewController: UIViewController {
                 break;
             case tapRightView:
                 LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Right tap!")
+                self.viewModel.nextStory()
                 break;
             default:
                 LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "tap action not implemented!")
