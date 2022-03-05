@@ -76,8 +76,19 @@ class StoryDetailViewController: UIViewController {
                     self.startStoryProgress(storyBar: storyBar)
                 }
                 break
+            case .finishStory:
+                
+                if let storyBar = eventData.info as? StoryBarViewModel {
+                    if let storyBarView = self.getStoryBarView(with: storyBar.index),
+                       let storyProgress = self.getStoryProgressView(index: storyBar.index, storyBar: storyBarView) {
+                        LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Execute finish progress")
+                        storyProgress.finish()
+                    }
+                }
+                break
             }
         }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -187,7 +198,9 @@ class StoryDetailViewController: UIViewController {
                     storyProgress.start(with: 5.0, holderView: storyBarView, completion: { [weak self] (identifier, snapIndex, isCancelledAbruptly) in
                         LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "-----> Finish animate story <-----")
                         guard let self = self else { return }
-                        self.viewModel.nextStory()
+                        if !isCancelledAbruptly {
+                            self.viewModel.nextStory()
+                        }
                     })
                 } else if let error = error {
                     LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Download image erro -> \(error.localizedDescription)")

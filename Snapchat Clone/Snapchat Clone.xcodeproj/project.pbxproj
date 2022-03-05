@@ -22,7 +22,6 @@
 		D42A9662276E9D5A006B53C8 /* SyncStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A9661276E9D5A006B53C8 /* SyncStatus.swift */; };
 		D42A9664276E9F65006B53C8 /* StoryRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A9663276E9F65006B53C8 /* StoryRepositoryProtocol.swift */; };
 		D42A9666276EB785006B53C8 /* StoryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A9665276EB785006B53C8 /* StoryItemViewModel.swift */; };
-		D42A966C27700BE9006B53C8 /* Source in Resources */ = {isa = PBXBuildFile; fileRef = D42A966B27700BE9006B53C8 /* Source */; };
 		D431392E275008F900DDAC81 /* MediaOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D431392D275008F900DDAC81 /* MediaOptionsViewController.swift */; };
 		D4313930275075A600DDAC81 /* MediaOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D431392F275075A600DDAC81 /* MediaOptionsViewModel.swift */; };
 		D4313932275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4313931275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift */; };
@@ -111,7 +110,6 @@
 		D42A9661276E9D5A006B53C8 /* SyncStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatus.swift; sourceTree = "<group>"; };
 		D42A9663276E9F65006B53C8 /* StoryRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRepositoryProtocol.swift; sourceTree = "<group>"; };
 		D42A9665276EB785006B53C8 /* StoryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryItemViewModel.swift; sourceTree = "<group>"; };
-		D42A966B27700BE9006B53C8 /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Source; path = "../../../../../../../Downloads/Instagram_Stories-master/InstagramStories/Source"; sourceTree = "<group>"; };
 		D431392D275008F900DDAC81 /* MediaOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsViewController.swift; sourceTree = "<group>"; };
 		D431392F275075A600DDAC81 /* MediaOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsViewModel.swift; sourceTree = "<group>"; };
 		D4313931275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -334,7 +332,6 @@
 		D475EEFC27624DBF00C91681 /* components */ = {
 			isa = PBXGroup;
 			children = (
-				D42A966B27700BE9006B53C8 /* Source */,
 				D475EEFD27624DDC00C91681 /* CustomRoundButton.swift */,
 			);
 			path = components;
@@ -600,7 +597,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D42A966C27700BE9006B53C8 /* Source in Resources */,
 				D4D0956426339B0E008ECAC0 /* LaunchScreen.storyboard in Resources */,
 				D4F4ACC42716015C00FF200F /* GoogleService-Info.plist in Resources */,
 				D4D0956126339B0E008ECAC0 /* Assets.xcassets in Resources */,

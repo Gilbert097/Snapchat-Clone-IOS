@@ -9,6 +9,7 @@ import Foundation
 
 class LogUtils {
     
+    
     static var shared: LogUtils = {
         LogUtils()
       }()
@@ -16,7 +17,16 @@ class LogUtils {
     private init(){}
     
     static func printMessage(tag: String, message: String){
-        print("\(tag): \(message)")
+        let formate = Date().getFormattedDate(format: "yyyy-MM-dd HH:mm:ss.SSS")
+        print("\(formate) \(tag): \(message)")
     }
     
+}
+
+extension Date {
+   func getFormattedDate(format: String) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = format
+        return dateformat.string(from: self)
+    }
 }

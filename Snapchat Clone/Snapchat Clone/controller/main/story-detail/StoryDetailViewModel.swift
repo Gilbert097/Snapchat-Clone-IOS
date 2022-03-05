@@ -8,6 +8,7 @@
 import Foundation
 
 class StoryDetailViewModel: StoryDetailViewModelProtocol {
+    private static let TAG = "StoryDetailViewModel"
     
     public var storyBars: [StoryBarViewModel] = []
     public var storysCount: Int = 0
@@ -35,6 +36,13 @@ class StoryDetailViewModel: StoryDetailViewModelProtocol {
     
     func nextStory(){
         if storyIndex < storysCount - 1 {
+            let currentStory = storyBars[storyIndex]
+            
+            if currentStory.state == .running {
+                LogUtils.printMessage(tag: StoryDetailViewModel.TAG, message: "Story Index: \(storyIndex) is running")
+                self.output.value = .init(type: .finishStory, info: currentStory)
+            }
+            
             storyIndex+=1
             showStory()
         }

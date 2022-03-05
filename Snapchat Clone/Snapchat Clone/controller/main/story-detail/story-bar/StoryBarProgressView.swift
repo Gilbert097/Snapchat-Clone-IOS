@@ -10,5 +10,5 @@ import UIKit
 final class StoryBarProgressView: UIView, ViewAnimator {
     public var viewModel: StoryBarViewModel!
     public var widthConstraint: NSLayoutConstraint? = nil
-    public var state: ProgressorState = .notStarted
+    public var holderViewWidth = CGFloat(0)
 }

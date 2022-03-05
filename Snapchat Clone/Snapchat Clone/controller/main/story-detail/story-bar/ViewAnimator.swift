@@ -11,7 +11,13 @@ import UIKit
 typealias CompletionAnimator =  (_ storyIdentifier: String, _ snapIndex: Int, _ isCancelledAbruptly: Bool) -> Void
 
 protocol ViewAnimator {
-    func start(with duration: TimeInterval, holderView: UIView, completion: @escaping CompletionAnimator)
+    
+    func start(
+        with duration: TimeInterval,
+        holderView: UIView,
+        completion: @escaping CompletionAnimator
+    )
+    
     func resume()
     func pause()
     func stop()
@@ -19,34 +25,33 @@ protocol ViewAnimator {
 }
 
 extension ViewAnimator where Self: StoryBarProgressView {
+    
     func start(
         with duration: TimeInterval,
         holderView: UIView,
         completion: @escaping CompletionAnimator
     ) {
         // Modifying the existing widthConstraint and setting the width equalTo holderView's widthAchor
-        self.state = .running
+        self.holderViewWidth = holderView.safeAreaLayoutGuide.layoutFrame.width
+        self.viewModel.state = .running
         self.widthConstraint?.isActive = false
         self.widthConstraint = self.widthAnchor.constraint(equalToConstant: 0)
         self.widthConstraint?.isActive = true
-        self.widthConstraint?.constant = holderView.safeAreaLayoutGuide.layoutFrame.width
+        self.widthConstraint?.constant = self.holderViewWidth
+        
         
         UIView.animate(withDuration: duration, delay:  0.0, options: [.curveLinear], animations: {[weak self] in
             if let strongSelf = self {
                 strongSelf.superview?.layoutIfNeeded()
             }
         }) { [weak self] (finished) in
-            self?.viewModel.isCancelledAbruptly = !finished
-            self?.state = .finished
-            if finished == true {
-                if let self = self {
-                    return completion(self.viewModel.story.id, self.viewModel.index, self.viewModel.isCancelledAbruptly)
-                }
-            } else {
-                return completion(self?.viewModel.story.id ?? "Unknown", self?.viewModel.index ?? 0, self?.viewModel.isCancelledAbruptly ?? true)
-            }
+            guard let self = self else { return }
+            self.viewModel.isCancelledAbruptly = !finished
+            self.viewModel.state = .finished
+            completion(self.viewModel.story.id, self.viewModel.index, self.viewModel.isCancelledAbruptly)
         }
     }
+    
     func resume() {
         let pausedTime = layer.timeOffset
         layer.speed = 1.0
@@ -54,24 +59,35 @@ extension ViewAnimator where Self: StoryBarProgressView {
         layer.beginTime = 0.0
         let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
         layer.beginTime = timeSincePause
-        state = .running
+        self.viewModel.state = .running
     }
+    
     func pause() {
         let pausedTime = layer.convertTime(CACurrentMediaTime(), from: nil)
         layer.speed = 0.0
         layer.timeOffset = pausedTime
-        state = .paused
+        self.viewModel.state = .paused
     }
+    
     func stop() {
         resume()
         layer.removeAllAnimations()
-        state = .finished
+        self.viewModel.state = .finished
     }
+    
     func reset() {
-        state = .notStarted
+        self.viewModel.state = .notStarted
         self.viewModel.isCancelledAbruptly = true
         self.widthConstraint?.isActive = false
         self.widthConstraint = self.widthAnchor.constraint(equalToConstant: 0)
+        self.widthConstraint?.isActive = true
+    }
+    
+    func finish(){
+        self.layer.removeAllAnimations()
+        self.viewModel.state = .finished
+        self.viewModel.isCancelledAbruptly = true
+        self.widthConstraint = self.widthAnchor.constraint(equalToConstant: self.holderViewWidth)
         self.widthConstraint?.isActive = true
     }
 }

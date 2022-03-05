@@ -31,7 +31,9 @@ public class LoginViewController: HomeNavigationBaseViewController {
         output.bind { dynamicData in
             switch dynamicData.type {
             case .showMessage:
-                guard let alertViewModel = dynamicData.info as? InfoAlertViewModel else { return }
+                guard
+                    let alertViewModel = dynamicData.info as? InfoAlertViewModel
+                else { return }
                 AlertHelper.shared.showMessage(viewController: self, alertViewModel: alertViewModel)
             case .navigationToMain:
                 self.performSegue(withIdentifier: "loginToMainSegue", sender: nil)

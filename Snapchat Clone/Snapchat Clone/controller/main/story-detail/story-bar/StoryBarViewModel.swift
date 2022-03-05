@@ -13,6 +13,7 @@ class StoryBarViewModel {
     var lastPlayedSnapIndex = 0
     var isCompletelyVisible = false
     var isCancelledAbruptly = false
+    var state: ProgressorState = .notStarted
     
     init(index: Int, story: Story) {
         self.index = index
