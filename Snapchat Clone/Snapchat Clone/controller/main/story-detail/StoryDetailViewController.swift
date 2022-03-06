@@ -32,7 +32,7 @@ class StoryDetailViewController: UIViewController {
         configureTapView(view: tapLeftView)
         configureTapView(view: tapRightView)
     }
-  
+    
     private func configureTapView(view: UIView) {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapView(tapGestureRecognizer:)))
         view.isUserInteractionEnabled = true
@@ -64,14 +64,14 @@ class StoryDetailViewController: UIViewController {
     
     private func configureBind() {
         let output = viewModel.bind()
-                
+        
         output.nextStory.bind { [weak self] storyBarViewModel in
             guard
                 let self = self,
                 let storyBar = storyBarViewModel
             else { return }
             
-            self.startStoryProgress(storyBar: storyBar)
+            self.startStory(storyBar: storyBar)
         }
         
         output.resetStory.bind { [weak self] storyBarViewModel in
@@ -202,32 +202,58 @@ class StoryDetailViewController: UIViewController {
         return view
     }
     
-    private func startStoryProgress(storyBar: StoryBarViewModel) {
+    private func startStory(storyBar: StoryBarViewModel) {
         if let storyBarView = getStoryBarView(with: storyBar.index),
            let storyProgress = getStoryProgressView(index: storyBar.index, storyBar: storyBarView) {
-            LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "-----> Start download image <-----")
-            LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Name image -> \(storyBar.story.nameImage)")
-            storyImageView.sd_setImage(with: URL(string: storyBar.story.urlImage)) { image, error, cacheType, url in
-                if error == nil {
-                    LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Download image success!")
-                    LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "-----> Start animate story <-----")
-                    LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "Story index -> \(storyProgress.viewModel.index)")
-                    storyProgress.start(with: 5.0, holderView: storyBarView, completion: { [weak self] (identifier, snapIndex, isCancelledAbruptly) in
-                        LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "-----> Finish animate story <-----")
-                        guard let self = self else { return }
-                        if !isCancelledAbruptly {
-                            LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "isCancelledAbruptly is False")
-                            self.viewModel.nextStory()
-                        } else {
-                            LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "isCancelledAbruptly is true")
-                        }
-                    })
-                } else if let error = error {
-                    LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Download image erro -> \(error.localizedDescription)")
-                }
-                LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "-----> Finish download image <-----")
+        
+            if !storyBar.isCompletelyVisible {
+                downloadStoryImage(
+                    storyBar: storyBar,
+                    storyProgress: storyProgress,
+                    storyBarView: storyBarView
+                )
+            } else {
+                startStoryProgress(storyProgress: storyProgress, storyBarView: storyBarView)
             }
         }
+    }
+    
+    private func downloadStoryImage(
+        storyBar: StoryBarViewModel,
+        storyProgress: StoryBarProgressView,
+        storyBarView: StoryBarView
+    ) {
+        LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "-----> Start download image <-----")
+        LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Name image -> \(storyBar.story.nameImage)")
+        storyImageView.sd_setImage(with: URL(string: storyBar.story.urlImage)) { [weak self] image, error, cacheType, url in
+            if error == nil {
+                storyBar.isCompletelyVisible = true
+                LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Download image success!")
+                self?.startStoryProgress(storyProgress: storyProgress, storyBarView: storyBarView)
+            } else if let error = error {
+                storyBar.isCompletelyVisible = false
+                LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Download image erro -> \(error.localizedDescription)")
+            }
+            LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "-----> Finish download image <-----")
+        }
+    }
+    
+    private func startStoryProgress(
+        storyProgress: StoryBarProgressView,
+        storyBarView: StoryBarView
+    ) {
+        LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "-----> Start animate story <-----")
+        LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "Story index -> \(storyProgress.viewModel.index)")
+        storyProgress.start(with: 5.0, holderView: storyBarView, completion: { [weak self] (identifier, snapIndex, isCancelledAbruptly) in
+            LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "-----> Finish animate story <-----")
+            guard let self = self else { return }
+            if !isCancelledAbruptly {
+                LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "isCancelledAbruptly is False")
+                self.viewModel.nextStory()
+            } else {
+                LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "isCancelledAbruptly is true")
+            }
+        })
     }
     
     private func getStoryProgressView(index: Int) -> StoryBarProgressView? {
