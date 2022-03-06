@@ -34,22 +34,32 @@ class StoryDetailViewModel: StoryDetailViewModelProtocol {
         showStory()
     }
     
-    func nextStory(){
+    func previousStory() {
+        if storyIndex >= 0 {
+            abortExecution(event: .resetStory)
+            storyIndex-=1
+            showStory(event: .previousStory)
+        }
+    }
+    
+    func nextStory() {
         if storyIndex < storysCount - 1 {
-            let currentStory = storyBars[storyIndex]
-            
-            if currentStory.state == .running {
-                LogUtils.printMessage(tag: StoryDetailViewModel.TAG, message: "Story Index: \(storyIndex) is running")
-                self.output.value = .init(type: .finishStory, info: currentStory)
-            }
-            
+            abortExecution(event: .finishStory)
             storyIndex+=1
             showStory()
         }
     }
     
-    private func showStory() {
+    func abortExecution(event: StoryDetailEventType){
+        let currentStory = storyBars[storyIndex]
+        if currentStory.state == .running {
+            LogUtils.printMessage(tag: StoryDetailViewModel.TAG, message: "Story Index: \(storyIndex) is running")
+            self.output.value = .init(type: event, info: currentStory)
+        }
+    }
+    
+    private func showStory(event: StoryDetailEventType = .nextStory) {
         let nextStory = self.storyBars[storyIndex]
-        self.output.value = .init(type: .nextStory, info: nextStory)
+        self.output.value = .init(type: event, info: nextStory)
     }
 }

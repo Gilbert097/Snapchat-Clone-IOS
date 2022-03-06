@@ -16,6 +16,7 @@ protocol StoryDetailViewModelProtocol{
     var storyBars: [StoryBarViewModel] { get }
     
     func nextStory()
+    func previousStory()
     func start()
     
 }
