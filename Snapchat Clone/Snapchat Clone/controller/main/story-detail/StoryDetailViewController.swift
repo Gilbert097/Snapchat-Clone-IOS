@@ -65,6 +65,11 @@ class StoryDetailViewController: UIViewController {
     private func configureBind() {
         let output = viewModel.bind()
         
+        output.userName.bindAndFire { [weak self] userName in
+            guard let self = self else { return }
+            self.userNameLabel.text = userName
+        }
+        
         output.nextStory.bind { [weak self] storyBarViewModel in
             guard
                 let self = self,
@@ -81,7 +86,10 @@ class StoryDetailViewController: UIViewController {
                 let storyProgress = self.getStoryProgressView(index: storyBar.index)
             else { return }
             
-            LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "Reset Story Index \(storyBar.index) - > resetStory")
+            LogUtils.printMessage(
+                tag: StoryDetailViewController.STORY,
+                message: "Reset Story Index \(storyBar.index) - > resetStory"
+            )
             storyProgress.reset()
         }
         

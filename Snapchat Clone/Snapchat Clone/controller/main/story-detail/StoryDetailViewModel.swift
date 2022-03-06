@@ -19,8 +19,8 @@ class StoryDetailViewModel: StoryDetailViewModelProtocol {
         event:Event<EventData<StoryDetailEventType>>(.init(type: .none, info: nil)),
         nextStory: Event<StoryBarViewModel?>(nil),
         resetStory: Event<StoryBarViewModel?>(nil),
-        finishStory: Event<StoryBarViewModel?>(nil)
-
+        finishStory: Event<StoryBarViewModel?>(nil),
+        userName: Event<String>("")
     )
     private var storyItemViewModel: StoryItemViewModel
     
@@ -34,6 +34,7 @@ class StoryDetailViewModel: StoryDetailViewModelProtocol {
     }
     
     func bind() -> Output {
+        output.userName.value = storyItemViewModel.userName
         return output
     }
     
