@@ -14,7 +14,7 @@ class StoryDetailViewModel: StoryDetailViewModelProtocol {
     public var storysCount: Int = 0
     public var storyIndex = 0
     private let maxStorys = 30
-    //private let output: Output = .init(.init(type: .none, info: nil))
+   
     private let output: Output =  (
         event:Event<EventData<StoryDetailEventType>>(.init(type: .none, info: nil)),
         nextStory: Event<StoryBarViewModel?>(nil),
@@ -54,6 +54,8 @@ class StoryDetailViewModel: StoryDetailViewModelProtocol {
             abortExecution(event: output.finishStory)
             storyIndex+=1
             showStory()
+        } else if storyIndex == storysCount - 1 {
+            output.event.value = .init(type: .closeScreen, info: nil)
         }
     }
     

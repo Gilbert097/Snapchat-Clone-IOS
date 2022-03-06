@@ -11,4 +11,5 @@ public enum StoryDetailEventType {
     case none
     case showMessageError
     case showMessageSuccess
+    case closeScreen
 }

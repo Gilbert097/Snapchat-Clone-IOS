@@ -96,7 +96,8 @@ class StoryDetailViewController: UIViewController {
             storyProgress.finish()
         }
         
-        output.event.bind { eventData in
+        output.event.bind { [weak self] eventData in
+            guard let self = self else { return }
             switch eventData.type {
             case .none:
                 break
@@ -104,6 +105,8 @@ class StoryDetailViewController: UIViewController {
                 break
             case .showMessageSuccess:
                 break
+            case .closeScreen:
+                self.dismiss(animated: true)
             }
         }
     }
