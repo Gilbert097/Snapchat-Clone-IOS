@@ -64,8 +64,39 @@ class StoryDetailViewController: UIViewController {
     
     private func configureBind() {
         let output = viewModel.bind()
-        output.bind { [weak self] eventData in
-            guard let self = self else { return }
+                
+        output.nextStory.bind { [weak self] storyBarViewModel in
+            guard
+                let self = self,
+                let storyBar = storyBarViewModel
+            else { return }
+            
+            self.startStoryProgress(storyBar: storyBar)
+        }
+        
+        output.resetStory.bind { [weak self] storyBarViewModel in
+            guard
+                let self = self,
+                let storyBar = storyBarViewModel,
+                let storyProgress = self.getStoryProgressView(index: storyBar.index)
+            else { return }
+            
+            LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "Reset Story Index \(storyBar.index) - > resetStory")
+            storyProgress.reset()
+        }
+        
+        output.finishStory.bind { [weak self] storyBarViewModel in
+            guard
+                let self = self,
+                let storyBar = storyBarViewModel,
+                let storyProgress = self.getStoryProgressView(index: storyBar.index)
+            else { return }
+            
+            LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "Execute finish progress")
+            storyProgress.finish()
+        }
+        
+        output.event.bind { eventData in
             switch eventData.type {
             case .none:
                 break
@@ -73,45 +104,8 @@ class StoryDetailViewController: UIViewController {
                 break
             case .showMessageSuccess:
                 break
-            case .nextStory:
-                if let storyBar = eventData.info as? StoryBarViewModel {
-                    self.startStoryProgress(storyBar: storyBar)
-                }
-                break
-            case .previousStory:
-                if let storyBar = eventData.info as? StoryBarViewModel {
-                    if let storyBarView = self.getStoryBarView(with: storyBar.index),
-                       let storyProgress = self.getStoryProgressView(index: storyBar.index, storyBar: storyBarView) {
-                        LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "Reset Story Index \(storyBar.index) -> previousStory")
-                        //storyProgress.reset()
-                        storyProgress.teste(with: 10.0, holderView: storyBarView, completion: { (identifier, snapIndex, isCancelledAbruptly) in
-                            LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "finish -> isCancelledAbruptly: \(isCancelledAbruptly)")
-                        })
-                    }
-                }
-                break
-            case .resetStory:
-                if let storyBar = eventData.info as? StoryBarViewModel {
-                    if let storyBarView = self.getStoryBarView(with: storyBar.index),
-                       let storyProgress = self.getStoryProgressView(index: storyBar.index, storyBar: storyBarView) {
-                        LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "Reset Story Index \(storyBar.index) - > resetStory")
-                        //storyProgress.layer.removeAllAnimations()
-                        storyProgress.reset()
-                    }
-                }
-                break
-            case .finishStory:
-                if let storyBar = eventData.info as? StoryBarViewModel {
-                    if let storyBarView = self.getStoryBarView(with: storyBar.index),
-                       let storyProgress = self.getStoryProgressView(index: storyBar.index, storyBar: storyBarView) {
-                        LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "Execute finish progress")
-                        storyProgress.finish()
-                    }
-                }
-                break
             }
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -218,7 +212,7 @@ class StoryDetailViewController: UIViewController {
                     LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "Download image success!")
                     LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "-----> Start animate story <-----")
                     LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "Story index -> \(storyProgress.viewModel.index)")
-                    storyProgress.start(with: 10.0, holderView: storyBarView, completion: { [weak self] (identifier, snapIndex, isCancelledAbruptly) in
+                    storyProgress.start(with: 5.0, holderView: storyBarView, completion: { [weak self] (identifier, snapIndex, isCancelledAbruptly) in
                         LogUtils.printMessage(tag: StoryDetailViewController.STORY, message: "-----> Finish animate story <-----")
                         guard let self = self else { return }
                         if !isCancelledAbruptly {
@@ -234,6 +228,13 @@ class StoryDetailViewController: UIViewController {
                 LogUtils.printMessage(tag: StoryDetailViewController.TAG, message: "-----> Finish download image <-----")
             }
         }
+    }
+    
+    private func getStoryProgressView(index: Int) -> StoryBarProgressView? {
+        if let storyBarView = self.getStoryBarView(with: index){
+            return self.getStoryProgressView(index: index, storyBar: storyBarView)
+        }
+        return nil
     }
     
     private func getStoryBarView(with index: Int) -> StoryBarView? {

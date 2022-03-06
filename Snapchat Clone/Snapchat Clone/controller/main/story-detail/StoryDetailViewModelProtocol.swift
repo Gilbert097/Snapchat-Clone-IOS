@@ -8,7 +8,22 @@
 import Foundation
 
 protocol StoryDetailViewModelProtocol{
-    typealias Output = Event<EventData<StoryDetailEventType>>
+    
+//    typealias Output = (
+//        description: Event<String>,
+//        counterText: Event<String>,
+//        urlImage: Event<String>,
+//        isNextButtonVisible: Event<Bool>,
+//        isPreviousButtonVisible: Event<Bool>,
+//        isCounterTextVisible: Event<Bool>
+//    )
+    
+    typealias Output = (
+        event:Event<EventData<StoryDetailEventType>>,
+        nextStory: Event<StoryBarViewModel?>,
+        resetStory: Event<StoryBarViewModel?>,
+        finishStory: Event<StoryBarViewModel?>
+    )
     
     func bind() -> Output
     

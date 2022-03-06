@@ -14,7 +14,14 @@ class StoryDetailViewModel: StoryDetailViewModelProtocol {
     public var storysCount: Int = 0
     public var storyIndex = 0
     private let maxStorys = 30
-    private let output: Output = .init(.init(type: .none, info: nil))
+    //private let output: Output = .init(.init(type: .none, info: nil))
+    private let output: Output =  (
+        event:Event<EventData<StoryDetailEventType>>(.init(type: .none, info: nil)),
+        nextStory: Event<StoryBarViewModel?>(nil),
+        resetStory: Event<StoryBarViewModel?>(nil),
+        finishStory: Event<StoryBarViewModel?>(nil)
+
+    )
     private var storyItemViewModel: StoryItemViewModel
     
     init(storyItemViewModel: StoryItemViewModel){
@@ -35,31 +42,32 @@ class StoryDetailViewModel: StoryDetailViewModelProtocol {
     }
     
     func previousStory() {
-        if storyIndex >= 0 {
-            abortExecution(event: .resetStory)
+        if storyIndex > 0 {
+            abortExecution(event: output.resetStory)
             storyIndex-=1
-            showStory(event: .previousStory)
+            showStory()
         }
     }
     
     func nextStory() {
         if storyIndex < storysCount - 1 {
-            abortExecution(event: .finishStory)
+            abortExecution(event: output.finishStory)
             storyIndex+=1
             showStory()
         }
     }
     
-    func abortExecution(event: StoryDetailEventType){
+    func abortExecution(event: Event<StoryBarViewModel?>){
         let currentStory = storyBars[storyIndex]
         if currentStory.state == .running {
             LogUtils.printMessage(tag: StoryDetailViewModel.TAG, message: "Story Index: \(storyIndex) is running")
-            self.output.value = .init(type: event, info: currentStory)
+            event.value = currentStory
         }
     }
     
-    private func showStory(event: StoryDetailEventType = .nextStory) {
+    private func showStory() {
         let nextStory = self.storyBars[storyIndex]
-        self.output.value = .init(type: event, info: nextStory)
+        self.output.nextStory.value = nextStory
     }
 }
+

@@ -11,8 +11,4 @@ public enum StoryDetailEventType {
     case none
     case showMessageError
     case showMessageSuccess
-    case nextStory
-    case previousStory
-    case finishStory
-    case resetStory
 }
