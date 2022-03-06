@@ -16,19 +16,25 @@ class SnapListTabViewController: UIViewController {
     private var storyManager: StoryCollectionManager!
     private var tableManager: SnapTableManager!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSnapManager()
+        configureStoryManager()
+        configureBind()
+        viewModel.start()
+    }
+    
+    private func configureSnapManager() {
         tableManager = SnapTableManager(snapListViewModel: viewModel, onItemSelected: self.onSnapSelected)
         snapTableView.delegate = tableManager
         snapTableView.dataSource = tableManager
-        
+    }
+    
+    private func configureStoryManager() {
         storyManager = StoryCollectionManager(snapListViewModel: viewModel, onItemSelected: self.onStorySelected)
         storieCollectionView.dataSource = storyManager
         storieCollectionView.delegate = storyManager
-        
-        configureBind()
-        
-        viewModel.start()
     }
     
     private func configureBind() {
