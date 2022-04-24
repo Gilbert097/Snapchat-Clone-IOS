@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5LQ-6o-JrO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5LQ-6o-JrO">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -810,21 +810,13 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLC-nZ-qLt" userLabel="Updated Label">
-                                        <rect key="frame" x="95.5" y="10" width="17" height="20.5"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="WLC-nZ-qLt" firstAttribute="centerY" secondItem="NPb-2X-EFI" secondAttribute="centerY" id="5ud-yH-O6O"/>
                                     <constraint firstItem="O3I-AG-PzO" firstAttribute="centerY" secondItem="NPb-2X-EFI" secondAttribute="centerY" id="Dk6-vY-ByM"/>
                                     <constraint firstItem="O3I-AG-PzO" firstAttribute="leading" secondItem="NPb-2X-EFI" secondAttribute="leading" id="Eeb-WQ-hEN"/>
-                                    <constraint firstAttribute="trailing" secondItem="WLC-nZ-qLt" secondAttribute="trailing" constant="30.5" id="HRx-Ts-ed7"/>
-                                    <constraint firstItem="WLC-nZ-qLt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O3I-AG-PzO" secondAttribute="trailing" constant="8" symbolic="YES" id="IGJ-Fg-B9o"/>
                                     <constraint firstAttribute="height" constant="40" id="ZfZ-Td-cAH"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="cG6-1H-IAz"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="O3I-AG-PzO" secondAttribute="trailing" constant="20" symbolic="YES" id="kRE-CW-eeB"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1BU-3G-CUJ">
@@ -879,7 +871,6 @@
                         <outlet property="storyImageView" destination="DzE-SJ-9hY" id="buv-YY-Oy7"/>
                         <outlet property="tapLeftView" destination="Fdl-3V-gZg" id="sfx-Eh-WiF"/>
                         <outlet property="tapRightView" destination="tzb-3T-IM9" id="fgn-zd-r7A"/>
-                        <outlet property="updatedLabel" destination="WLC-nZ-qLt" id="sQy-I0-fxX"/>
                         <outlet property="userImageView" destination="v4C-MV-Us9" id="gl4-eB-KAx"/>
                         <outlet property="userNameLabel" destination="O3I-AG-PzO" id="Zgj-UA-WyS"/>
                     </connections>

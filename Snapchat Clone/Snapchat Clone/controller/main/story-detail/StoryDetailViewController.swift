@@ -16,7 +16,6 @@ class StoryDetailViewController: UIViewController {
     @IBOutlet weak var closeButton: UIImageView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var updatedLabel: UILabel!
     @IBOutlet weak var storyImageView: UIImageView!
     @IBOutlet weak var tapLeftView: UIView!
     @IBOutlet weak var tapRightView: UIView!
