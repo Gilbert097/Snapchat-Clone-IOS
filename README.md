@@ -4,7 +4,7 @@
 No desenvolvimento desse app foi possível aprender na prática:
 - Utilizar <b>Firebase Realtime Database</b> para manipular dados em um banco de dados NoSQL.
 - Utilizar <b>Firebase Authentication</b> para autenticar usuários por email.
-- Utilizar <b>Firebase Storage</b> para armazenas arquivos.
+- Utilizar <b>Firebase Storage</b> para armazenar arquivos.
 - Utilizar a biblioteca <b>SDWebImage</b> para realizar o download de imagens de forma assíncrona com suporte a cache.
 - Aplicar um modelo simples da arquitetura MVVM.
 - Implementar layout do app baseado no Sketch.
