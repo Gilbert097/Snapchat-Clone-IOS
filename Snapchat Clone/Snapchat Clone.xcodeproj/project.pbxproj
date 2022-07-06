@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03FA7EEBBF7C70A2ADF9826B /* Pods_Snapchat_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0CC1C672A6FD10F4CD85450 /* Pods_Snapchat_Clone.framework */; };
 		D4035DC426351210002CC47C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4035DC326351210002CC47C /* UIColorExtension.swift */; };
 		D4035DC726351533002CC47C /* HomeNavigationBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4035DC626351533002CC47C /* HomeNavigationBaseViewController.swift */; };
 		D4171EFA2635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4171EF92635E99E009B5EB1 /* CreateAccountViewModelProtocol.swift */; };
@@ -27,6 +26,8 @@
 		D4313932275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4313931275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift */; };
 		D43139342750771B00DDAC81 /* MediaOptionsEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43139332750771B00DDAC81 /* MediaOptionsEventType.swift */; };
 		D43139362750781E00DDAC81 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43139352750781E00DDAC81 /* MediaType.swift */; };
+		D43474CF28761E8E00C9A88A /* Pods_Snapchat_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E5F16828761CF80060A583 /* Pods_Snapchat_Clone.framework */; };
+		D43474D028761E8E00C9A88A /* Pods_Snapchat_Clone.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4E5F16828761CF80060A583 /* Pods_Snapchat_Clone.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D45594132751AC1300B83179 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594122751AC1300B83179 /* UserListTableViewController.swift */; };
 		D45594152751B48700B83179 /* UserListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594142751B48700B83179 /* UserListTableViewModel.swift */; };
 		D45594172751B51A00B83179 /* UserListTableViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594162751B51A00B83179 /* UserListTableViewModelProtocol.swift */; };
@@ -43,7 +44,6 @@
 		D475EEF92762488E00C91681 /* SnapDetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475EEF82762488E00C91681 /* SnapDetailViewModelProtocol.swift */; };
 		D475EEFB276248D700C91681 /* SnapDetailEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475EEFA276248D700C91681 /* SnapDetailEvent.swift */; };
 		D475EEFE27624DDC00C91681 /* CustomRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D475EEFD27624DDC00C91681 /* CustomRoundButton.swift */; };
-		D47F071628148B440047FFE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D47F071528148B440047FFE1 /* GoogleService-Info.plist */; };
 		D480B1DC2636521D000A2318 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1DB2636521D000A2318 /* EventData.swift */; };
 		D480B1E4263653FA000A2318 /* InfoAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */; };
 		D480B1E926365ADE000A2318 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D480B1E826365ADE000A2318 /* AlertHelper.swift */; };
@@ -61,6 +61,7 @@
 		D49FC97B27764BF0003D27ED /* StoryDetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97A27764BF0003D27ED /* StoryDetailViewModelProtocol.swift */; };
 		D49FC97D27765131003D27ED /* StoryDetailEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97C27765131003D27ED /* StoryDetailEventType.swift */; };
 		D49FC980277657DF003D27ED /* StoryBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97F277657DF003D27ED /* StoryBarViewModel.swift */; };
+		D4A7D08828761B010070EF69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4A7D08728761B010070EF69 /* GoogleService-Info.plist */; };
 		D4A96053274192F20095E636 /* CreateSnapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96052274192F20095E636 /* CreateSnapViewModel.swift */; };
 		D4A96055274193210095E636 /* CreateSnapViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96054274193200095E636 /* CreateSnapViewModelProtocol.swift */; };
 		D4A96057274194180095E636 /* CreateSnapEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96056274194180095E636 /* CreateSnapEventType.swift */; };
@@ -92,6 +93,20 @@
 		D4F4ACCB2716481B00FF200F /* SnapListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4ACCA2716481B00FF200F /* SnapListViewModel.swift */; };
 		D4F4ACCD2716485200FF200F /* SnapListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4ACCC2716485200FF200F /* SnapListViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D43474D128761E8E00C9A88A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D43474D028761E8E00C9A88A /* Pods_Snapchat_Clone.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B0CC1C672A6FD10F4CD85450 /* Pods_Snapchat_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snapchat_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,7 +146,6 @@
 		D475EEF82762488E00C91681 /* SnapDetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapDetailViewModelProtocol.swift; sourceTree = "<group>"; };
 		D475EEFA276248D700C91681 /* SnapDetailEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapDetailEvent.swift; sourceTree = "<group>"; };
 		D475EEFD27624DDC00C91681 /* CustomRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundButton.swift; sourceTree = "<group>"; };
-		D47F071528148B440047FFE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D480B1DB2636521D000A2318 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
 		D480B1E3263653FA000A2318 /* InfoAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertViewModel.swift; sourceTree = "<group>"; };
 		D480B1E826365ADE000A2318 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
@@ -149,6 +163,7 @@
 		D49FC97A27764BF0003D27ED /* StoryDetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewModelProtocol.swift; sourceTree = "<group>"; };
 		D49FC97C27765131003D27ED /* StoryDetailEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailEventType.swift; sourceTree = "<group>"; };
 		D49FC97F277657DF003D27ED /* StoryBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBarViewModel.swift; sourceTree = "<group>"; };
+		D4A7D08728761B010070EF69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4A96052274192F20095E636 /* CreateSnapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapViewModel.swift; sourceTree = "<group>"; };
 		D4A96054274193200095E636 /* CreateSnapViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapViewModelProtocol.swift; sourceTree = "<group>"; };
 		D4A96056274194180095E636 /* CreateSnapEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapEventType.swift; sourceTree = "<group>"; };
@@ -177,6 +192,7 @@
 		D4E2012D274B2CAA0020B9B5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D4E2012F274B2EFF0020B9B5 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		D4E20131274B2F150020B9B5 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		D4E5F16828761CF80060A583 /* Pods_Snapchat_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Snapchat_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F4ACC62716197800FF200F /* CreateSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapViewController.swift; sourceTree = "<group>"; };
 		D4F4ACC8271646CD00FF200F /* SnapListEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListEventType.swift; sourceTree = "<group>"; };
 		D4F4ACCA2716481B00FF200F /* SnapListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapListViewModel.swift; sourceTree = "<group>"; };
@@ -189,7 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03FA7EEBBF7C70A2ADF9826B /* Pods_Snapchat_Clone.framework in Frameworks */,
+				D43474CF28761E8E00C9A88A /* Pods_Snapchat_Clone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +224,7 @@
 		3A1922D6A05EE9E67EDA353A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4E5F16828761CF80060A583 /* Pods_Snapchat_Clone.framework */,
 				B0CC1C672A6FD10F4CD85450 /* Pods_Snapchat_Clone.framework */,
 			);
 			name = Frameworks;
@@ -484,7 +501,7 @@
 				D4D0956026339B0E008ECAC0 /* Assets.xcassets */,
 				D4D0956226339B0E008ECAC0 /* LaunchScreen.storyboard */,
 				D4D0956526339B0E008ECAC0 /* Info.plist */,
-				D47F071528148B440047FFE1 /* GoogleService-Info.plist */,
+				D4A7D08728761B010070EF69 /* GoogleService-Info.plist */,
 				D4035DC326351210002CC47C /* UIColorExtension.swift */,
 			);
 			path = "Snapchat Clone";
@@ -550,6 +567,7 @@
 				D4D0955126339B0B008ECAC0 /* Frameworks */,
 				D4D0955226339B0B008ECAC0 /* Resources */,
 				A71CB73CEAB2A0888D01E4FE /* [CP] Embed Pods Frameworks */,
+				D43474D128761E8E00C9A88A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -598,7 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4D0956426339B0E008ECAC0 /* LaunchScreen.storyboard in Resources */,
-				D47F071628148B440047FFE1 /* GoogleService-Info.plist in Resources */,
+				D4A7D08828761B010070EF69 /* GoogleService-Info.plist in Resources */,
 				D4D0956126339B0E008ECAC0 /* Assets.xcassets in Resources */,
 				D4D0955F26339B0B008ECAC0 /* Main.storyboard in Resources */,
 			);
@@ -880,11 +898,77 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DS78P94X2F;
+				DEVELOPMENT_TEAM = FU8K79FY9Z;
 				INFOPLIST_FILE = "Snapchat Clone/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"FirebaseStorage\"",
+					"-framework",
+					"\"FittedSheets\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MDFInternationalization\"",
+					"-framework",
+					"\"MaterialComponents\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Curso-IOS.Snapchat-Clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -900,11 +984,77 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DS78P94X2F;
+				DEVELOPMENT_TEAM = FU8K79FY9Z;
 				INFOPLIST_FILE = "Snapchat Clone/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"FirebaseStorage\"",
+					"-framework",
+					"\"FittedSheets\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MDFInternationalization\"",
+					"-framework",
+					"\"MaterialComponents\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Curso-IOS.Snapchat-Clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";

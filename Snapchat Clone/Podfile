@@ -6,6 +6,8 @@ target 'Snapchat Clone' do
   use_frameworks!
 
   # Pods for Snapchat Clone
+  pod 'Firebase'
+  pod 'Firebase/InAppMessagingDisplay'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
