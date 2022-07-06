@@ -14,12 +14,11 @@ PODS:
   - Firebase/Database (6.34.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 6.6.0)
-  - Firebase/InAppMessagingDisplay (6.34.0):
-    - Firebase/CoreOnly
-    - FirebaseInAppMessagingDisplay (~> 0.17.0)
   - Firebase/Storage (6.34.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 3.9.1)
+  - FirebaseABTesting (4.2.0):
+    - FirebaseCore (~> 6.10)
   - FirebaseAnalytics (6.9.0):
     - FirebaseCore (~> 6.10)
     - FirebaseInstallations (~> 1.7)
@@ -46,7 +45,12 @@ PODS:
   - FirebaseDatabase (6.6.0):
     - FirebaseCore (~> 6.10)
     - leveldb-library (~> 1.22)
-  - FirebaseInAppMessagingDisplay (0.17.0)
+  - FirebaseInAppMessaging (0.24.0):
+    - FirebaseABTesting (~> 4.2)
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstallations (~> 1.6)
+    - GoogleUtilities/Environment (~> 6.7)
+    - nanopb (~> 1.30906.0)
   - FirebaseInstallations (1.7.0):
     - FirebaseCore (~> 6.10)
     - GoogleUtilities/Environment (~> 6.7)
@@ -143,9 +147,10 @@ DEPENDENCIES:
   - Firebase
   - Firebase/Analytics
   - Firebase/Auth
+  - Firebase/Core
   - Firebase/Database
-  - Firebase/InAppMessagingDisplay
   - Firebase/Storage
+  - FirebaseInAppMessaging
   - FittedSheets
   - "MaterialComponents/TextControls+FilledTextAreas"
   - "MaterialComponents/TextControls+FilledTextFields"
@@ -154,12 +159,13 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Firebase
+    - FirebaseABTesting
     - FirebaseAnalytics
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseDatabase
-    - FirebaseInAppMessagingDisplay
+    - FirebaseInAppMessaging
     - FirebaseInstallations
     - FirebaseStorage
     - FittedSheets
@@ -176,12 +182,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
+  FirebaseABTesting: 8a9d8df3acc2b43f4a22014ddf9f601bca6af699
   FirebaseAnalytics: 3bb096873ee0d7fa4b6c70f5e9166b6da413cc7f
   FirebaseAuth: c92d49ada7948d1a23466e3db17bc4c2039dddc3
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
   FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
   FirebaseDatabase: 13a865a4b85897462b930eb683bda8f52583713f
-  FirebaseInAppMessagingDisplay: b55300a5353ed570ee18e7be6d853feccb17e4aa
+  FirebaseInAppMessaging: 9da48721c6ad1b5bdc2b1108f2d3d561eb2245ca
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
   FirebaseStorage: 15e0f15ef3c7fec3d1899d68623e47d4447066b4
   FittedSheets: 661408776eb4ff514a31da75b3600bd7222b2b3d
@@ -196,6 +203,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: 0327043dbb9533e75f2eff8445b3df0f2ceca6ac
 
-PODFILE CHECKSUM: 878505dd0f42d7a13f80dc20da2771c14481e166
+PODFILE CHECKSUM: 169964b33f1a7e35bc4fcbd39b16cf3312bf1e8e
 
 COCOAPODS: 1.11.3

@@ -568,6 +568,7 @@
 				D4D0955226339B0B008ECAC0 /* Resources */,
 				A71CB73CEAB2A0888D01E4FE /* [CP] Embed Pods Frameworks */,
 				D43474D128761E8E00C9A88A /* Embed Frameworks */,
+				FAA8B464A7E9C484C0433751 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -662,6 +663,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Snapchat Clone/Pods-Snapchat Clone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAA8B464A7E9C484C0433751 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Snapchat Clone/Pods-Snapchat Clone-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Snapchat Clone/Pods-Snapchat Clone-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Snapchat Clone/Pods-Snapchat Clone-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
