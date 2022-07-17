@@ -28,6 +28,7 @@
 		D43139362750781E00DDAC81 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43139352750781E00DDAC81 /* MediaType.swift */; };
 		D43474CF28761E8E00C9A88A /* Pods_Snapchat_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4E5F16828761CF80060A583 /* Pods_Snapchat_Clone.framework */; };
 		D43474D028761E8E00C9A88A /* Pods_Snapchat_Clone.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4E5F16828761CF80060A583 /* Pods_Snapchat_Clone.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D434E1FE2884C7F300500287 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D434E1FD2884C7F300500287 /* GoogleService-Info.plist */; };
 		D45594132751AC1300B83179 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594122751AC1300B83179 /* UserListTableViewController.swift */; };
 		D45594152751B48700B83179 /* UserListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594142751B48700B83179 /* UserListTableViewModel.swift */; };
 		D45594172751B51A00B83179 /* UserListTableViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45594162751B51A00B83179 /* UserListTableViewModelProtocol.swift */; };
@@ -61,7 +62,6 @@
 		D49FC97B27764BF0003D27ED /* StoryDetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97A27764BF0003D27ED /* StoryDetailViewModelProtocol.swift */; };
 		D49FC97D27765131003D27ED /* StoryDetailEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97C27765131003D27ED /* StoryDetailEventType.swift */; };
 		D49FC980277657DF003D27ED /* StoryBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49FC97F277657DF003D27ED /* StoryBarViewModel.swift */; };
-		D4A7D08828761B010070EF69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4A7D08728761B010070EF69 /* GoogleService-Info.plist */; };
 		D4A96053274192F20095E636 /* CreateSnapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96052274192F20095E636 /* CreateSnapViewModel.swift */; };
 		D4A96055274193210095E636 /* CreateSnapViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96054274193200095E636 /* CreateSnapViewModelProtocol.swift */; };
 		D4A96057274194180095E636 /* CreateSnapEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A96056274194180095E636 /* CreateSnapEventType.swift */; };
@@ -130,6 +130,7 @@
 		D4313931275075C600DDAC81 /* MediaOptionsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsViewModelProtocol.swift; sourceTree = "<group>"; };
 		D43139332750771B00DDAC81 /* MediaOptionsEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionsEventType.swift; sourceTree = "<group>"; };
 		D43139352750781E00DDAC81 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
+		D434E1FD2884C7F300500287 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D45594122751AC1300B83179 /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
 		D45594142751B48700B83179 /* UserListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewModel.swift; sourceTree = "<group>"; };
 		D45594162751B51A00B83179 /* UserListTableViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -163,7 +164,6 @@
 		D49FC97A27764BF0003D27ED /* StoryDetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewModelProtocol.swift; sourceTree = "<group>"; };
 		D49FC97C27765131003D27ED /* StoryDetailEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailEventType.swift; sourceTree = "<group>"; };
 		D49FC97F277657DF003D27ED /* StoryBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBarViewModel.swift; sourceTree = "<group>"; };
-		D4A7D08728761B010070EF69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4A96052274192F20095E636 /* CreateSnapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapViewModel.swift; sourceTree = "<group>"; };
 		D4A96054274193200095E636 /* CreateSnapViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapViewModelProtocol.swift; sourceTree = "<group>"; };
 		D4A96056274194180095E636 /* CreateSnapEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSnapEventType.swift; sourceTree = "<group>"; };
@@ -501,7 +501,7 @@
 				D4D0956026339B0E008ECAC0 /* Assets.xcassets */,
 				D4D0956226339B0E008ECAC0 /* LaunchScreen.storyboard */,
 				D4D0956526339B0E008ECAC0 /* Info.plist */,
-				D4A7D08728761B010070EF69 /* GoogleService-Info.plist */,
+				D434E1FD2884C7F300500287 /* GoogleService-Info.plist */,
 				D4035DC326351210002CC47C /* UIColorExtension.swift */,
 			);
 			path = "Snapchat Clone";
@@ -617,7 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4D0956426339B0E008ECAC0 /* LaunchScreen.storyboard in Resources */,
-				D4A7D08828761B010070EF69 /* GoogleService-Info.plist in Resources */,
+				D434E1FE2884C7F300500287 /* GoogleService-Info.plist in Resources */,
 				D4D0956126339B0E008ECAC0 /* Assets.xcassets in Resources */,
 				D4D0955F26339B0B008ECAC0 /* Main.storyboard in Resources */,
 			);
